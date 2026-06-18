@@ -1,0 +1,139 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Nexus AI Workspace",
+    "description": "An active AI Chief of Staff and unified workspace that unifies emails, calendar, tasks, and documentation.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Nexus AI"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "12.00",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is Nexus AI different from Notion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notion is a manual wiki workspace where employees must manually input database records. Nexus AI unifies communication with document editing and uses a background AI Chief of Staff to automate updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Nexus AI support importing from Notion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we support one-click migration from Notion, preserving page hierarchies, database attributes, relational links, and historical comments."
+        }
+      }
+    ]
+  }
+];
+
+const takeaways = [
+  "Notion operates as a passive database requiring manual updates; Nexus AI operates as an active workspace powered by background agents.",
+  "Nexus AI unifies task tracking, calendar sync, and collaborative inboxes natively without third-party plugins.",
+  "Only Nexus AI features automated employee handovers to preserve permanent company memory."
+];
+---
+
+<BlogPostLayout 
+  title="Nexus AI vs. Notion: Manual Wiki vs. Active Workspace"
+  description="Compare Nexus AI and Notion AI. Understand the differences between active AI operating systems and manual document wikis."
+  tldr="While Notion operates as a manual doc repository that teams must constantly write and organize, Nexus AI functions as an active AI Chief of Staff that integrates email, calendar, and chat to update tasks and documentation in real time."
+  keyTakeaways={takeaways}
+  schemas={schemas}
+>
+  <h2>The Paradigm Shift: Passive Wiki vs. Active Workspace</h2>
+  <p>
+    For years, Notion has been the standard for company wikis, documents, and project databases. However, Notion requires constant manual human input to remain accurate. When team members forget to log meeting notes, update task cards, or link documents, the workspace quickly goes out of date.
+  </p>
+  <p>
+    <strong>Nexus AI</strong> represents a paradigm shift from a passive database to an <strong>active operating system</strong>. Natively integrating with email clients, team chat logs, and calendar events, Nexus AI uses background agents to update task pipelines, draft summaries, and write handover packages without manual human administrative overhead.
+  </p>
+
+  <h2>Side-by-Side Comparison Matrix</h2>
+  <p>
+    This high-density matrix compares the core architecture of Nexus AI vs. Notion:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Feature Dimension</th>
+        <th>Nexus AI Workspace</th>
+        <th>Notion (with Notion AI)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Workspace Core Model</strong></td>
+        <td>Active (Agentic background automation)</td>
+        <td>Passive (Requires manual human entry)</td>
+      </tr>
+      <tr>
+        <td><strong>Email Integrations</strong></td>
+        <td>Native (Gmail, Outlook, IMAP sync)</td>
+        <td>None (Requires third-party connectors)</td>
+      </tr>
+      <tr>
+        <td><strong>Calendar Automation</strong></td>
+        <td>Native (Syncs calendars & defends focus time)</td>
+        <td>Basic (Requires separate Calendar app addon)</td>
+      </tr>
+      <tr>
+        <td><strong>Offboarding Handovers</strong></td>
+        <td>Yes (Generates complete documentation in 5 mins)</td>
+        <td>No (Requires manual offboarding logs)</td>
+      </tr>
+      <tr>
+        <td><strong>Uptime SLA</strong></td>
+        <td>99.9% availability guaranteed for teams</td>
+        <td>Standard public server availability</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Pros and Cons Analysis</h2>
+
+  <h3>Nexus AI Workspace</h3>
+  <ul>
+    <li><strong>Pro:</strong> Zero admin overhead due to auto-updating tasks and documents.</li>
+    <li><strong>Pro:</strong> Eliminates tech stack sprawl by combining email, calendar, chat, and docs.</li>
+    <li><strong>Pro:</strong> Permanent organizational memory that onboarding employees can query.</li>
+    <li><strong>Con:</strong> Requires connecting team email and chat APIs (fully encrypted).</li>
+  </ul>
+
+  <h3>Notion Wiki</h3>
+  <ul>
+    <li><strong>Pro:</strong> High database customization and custom templates for landing pages.</li>
+    <li><strong>Pro:</strong> Large template ecosystem and public community boards.</li>
+    <li><strong>Con:</strong> High setup complexity and manual editing required.</li>
+    <li><strong>Con:</strong> Knowledge becomes fragmented and stale when teams scale.</li>
+  </ul>
+
+  <h2>FAQ: Choosing the Right Platform</h2>
+
+  <div class="faq-q">Q: Can I keep my existing Slack setup if I switch to Nexus AI?</div>
+  <div class="faq-a">
+    A: Yes. Nexus AI includes native team chat but also connects directly to Slack APIs. The AI Chief of Staff indexes Slack conversations to update tasks while letting your team keep using Slack.
+  </div>
+
+  <div class="faq-q">Q: How does Nexus AI protect company intellectual property?</div>
+  <div class="faq-a">
+    A: Security is our top priority. We use isolated database schemas for each organization, use TLS 1.3/AES-256 encryption, and guarantee that client data is never used to train public LLM foundation models.
+  </div>
+</BlogPostLayout>

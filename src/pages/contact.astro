@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+---
+
+<Layout title="Contact Us — Nexus AI" description="Get in touch with the support, sales, and media teams at Nexus AI.">
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-6 text-ink-500 font-sans">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Get in Touch</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 mb-8 text-center">
+        Contact Us
+      </h1>
+
+      <div class="prose prose-stone dark:prose-invert font-sans text-sm text-ink-700 leading-relaxed grid md:grid-cols-2 gap-8 items-start">
+        <div class="space-y-6">
+          <p>
+            Have a question, feedback, or suggestion? Or want to learn more about our Enterprise licensing plans? We would love to hear from you.
+          </p>
+          <div class="space-y-3 pt-4">
+            <div>
+              <div class="text-xs text-ink-400 font-sans font-bold uppercase tracking-wider">General Inquiries</div>
+              <div class="text-sm font-medium text-ink-900">info@nexus-ai.com</div>
+            </div>
+            <div>
+              <div class="text-xs text-ink-400 font-sans font-bold uppercase tracking-wider">Customer Support</div>
+              <div class="text-sm font-medium text-ink-900">support@nexus-ai.com</div>
+            </div>
+            <div>
+              <div class="text-xs text-ink-400 font-sans font-bold uppercase tracking-wider">Office Address</div>
+              <div class="text-sm font-medium text-ink-900 font-serif italic">Nagpur, Maharashtra, India</div>
+            </div>
+          </div>
+        </div>
+
+        <form class="space-y-4 bg-cream-100 p-6 rounded-sm border border-ink-900/10">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-ink-800">Your Name</label>
+            <input type="text" required class="w-full bg-[#fcfcfb] border border-ink-900/15 rounded-sm px-3 py-1.5 text-sm focus:outline-none focus:border-accent-500 transition-all font-sans" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-ink-800">Email Address</label>
+            <input type="email" required class="w-full bg-[#fcfcfb] border border-ink-900/15 rounded-sm px-3 py-1.5 text-sm focus:outline-none focus:border-accent-500 transition-all font-sans" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-ink-800">Message</label>
+            <textarea rows="4" required class="w-full bg-[#fcfcfb] border border-ink-900/15 rounded-sm px-3 py-1.5 text-sm focus:outline-none focus:border-accent-500 transition-all font-sans resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold rounded-sm transition-all font-sans cursor-pointer border-0">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

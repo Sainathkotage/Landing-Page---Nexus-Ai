@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+---
+
+<Layout title="Terms & Conditions — Nexus AI" description="Terms of service and usage conditions for Nexus AI workspace.">
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-6 text-ink-500 font-sans">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Service Terms</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 mb-8 text-center">
+        Terms & Conditions
+      </h1>
+
+      <div class="prose prose-stone dark:prose-invert font-sans text-sm text-ink-700 leading-relaxed space-y-6">
+        <p class="italic font-serif text-ink-500">Last updated: June 4, 2026</p>
+        
+        <p>
+          Welcome to Nexus AI! By registering an account, creating workspace instances, or using our services, you agree to comply with and be bound by the following Terms & Conditions.
+        </p>
+
+        <h2 class="font-serif text-xl font-semibold text-ink-900 mt-8 mb-4 border-b border-ink-900/10 pb-2">
+          1. Use of the Services
+        </h2>
+        <p>
+          Nexus AI provides a collaborative work tracking and AI-assisted productivity space. You are responsible for safeguarding your login credentials and for all actions taken under your account. You agree not to use the services for any illegal or unauthorized activities.
+        </p>
+
+        <h2 class="font-serif text-xl font-semibold text-ink-900 mt-8 mb-4 border-b border-ink-900/10 pb-2">
+          2. Subscription, Billing, and Fair Use
+        </h2>
+        <p>
+          Our Pro plan is billed on a per-user monthly subscription. AI features are subject to monthly action quotas based on fair use. Accounts exceeding normal usage bounds will be notified to upgrade or throttle actions to prevent system degradation.
+        </p>
+
+        <h2 class="font-serif text-xl font-semibold text-ink-900 mt-8 mb-4 border-b border-ink-900/10 pb-2">
+          3. Termination of Services
+        </h2>
+        <p>
+          We reserve the right to suspend or terminate accounts that breach these terms. You can cancel your paid subscription at any time via your settings panel, and you will retain access to your work environments until the end of the billing period.
+        </p>
+
+        <h2 class="font-serif text-xl font-semibold text-ink-900 mt-8 mb-4 border-b border-ink-900/10 pb-2">
+          4. Modifications to Terms
+        </h2>
+        <p>
+          We may update these terms periodically. Continuing to use Nexus AI after changes go live constitutes acceptance of the new Terms & Conditions.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

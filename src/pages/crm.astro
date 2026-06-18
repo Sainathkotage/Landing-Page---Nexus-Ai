@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+import { Check, Shield, BarChart3, Users, Mail, Sparkles } from 'lucide-react';
+
+const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'http://localhost:3000';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the AI CRM help close deals faster?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI tracks contact history, automatically parses investor or customer email queries, drafts email responses, and flags deal status updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I connect my company email to the CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we support secure Gmail, Outlook, and IMAP connections. The AI drafts and organizes replies inside a unified inbox interface."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="Collaborative AI CRM & Sales Deal Tracker — Nexus AI" 
+  description="Manage clients, track sales pipelines, and automate investor follow-ups with the built-in collaborative AI CRM."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-6xl mx-auto px-6 relative z-10">
+    <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-6 text-ink-500 font-sans">
+      <span class="flourish text-base">✦</span>
+      <span class="mx-3">Solutions</span>
+      <span class="flourish text-base">✦</span>
+    </div>
+
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h1 class="font-serif text-5xl md:text-6xl font-medium text-ink-900 leading-[1.05] mb-6">
+        An AI-Native <span class="italic text-accent-500 font-normal">CRM & Deal Tracker</span>
+      </h1>
+      <p class="text-lg text-ink-500 leading-relaxed font-serif italic">
+        A collaborative CRM designed to eliminate manual data entry. Let AI manage follow-ups, draft replies, and update pipelines.
+      </p>
+      
+      <div class="mt-8 flex justify-center">
+        <a 
+          href={`${DASHBOARD_URL}/?auth=signup`} 
+          class="px-6 py-3 bg-ink-900 hover:bg-accent-600 text-cream-100 text-sm font-semibold rounded-sm transition-all inline-flex items-center gap-2 font-sans border-0 cursor-pointer shadow-lg"
+        >
+          Access CRM space
+        </a>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
+      <!-- Card Mockup -->
+      <div class="vintage-card rounded-sm p-6 border border-ink-900/15 relative overflow-hidden order-last md:order-first">
+        <div class="absolute inset-x-4 top-4 -bottom-4 bg-gradient-to-br from-amber-400/5 to-indigo-400/5 blur-xl pointer-events-none" />
+        <div class="flex items-center gap-2 mb-4 border-b border-ink-900/10 pb-3 relative z-10">
+          <BarChart3 class="w-4 h-4 text-accent-600" />
+          <span class="text-xs font-semibold text-ink-900 font-sans">Active Deal Pipeline</span>
+        </div>
+        
+        <div class="space-y-3 relative z-10">
+          <div class="p-3 bg-cream-100/80 rounded border border-ink-900/5">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="text-xs font-semibold text-ink-900 font-sans">Acme Corp Enterprise License</span>
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">$12,000/yr</span>
+            </div>
+            <p class="text-[11px] text-ink-500 leading-relaxed font-sans">Status: Reviewing Draft Contract. AI drafted contract agreement recap.</p>
+          </div>
+          
+          <div class="p-3 bg-cream-100/80 rounded border border-ink-900/5">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="text-xs font-semibold text-ink-900 font-sans">Initech Labs pilot</span>
+              <span class="text-[10px] bg-indigo-100 text-indigo-800 px-1.5 py-0.5 rounded font-bold">$4,500/yr</span>
+            </div>
+            <p class="text-[11px] text-ink-500 leading-relaxed font-sans">Status: Pitch Scheduled. AI booked Priya on calendar for next Tuesday 2pm.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <h2 class="font-serif text-3xl font-medium text-ink-900">
+          Sync Communications Automatically
+        </h2>
+        <p class="text-sm text-ink-600 leading-relaxed font-sans">
+          Stop manually log contacts. Nexus AI integrates your customer conversations: it connects client emails, schedules follow-ups automatically, and monitors lead status dynamically.
+        </p>
+        
+        <ul class="space-y-3.5 pt-2">
+          {[
+            'Auto-log contact activities and histories',
+            'Draft replies to clients and stakeholders with AI suggestions',
+            'Track sales pipeline and metrics on active charts'
+          ].map(text => (
+            <li key={text} class="flex items-start gap-2.5 text-xs text-ink-700 font-sans">
+              <div class="w-4 h-4 rounded-full bg-accent-500/10 flex items-center justify-center shrink-0">
+                <Check class="w-2.5 h-2.5 text-accent-600" strokeWidth={3} />
+              </div>
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Long SEO Copy Block -->
+    <div class="border-t border-ink-900/10 pt-16 space-y-6 prose prose-stone max-w-none text-sm text-ink-600 leading-relaxed font-sans">
+      <h3 class="font-serif text-2xl font-medium text-ink-900">Why choose our collaborative AI CRM system?</h3>
+      <p>
+        Managing sales pipelines shouldn't require countless hours of database entries. A great CRM system should keep you out of administrative panels and in front of customers. Nexus AI does exactly that.
+      </p>
+      <p>
+        By connecting email and team chat directly to your active deal flows, Nexus AI is a collaborative CRM that keeps stakeholders aligned. The AI automatically compiles updates from recent meetings, schedules pitches, and drafts email follow-ups, ensuring no lead falls through the cracks.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

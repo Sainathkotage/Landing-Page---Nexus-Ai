@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+---
+
+<Layout title="About Us — Nexus AI" description="Learn about the team and vision behind Nexus AI, the intelligent unified workspace.">
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-6 text-ink-500 font-sans">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Our Story</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 mb-8 text-center">
+        About Nexus AI
+      </h1>
+
+      <div class="prose prose-stone dark:prose-invert font-sans text-sm text-ink-700 leading-relaxed space-y-6">
+        <p class="text-lg leading-relaxed font-serif italic text-ink-800 text-center">
+          "Unifying human workflows and artificial intelligence in a clean, unified space."
+        </p>
+
+        <p>
+          At Nexus AI, we believe that modern productivity is broken. Teams and individuals spend their days switching tabs, copying context between Slack, Notion, Gmail, and Asana, and managing the overhead of their tools rather than doing their actual work.
+        </p>
+
+        <p>
+          We built Nexus to fix this. By unifying documents, tasks, calendars, and emails into one seamless, collaborative, and AI-native surface, we eliminate context-switching. The built-in <strong>AI Chief of Staff</strong> proactively reads, plans, drafts, and coordinates so that you can focus on creativity, strategy, and deep execution.
+        </p>
+
+        <h2 class="font-serif text-xl font-semibold text-ink-900 mt-8 mb-4 border-b border-ink-900/10 pb-2">
+          Our Team
+        </h2>
+        <p>
+          We are a distributed team of engineers, designers, and product creators based in Nagpur, India, and around the world. We are committed to building fast, secure, and delightful tools that compile the future of work.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

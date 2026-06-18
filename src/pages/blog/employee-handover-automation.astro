@@ -1,0 +1,119 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Automate Employee Handover Documentation using Nexus AI",
+    "description": "Step-by-step guide to generating automated handover files and onboarding packages during employee offboarding.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Trigger Offboarding",
+        "text": "Admin initiates offboarding inside the employee profile settings."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Background Context Scan",
+        "text": "Nexus AI's background agents scan linked tasks, chat threads, and email metadata."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review Generated Package",
+        "text": "Managers review the responsibilities list, decision logs, and client relationship graph."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Onboard Successor",
+        "text": "Nexus AI sets up a localized onboarding guide and links it to the successor's calendar."
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does it take to compile an AI Handover package?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compiling an AI Handover package takes under 5 minutes. Nexus AI scans indexed communications and documents in real time."
+        }
+      }
+    ]
+  }
+];
+
+const takeaways = [
+  "Employee turnover causes up to 70% context leakage when legacy files and contacts are undocumented.",
+  "Nexus AI unifies task histories and contact logs to compile onboarding context packages for successors automatically.",
+  "Successors can query the permanent company memory using semantic chat, resolving historical context in seconds."
+];
+---
+
+<BlogPostLayout 
+  title="Preserving Context: Automated Employee Handover & Company Memory"
+  description="How to eliminate context loss during employee offboarding. Use Nexus AI to generate handovers, client logs, and onboarding guides automatically."
+  tldr="When key employees leave, companies lose critical context. Nexus AI unifies communication histories and task statuses to build complete Handover Packages and onboarding guides in under 5 minutes."
+  keyTakeaways={takeaways}
+  schemas={schemas}
+>
+  <h2>The Challenge of Knowledge Retention</h2>
+  <p>
+    When a key team member departs, the company loses more than their labor—they lose years of undocumented decisions, project context, and relationship histories. Studies show that companies lose up to <strong>70% of localized project context</strong> during a departure, causing new hires to spend months re-learning legacy systems.
+  </p>
+  <p>
+    Traditional offboarding processes rely on manual handover logs that are often rushed, incomplete, and quickly forgotten. <strong>Nexus AI</strong> solves this knowledge leakage by programmatically converting day-to-day work into a permanent, searchable <strong>Organizational Memory</strong>.
+  </p>
+
+  <h2>How Nexus AI Automates the Handover Process</h2>
+  <p>
+    By unifying emails, calendars, documents, and chats, Nexus AI possesses a complete overview of active work streams. When an offboarding trigger occurs, background agents run a structured context sweep:
+  </p>
+
+  <ol>
+    <li><strong>Responsibility Mapping</strong>: Scans current task boards and assignees to compile an active list of responsibilities.</li>
+    <li><strong>Relationship Graphing</strong>: Identifies client, vendor, and partner contacts from recent email exchanges and chat logs.</li>
+    <li><strong>Decision Logging</strong>: Extracts chronological decision points from document comments and meeting transcripts.</li>
+    <li><strong>Commitment Tracking</strong>: Flags outstanding commitments in sent emails (e.g., "I will send the review next Monday").</li>
+  </ol>
+
+  <h2>Step-by-Step Onboarding for Successors</h2>
+  <p>
+    Once the Handover Package is generated, Nexus AI helps onboard the successor:
+  </p>
+  
+  <h3>Step 1: Localized Onboarding Guides</h3>
+  <p>
+    Nexus AI compiles a custom dashboard containing the predecessor's handover file, essential wiki docs, active tasks, and a calendar view of upcoming milestones.
+  </p>
+
+  <h3>Step 2: Conversational Knowledge Querying</h3>
+  <p>
+    Rather than reading hundreds of emails, the incoming team member can query the AI memory directly.
+  </p>
+  
+  <pre><code class="language-typescript">// Example of Nexus AI's semantic retrieval query structure
+const queryResult = await nexusMemory.query({"{"}
+  term: "Why did we delay the beta launch in October?",
+  silos: ["slack_history", "meeting_transcripts"],
+  limit: 3
+{"}"});
+console.log(queryResult.answer); 
+// Output: "You delayed beta launch to W6 to resolve database sync bugs [Source: Oct 14 standup]"
+</code></pre>
+
+  <h2>FAQ on Handover Automation</h2>
+  
+  <div class="faq-q">Q: Does the handover assistant access private personal files?</div>
+  <div class="faq-a">
+    A: No. Nexus AI only scans shared work databases, tasks, public channels, and business email domains. Personal files and logins are never scanned or documented.
+  </div>
+
+  <div class="faq-q">Q: What happens to files owned by the departing employee?</div>
+  <div class="faq-a">
+    A: Ownership of shared documents and tasks is automatically and securely transferred to their manager or direct successor based on RBAC rules.
+  </div>
+</BlogPostLayout>

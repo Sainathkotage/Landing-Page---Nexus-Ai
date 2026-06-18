@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+import { Check, Shield, Zap, LayoutDashboard, Calendar, Sparkles } from 'lucide-react';
+
+const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'http://localhost:3000';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes Nexus AI the best project management system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI unifies traditional project boards with a proactive AI Chief of Staff. It handles scheduling, task triage, and auto-updates, eliminating manual administration work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import data from my existing task tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we support one-click imports from Asana, Trello, Linear, and Jira, preserving all titles, comments, owners, and timelines."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="AI Project Management System & Task Tracker — Nexus AI" 
+  description="Automate task triage, calendar scheduling, and team coordination with the ultimate AI-native project management system."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-6xl mx-auto px-6 relative z-10">
+    <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-6 text-ink-500 font-sans">
+      <span class="flourish text-base">✦</span>
+      <span class="mx-3">Solutions</span>
+      <span class="flourish text-base">✦</span>
+    </div>
+
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h1 class="font-serif text-5xl md:text-6xl font-medium text-ink-900 leading-[1.05] mb-6">
+        An AI-Native <span class="italic text-accent-500 font-normal">Project Management System</span>
+      </h1>
+      <p class="text-lg text-ink-500 leading-relaxed font-serif italic">
+        Say goodbye to outdated boards. Nexus AI schedules your deep work, automates task delegation, and triage projects in real time.
+      </p>
+      
+      <div class="mt-8 flex justify-center">
+        <a 
+          href={`${DASHBOARD_URL}/?auth=signup`} 
+          class="px-6 py-3 bg-ink-900 hover:bg-accent-600 text-cream-100 text-sm font-semibold rounded-sm transition-all inline-flex items-center gap-2 font-sans border-0 cursor-pointer shadow-lg"
+        >
+          Create project space
+        </a>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
+      <div class="space-y-6">
+        <h2 class="font-serif text-3xl font-medium text-ink-900">
+          Proactive AI Triage & Prioritization
+        </h2>
+        <p class="text-sm text-ink-600 leading-relaxed font-sans">
+          Most project management tools require manual updates. Nexus AI acts as your virtual coordinator: it analyzes connected chats, emails, and meetings to automatically write task updates, suggest dependencies, and prioritize cards based on team bandwidth.
+        </p>
+        
+        <ul class="space-y-3.5 pt-2">
+          {[
+            'Auto-schedule focus blocks directly on your calendar',
+            'Generate weekly sprint summaries and logs with AI',
+            'Context-aware search across all team files and tasks'
+          ].map(text => (
+            <li key={text} class="flex items-start gap-2.5 text-xs text-ink-700 font-sans">
+              <div class="w-4 h-4 rounded-full bg-accent-500/10 flex items-center justify-center shrink-0">
+                <Check class="w-2.5 h-2.5 text-accent-600" strokeWidth={3} />
+              </div>
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card Mockup -->
+      <div class="vintage-card rounded-sm p-6 border border-ink-900/15 relative overflow-hidden">
+        <div class="absolute inset-x-4 top-4 -bottom-4 bg-gradient-to-br from-amber-400/5 to-orange-400/5 blur-xl pointer-events-none" />
+        <div class="flex items-center gap-2 mb-4 border-b border-ink-900/10 pb-3 relative z-10">
+          <LayoutDashboard class="w-4 h-4 text-accent-600" />
+          <span class="text-xs font-semibold text-ink-900 font-sans">Active Sprint Planner</span>
+        </div>
+        
+        <div class="space-y-3 relative z-10">
+          <div class="p-3 bg-cream-100/80 rounded border border-ink-900/5">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="text-xs font-semibold text-ink-900 font-sans">Draft API documentation</span>
+              <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded font-bold">Urgent</span>
+            </div>
+            <p class="text-[11px] text-ink-500 leading-relaxed font-sans">Nexus auto-linked this task to Marcus based on email queries from Sarah.</p>
+          </div>
+          
+          <div class="p-3 bg-cream-100/80 rounded border border-ink-900/5">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="text-xs font-semibold text-ink-900 font-sans">Refactor client login component</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">High</span>
+            </div>
+            <p class="text-[11px] text-ink-500 leading-relaxed font-sans">Completed. AI logged 2h 15m deep work on calendar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Long SEO Copy Block -->
+    <div class="border-t border-ink-900/10 pt-16 space-y-6 prose prose-stone max-w-none text-sm text-ink-600 leading-relaxed font-sans">
+      <h3 class="font-serif text-2xl font-medium text-ink-900">Why choose our AI-driven project management system?</h3>
+      <p>
+        Building products in 2026 requires speed and coordination. Traditional project management software fails because teams spend hours updating tickets, writing sprint logs, and aligning meetings. Nexus AI solves this by natively embedding a coordinate-capable AI.
+      </p>
+      <p>
+        By integrating directly with your documents, emails, and calendar events, Nexus understands the context of your projects. If a client requests a revision via email, Nexus automatically flags it, updates your task boards, and schedules focus time on the assigned developer's calendar. That is the power of a fully automated project management system.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

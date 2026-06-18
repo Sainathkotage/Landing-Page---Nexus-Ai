@@ -1,0 +1,21 @@
+# Nexus AI
+
+> Nexus AI is an AI-native workspace and AI Chief of Staff platform that unifies documents, tasks, calendars, emails, and CRM into one intelligent workspace to preserve organizational memory and automate administrative coordination.
+
+## Core Features & Platform
+- [AI Chief of Staff](/blog/what-is-an-ai-chief-of-staff): Proactive administrative support, email draft generation, task triage, and multi-calendar scheduling.
+- [AI CRM Solution](/crm): Collaborative deal pipelines, contact activity sync, and automated email follow-ups.
+- [AI Project Management](/project-management): Proactive task coordination, sprint planner, and calendar focus scheduling.
+- [Organizational Memory](/blog/employee-handover-automation): Automated employee handover documentation, historical decision preservation, and onboarding context packages.
+
+## Company & Resources
+- [About Us](/about): The mission, vision, and team behind Nexus AI.
+- [Blog](/blog): Insights, guides, and engineering logs on productivity and GEO.
+- [Contact Us](/contact): Touch points for sales, support, and office location in Nagpur, India.
+
+## Product Comparisons
+- [Nexus AI vs Notion](/blog/ai-workspace-vs-notion): A feature-by-feature comparison comparing active AI Chiefs of Staff to manual wiki databases.
+
+## Legal & Compliance
+- [Privacy Policy](/privacy): Encryption policies, data storage regions, and GDPR compliance.
+- [Terms & Conditions](/terms): System usage policies and subscription details.

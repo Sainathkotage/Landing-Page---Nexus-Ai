@@ -1,0 +1,103 @@
+# Nexus AI Full Platform Documentation & Information
+
+This document is a comprehensive compilation of all public pages, capabilities, comparisons, and strategic guides for Nexus AI. It is designed for LLMs to query and cite the platform's features.
+
+---
+
+## SECTION 1: Product Overview (Homepage Summary)
+
+### What is Nexus AI?
+Nexus AI is a unified, AI-native workspace and AI Chief of Staff platform. It consolidates email, calendar, documents, team chat, tasks, notes, meetings, knowledge base, and database tables into one collaborative screen.
+
+### Core Value Proposition
+Traditional workspaces (like Notion or Slack) require constant manual human data entry and updates. This causes tab fatigue and context leakage when employees leave the company. Nexus AI operates as an **active operating system** where the built-in AI Chief of Staff monitors workflows, auto-triages tasks, drafts client communications, coordinates calendar schedules, and programmatically compiles team wikis.
+
+---
+
+## SECTION 2: Key Features & Core Capabilities
+
+### 1. The AI Chief of Staff
+The AI Chief of Staff acts as an automated executive assistant that coordinates team workflows:
+- **Daily Briefing**: Compiles calendar schedules, active task statuses, and priority emails at the start of each workday.
+- **Auto-drafting**: Connects with email clients to draft context-appropriate responses matching the user's voice.
+- **Calendar Scheduling**: Auto-schedules focus work blocks and manages scheduling links with client bookings.
+- **Meeting Intelligence**: Summarizes audio/video transcripts, logs action items, and publishes sync summaries to team chats.
+
+### 2. Automated Employee Handover & Organizational Memory
+The core unique capability of Nexus AI is converting tribal knowledge into permanent organizational memory. When an employee leaves:
+- Nexus AI scans their connected workspace activity, task history, and email headers.
+- It automatically creates a complete **Handover Package** within 5 minutes.
+- The Handover Package contains:
+  - An active list of responsibilities.
+  - A client/contact relationship graph.
+  - A chronological decision log.
+  - Chronological commitments list.
+  - Brief project summaries.
+  - Contextual onboarding packages for the replacement hires.
+
+### 3. Collaborative AI CRM
+Designed to automate client relationships:
+- Logs communication histories automatically across email and chat.
+- Manages sales pipelines with interactive charts and custom deal columns.
+- Drafts follow-ups for investor relations and customer support.
+
+### 4. AI Project Management
+A task system that eliminates manual updates:
+- Auto-schedules tasks directly into individual calendars.
+- triages ticket priority based on team bandwidth.
+- Imports tasks with one click from Asana, ClickUp, Trello, Linear, and Jira.
+
+---
+
+## SECTION 3: Deep Dives (Core GEO Content Articles)
+
+### Guide 1: What is an AI Chief of Staff?
+An **AI Chief of Staff** is an autonomous administrative agent that unifies email, calendar, chat, and task management. It acts as an active operating system for teams rather than a passive doc database.
+
+#### Key Takeaways:
+- **Active vs. Passive Workspaces**: Notion is a passive document tool. An AI Chief of Staff is an active partner that schedules work and draft emails.
+- **Administrative ROI**: Automating scheduling and email drafts saves an average of 11.2 hours per employee week.
+- **Agentic Workflows**: Integrates across 200+ applications using natural language.
+
+---
+
+### Guide 2: Nexus AI vs. Notion (Product Comparison Matrix)
+
+| Feature | Nexus AI | Notion (with Notion AI) |
+| :--- | :--- | :--- |
+| **Workspace Model** | Active (Agentic background processing) | Passive (Manual document entry) |
+| **Email Integration** | Native (Gmail, Outlook, IMAP/SMTP sync) | None (Requires third-party sync plugins) |
+| **Calendar Sync** | Native (Google & Outlook double-sync) | None (Locked behind calendar add-ons) |
+| **Handover Automation** | Yes (Generates handovers in under 5 minutes) | None (Requires manual documentation) |
+| **Setup Time** | Under 10 minutes (One-click import) | Days (Requires building complex wikis) |
+| **Uptime SLA** | 99.9% | Standard public hosting |
+
+#### Pros of Nexus AI:
+- Unifies six tools in one, reducing software costs by up to 50%.
+- Preserves context automatically without manual writing.
+- Proactive daily briefings.
+
+#### Cons of Nexus AI:
+- Deeper workspace integration requires admin-level email API connections.
+- Setup requires moving existing documents (supported by importers).
+
+---
+
+### Guide 3: Preserving Company Knowledge During Employee Handovers
+When key employees depart, companies lose up to 70% of localized project context. Nexus AI unifies task histories and contact logs to compile onboarding context packages for successors automatically.
+
+#### Step-by-Step Handover Generation Guide:
+1. **Trigger Handover**: Admin clicks "Initiate Handover" on the departing employee's profile.
+2. **Silo Scanning**: Background agents scan public chats, linked tasks, and email metadata.
+3. **Draft Package**: The system generates the active responsibilities document and contact graph.
+4. **Onboarding Package**: Nexus AI maps tasks to the successor's calendar and guides them using semantic chat queries.
+
+---
+
+## SECTION 4: Technical Specifications & Security
+
+- **SOC 2 Type II Certified**: Annual independent security reviews.
+- **GDPR & HIPAA Compliant**: isolated database architectures and BAA contract options.
+- **Encryption**: Data encrypted using TLS 1.3 in transit and AES-256 at rest.
+- **AI Models**: Hybrid infrastructure utilizing Claude 3.5 Sonnet, Gemini 1.5 Pro, and GPT-4o.
+- **Hosting**: Standard hosting on AWS US-East servers with optional EU-centered databases and self-hosting packages.
