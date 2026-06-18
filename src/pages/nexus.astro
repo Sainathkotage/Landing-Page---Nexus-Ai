@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Hero } from '../components/landing/Hero';
+import { WhyBuilding } from '../components/landing/WhyBuilding';
+import { Features } from '../components/landing/Features';
+import { AIChief } from '../components/landing/AIChief';
+import { FreeBeta } from '../components/landing/FreeBeta';
+import { FAQ, FinalCTA } from '../components/landing/FAQAndCTA';
+import { Footer } from '../components/landing/Footer';
+
+const domain = "https://aixentrix.online";
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Nexus AI Beta",
+  "url": `${domain}/nexus`,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${domain}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Aixentrix, Inc.",
+  "url": domain,
+  "logo": `${domain}/logo.png`,
+  "email": "info@nexus-ai.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nagpur",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  }
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Nexus AI Beta",
+  "description": "The AI Chief of Staff and permanent company memory operating system for modern teams.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Nexus AI Beta"
+  }
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Nexus AI Beta Workspace",
+  "operatingSystem": "All",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI Chief of Staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI Chief of Staff is a proactive administrative assistant that integrates with your email inbox, calendars, documents, and chats to automate scheduling, task triage, and offboarding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Nexus AI Beta preserve organizational memory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By indexing chats, email communications, and project histories into a private, searchable context graph that acts as a permanent company brain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when an employee leaves?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI Beta scans their workspace activities to auto-create handover documents, relationship graphs, open commitments, and onboarding packages in under 5 minutes."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="The AI Chief of Staff for Modern Teams — Nexus AI Beta" 
+  description="Nexus AI Beta captures knowledge, preserves context, automates workflows, and transforms company information into permanent organizational memory. Join the free beta today."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Interactive Navigation Bar -->
+  <Navbar client:load />
+  
+  <main class="relative z-10">
+    <!-- 1. Hero Section -->
+    <Hero />
+    
+    <!-- 2. Problem Statement & Why Existing Tools Fail & Founder Mission -->
+    <WhyBuilding />
+    
+    <!-- 3. Core Features & Handover/Memory Engines -->
+    <Features />
+    
+    <!-- 4. Interactive AI Chief Demonstrator -->
+    <AIChief client:load />
+    
+    <!-- 5. Free for Beta Users -->
+    <FreeBeta />
+    
+    <!-- 6. Dynamic Accordion FAQ answers -->
+    <FAQ client:load />
+    
+    <!-- 7. Compelling End Banner Action -->
+    <FinalCTA />
+  </main>
+  
+  <!-- General Links Footer -->
+  <Footer />
+</Layout>

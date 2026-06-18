@@ -16,11 +16,14 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { href: '/#features', label: 'Features' },
-    { href: '/#ai', label: 'AI Chief of Staff' },
-    { href: '/#pricing', label: 'Pricing' },
-    { href: '/#faq', label: 'FAQ' },
+    { href: '/', label: 'Aixentrix' },
+    { href: '/nexus', label: 'Nexus AI' },
+    { href: '/pricing', label: 'Pricing' },
+    { href: '/docs', label: 'Docs' },
     { href: '/blog', label: 'Blog' },
+    { href: '/about', label: 'About' },
+    { href: '/careers', label: 'Careers' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const handleSignIn = (e: React.MouseEvent) => {

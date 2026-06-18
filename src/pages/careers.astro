@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+---
+
+<Layout 
+  title="Careers — Aixentrix" 
+  description="Join Aixentrix in Nagpur, India. We are building the future of active software workspaces, AI Chiefs of Staff, and permanent company memory."
+>
+  <Navbar client:load />
+
+  <main class="relative z-10 font-sans selection:bg-accent-500/20 text-ink-900 antialiased paper-texture pt-32 pb-24">
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 text-center mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-8 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Join Our Team</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-5xl font-semibold leading-tight tracking-tight text-ink-900 mb-6">
+        Build the Future of Workspace Memory
+      </h1>
+      
+      <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto">
+        Aixentrix is headquartered in Nagpur, India. We are bringing together top-tier engineering talent and AI systems researchers to build active operating environments that think, remember, and execute.
+      </p>
+    </section>
+
+    <!-- Company Culture & Values -->
+    <section class="max-w-5xl mx-auto px-6 mb-20">
+      <h3 class="font-serif text-2xl font-semibold text-ink-900 mb-8 text-center">Our Core Operating Values</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="border-t border-ink-900/15 pt-6">
+          <h4 class="font-serif text-lg font-semibold text-ink-900 mb-2">Asynchronous Directness</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            We minimize status update meetings and focus blocks interruption. We rely on high-fidelity, written context inside our workspaces to keep everyone aligned.
+          </p>
+        </div>
+
+        <div class="border-t border-ink-900/15 pt-6">
+          <h4 class="font-serif text-lg font-semibold text-ink-900 mb-2"> Nagpur Engineering Base</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            Our central product hub is located in Nagpur, Maharashtra. We believe in building regional engineering excellence that impacts software design globally.
+          </p>
+        </div>
+
+        <div class="border-t border-ink-900/15 pt-6">
+          <h4 class="font-serif text-lg font-semibold text-ink-900 mb-2">Extreme Context Integrity</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            We build systems that preserve organizational memory. We practice what we preach—maintaining clean code archives, detailed decision histories, and structured document structures.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Open Roles -->
+    <section class="max-w-4xl mx-auto px-6 mb-20">
+      <h3 class="font-serif text-3xl font-semibold text-ink-900 mb-8 text-center">Open Positions</h3>
+      <div class="flex flex-col gap-6">
+        <!-- Role 1 -->
+        <div class="border border-ink-900/10 bg-cream-50/50 p-6 rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex flex-col gap-1">
+            <h4 class="font-serif text-lg font-semibold text-ink-900">Senior Frontend Engineer</h4>
+            <span class="text-[10px] font-bold text-accent-700 uppercase tracking-wider font-mono">Nagpur, India — Full-Time</span>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mt-2 max-w-xl">
+              Take ownership of our React/Next.js dashboard interface and Astro marketing layout. Optimize client performance, sub-second latency state rendering, and custom layout views.
+            </p>
+          </div>
+          <a 
+            href="mailto:careers@aixentrix.online?subject=Application:%20Senior%20Frontend%20Engineer" 
+            class="px-5 py-2 rounded-full border border-ink-900/15 hover:border-ink-900 text-ink-900 font-semibold text-[10px] tracking-wider uppercase transition-colors shrink-0 text-center hover:bg-ink-900/5 duration-200"
+          >
+            Apply Now
+          </a>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="border border-ink-900/10 bg-cream-50/50 p-6 rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex flex-col gap-1">
+            <h4 class="font-serif text-lg font-semibold text-ink-900">AI Memory Infrastructure Engineer</h4>
+            <span class="text-[10px] font-bold text-accent-700 uppercase tracking-wider font-mono">Nagpur, India — Full-Time</span>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mt-2 max-w-xl">
+              Design the semantic indexers, vector query engines, and database sync processes that power the Nexus AI Organizational Memory sweep.
+            </p>
+          </div>
+          <a 
+            href="mailto:careers@aixentrix.online?subject=Application:%20AI%20Memory%20Infrastructure%20Engineer" 
+            class="px-5 py-2 rounded-full border border-ink-900/15 hover:border-ink-900 text-ink-900 font-semibold text-[10px] tracking-wider uppercase transition-colors shrink-0 text-center hover:bg-ink-900/5 duration-200"
+          >
+            Apply Now
+          </a>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="border border-ink-900/10 bg-cream-50/50 p-6 rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex flex-col gap-1">
+            <h4 class="font-serif text-lg font-semibold text-ink-900">Growth Marketing & GEO Lead</h4>
+            <span class="text-[10px] font-bold text-accent-700 uppercase tracking-wider font-mono">Remote / Nagpur — Full-Time</span>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mt-2 max-w-xl">
+              Drive customer acquisition campaigns, manage Generative Engine Optimization (GEO) co-citation mappings, and run brand search visibility channels.
+            </p>
+          </div>
+          <a 
+            href="mailto:careers@aixentrix.online?subject=Application:%20Growth%20Marketing%20GEO%20Lead" 
+            class="px-5 py-2 rounded-full border border-ink-900/15 hover:border-ink-900 text-ink-900 font-semibold text-[10px] tracking-wider uppercase transition-colors shrink-0 text-center hover:bg-ink-900/5 duration-200"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- General Application -->
+    <section class="max-w-4xl mx-auto px-6 text-center border-t border-ink-900/10 pt-16">
+      <h3 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Don't see your role?</h3>
+      <p class="text-xs text-ink-600 leading-relaxed max-w-md mx-auto font-sans mb-6">
+        We are always looking for smart engineers, technical writers, and product specialists. Send us your CV and a brief description of what you want to build.
+      </p>
+      <a 
+        href="mailto:careers@aixentrix.online" 
+        class="px-8 py-3 rounded-full bg-ink-900 hover:bg-accent-950 text-cream-50 font-medium text-xs tracking-wider uppercase transition-all shadow-md"
+      >
+        General Application
+      </a>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

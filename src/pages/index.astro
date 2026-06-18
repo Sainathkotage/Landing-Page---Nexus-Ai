@@ -1,27 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Navbar } from '../components/landing/Navbar';
-import { Hero } from '../components/landing/Hero';
-import { WhyBuilding } from '../components/landing/WhyBuilding';
-import { Features } from '../components/landing/Features';
-import { AIChief } from '../components/landing/AIChief';
-import { FreeBeta } from '../components/landing/FreeBeta';
-import { FAQ, FinalCTA } from '../components/landing/FAQAndCTA';
 import { Footer } from '../components/landing/Footer';
 
-const domain = "https://nexus-ai.com";
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Nexus AI Beta",
-  "url": domain,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${domain}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
-  }
-};
+const domain = "https://aixentrix.online";
 
 const orgSchema = {
   "@context": "https://schema.org",
@@ -29,7 +11,8 @@ const orgSchema = {
   "name": "Aixentrix, Inc.",
   "url": domain,
   "logo": `${domain}/logo.png`,
-  "email": "info@nexus-ai.com",
+  "email": "info@aixentrix.online",
+  "description": "Orchestrating organizational intelligence. We build active software environments that think, remember, and execute.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Nagpur",
@@ -37,99 +20,135 @@ const orgSchema = {
     "addressCountry": "IN"
   }
 };
-
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Nexus AI Beta",
-  "description": "The AI Chief of Staff and permanent company memory operating system for modern teams.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Nexus AI Beta"
-  }
-};
-
-const softwareSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Nexus AI Beta Workspace",
-  "operatingSystem": "All",
-  "applicationCategory": "BusinessApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0.00",
-    "priceCurrency": "USD"
-  }
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is an AI Chief of Staff?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An AI Chief of Staff is a proactive administrative assistant that integrates with your email inbox, calendars, documents, and chats to automate scheduling, task triage, and offboarding."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Nexus AI Beta preserve organizational memory?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "By indexing chats, email communications, and project histories into a private, searchable context graph that acts as a permanent company brain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens when an employee leaves?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nexus AI Beta scans their workspace activities to auto-create handover documents, relationship graphs, open commitments, and onboarding packages in under 5 minutes."
-      }
-    }
-  ]
-};
 ---
 
 <Layout 
-  title="The AI Chief of Staff for Modern Teams — Nexus AI Beta" 
-  description="Nexus AI Beta captures knowledge, preserves context, automates workflows, and transforms company information into permanent organizational memory. Join the free beta today."
+  title="Aixentrix — Orchestrating Organizational Intelligence" 
+  description="Aixentrix builds active software environments that think, remember, and execute—transforming localized data into unified, permanent company memory."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- Interactive Navigation Bar -->
   <Navbar client:load />
-  
-  <main class="relative z-10">
-    <!-- 1. Hero Section -->
-    <Hero />
-    
-    <!-- 2. Problem Statement & Why Existing Tools Fail & Founder Mission -->
-    <WhyBuilding />
-    
-    <!-- 3. Core Features & Handover/Memory Engines -->
-    <Features />
-    
-    <!-- 4. Interactive AI Chief Demonstrator -->
-    <AIChief client:load />
-    
-    <!-- 5. Free for Beta Users -->
-    <FreeBeta />
-    
-    <!-- 6. Dynamic Accordion FAQ answers -->
-    <FAQ client:load />
-    
-    <!-- 7. Compelling End Banner Action -->
-    <FinalCTA />
+
+  <main class="relative z-10 font-sans selection:bg-accent-500/20 text-ink-900 antialiased paper-texture relative overflow-hidden pt-32 pb-24">
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 text-center mb-20">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-8 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Aixentrix Corporate</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-ink-900 mb-6 max-w-3xl mx-auto">
+        Orchestrating <span class="italic font-normal">Organizational</span> Intelligence.
+      </h1>
+      
+      <p class="text-base md:text-lg text-ink-700 font-sans leading-relaxed max-w-2xl mx-auto mb-10">
+        We build active software environments that think, remember, and execute—transforming fragmented data silos into a unified, permanent company memory.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="/nexus" 
+          class="px-8 py-3 rounded-full bg-ink-900 hover:bg-accent-950 text-cream-50 font-medium text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2 hover:scale-[1.02] duration-200"
+        >
+          Explore Nexus AI <span>→</span>
+        </a>
+        <a 
+          href="/about" 
+          class="px-8 py-3 rounded-full border border-ink-900/15 hover:border-ink-900/40 text-ink-900 font-medium text-xs tracking-wider uppercase transition-all hover:bg-ink-900/[0.02] hover:scale-[1.02] duration-200"
+        >
+          Our Mission
+        </a>
+      </div>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <section class="max-w-5xl mx-auto px-6 mb-24">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="border border-ink-900/10 bg-cream-50/50 p-8 rounded-lg shadow-sm">
+          <span class="text-xs font-bold text-accent-600 uppercase tracking-widest block mb-3 font-mono">01 / Architecture</span>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Active Context Graphs</h3>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            Static folders and wikis require manual updates that quickly go stale. We build systems that actively index team schedules, communications, and database updates to maintain sync automatically.
+          </p>
+        </div>
+
+        <div class="border border-ink-900/10 bg-cream-50/50 p-8 rounded-lg shadow-sm">
+          <span class="text-xs font-bold text-accent-600 uppercase tracking-widest block mb-3 font-mono">02 / Continuity</span>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Zero-Loss Continuity</h3>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            When team members depart, companies lose years of localized context. Our software programmatically captures decisions, contact graphs, and outstanding commitments to construct automated handovers.
+          </p>
+        </div>
+
+        <div class="border border-ink-900/10 bg-cream-50/50 p-8 rounded-lg shadow-sm">
+          <span class="text-xs font-bold text-accent-600 uppercase tracking-widest block mb-3 font-mono">03 / Consolidation</span>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Workspace Convergence</h3>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            Managing operations across a dozen fragmented interfaces causes communication fatigue. We consolidate chat, email, calendars, tasks, and wikis under one unified, contextual brain.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flagship Product Feature -->
+    <section class="max-w-5xl mx-auto px-6 mb-24">
+      <div class="border border-ink-900/15 bg-cream-50 rounded-sm p-8 md:p-12 shadow-2xl vintage-border relative overflow-hidden flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-1">
+          <span class="text-xs font-bold text-accent-600 uppercase tracking-widest block mb-2 font-mono">Flagship Application</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-4 leading-tight">
+            Nexus AI: The AI Chief of Staff
+          </h2>
+          <p class="text-sm text-ink-700 leading-relaxed font-sans mb-6">
+            Nexus AI Beta unifies your email client, calendar schedules, task boards, team huddles, and document directories into a single cognitive workspace. It acts as an active assistant that automates routine triaging, generates daily operational briefs, and builds permanent company memory.
+          </p>
+          <div class="flex items-center gap-4">
+            <a 
+              href="/nexus" 
+              class="px-6 py-2.5 rounded-full bg-ink-900 hover:bg-accent-950 text-cream-50 font-medium text-[11px] tracking-wider uppercase transition-all flex items-center gap-1.5"
+            >
+              Explore Nexus AI <span>→</span>
+            </a>
+            <a 
+              href="/pricing" 
+              class="text-xs font-semibold text-ink-900 hover:text-accent-700 transition-colors"
+            >
+              Pricing Details
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-80 shrink-0 border border-ink-900/10 bg-white p-6 rounded-lg shadow-sm flex flex-col gap-4">
+          <div class="flex items-center justify-between border-b border-ink-900/5 pb-2">
+            <span class="text-xs font-bold text-ink-900">Workspace Status</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[9px] font-semibold tracking-wider uppercase">Active</span>
+          </div>
+          <div class="flex flex-col gap-1.5 text-xs text-ink-600 font-sans">
+            <div class="flex justify-between">
+              <span>Handovers Compiled:</span>
+              <strong class="text-ink-950">1,240</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Context Loss Rate:</span>
+              <strong class="text-emerald-600">0.00%</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Time Reclaimed / Dev:</span>
+              <strong class="text-ink-950">11h / week</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nagpur Hub -->
+    <section class="max-w-4xl mx-auto px-6 text-center border-t border-ink-900/10 pt-16">
+      <h3 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Headquartered in Nagpur</h3>
+      <p class="text-xs text-ink-600 leading-relaxed max-w-xl mx-auto font-sans">
+        Aixentrix is located in Nagpur, India, drawing from regional technology hubs to build world-class AI agent infrastructures and workspace systems for teams globally.
+      </p>
+    </section>
   </main>
-  
-  <!-- General Links Footer -->
+
   <Footer />
 </Layout>

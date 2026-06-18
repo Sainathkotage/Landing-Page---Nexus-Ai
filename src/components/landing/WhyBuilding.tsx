@@ -1,4 +1,4 @@
-import { HelpCircle, AlertTriangle, Lightbulb, UserCheck, ShieldAlert, Cpu } from 'lucide-react';
+import { AlertTriangle, Lightbulb, UserCheck, ShieldAlert, Cpu } from 'lucide-react';
 
 export function WhyBuilding() {
   const failScenarios = [

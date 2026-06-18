@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+
+const dashboardUrl = import.meta.env.PUBLIC_DASHBOARD_URL || 'http://localhost:3000';
+---
+
+<Layout 
+  title="Pricing — Nexus AI Beta" 
+  description="We are currently offering Nexus AI Beta free of charge to early adopters. Join our free beta program and influence the future of organizational intelligence."
+>
+  <Navbar client:load />
+
+  <main class="relative z-10 font-sans selection:bg-accent-500/20 text-ink-900 antialiased paper-texture pt-32 pb-24">
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 text-center mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-8 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Beta Program</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-5xl font-semibold leading-tight tracking-tight text-ink-900 mb-6">
+        Free for Our Beta Users
+      </h1>
+      
+      <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto">
+        We're currently offering Nexus AI Beta free of charge to early adopters while we refine the platform and build the future of organizational intelligence.
+      </p>
+    </section>
+
+    <!-- Pricing Card -->
+    <section class="max-w-md mx-auto px-6 mb-20">
+      <div class="border border-ink-900/15 bg-cream-50 rounded-sm p-8 shadow-2xl vintage-border relative overflow-hidden flex flex-col gap-6">
+        <div class="text-center border-b border-ink-900/10 pb-6">
+          <span class="text-xs font-bold text-accent-600 uppercase tracking-widest block mb-2 font-mono">Early Adopter Plan</span>
+          <h2 class="font-serif text-3xl font-semibold text-ink-900 mb-2">Nexus AI Beta</h2>
+          <div class="flex items-baseline justify-center gap-1 mt-4">
+            <span class="font-serif text-5xl font-semibold text-ink-900">$0</span>
+            <span class="text-xs text-ink-500 font-sans font-medium">/ user / month</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h4 class="text-[10px] font-bold text-ink-500 uppercase tracking-wider">What's Included</h4>
+          <ul class="space-y-3 text-xs text-ink-700 font-sans">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span>Full access to all beta features (Email, Calendar, Tasks)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span>Direct access to the founding team</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span>Influence on product direction & feature voting</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span>Priority integration requests</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span>Guaranteed legacy discount on future tiers</span>
+            </li>
+          </ul>
+        </div>
+
+        <a 
+          href={`${dashboardUrl}/?auth=signup`} 
+          class="w-full h-10 rounded-full bg-ink-900 hover:bg-accent-950 text-cream-50 font-medium text-xs tracking-wider uppercase transition-all flex items-center justify-center cursor-pointer shadow-md mt-4"
+        >
+          Join the Beta
+        </a>
+        <span class="text-[10px] text-center text-ink-400 font-sans font-medium block">No credit card required.</span>
+      </div>
+    </section>
+
+    <!-- Pricing FAQs -->
+    <section class="max-w-2xl mx-auto px-6 border-t border-ink-900/10 pt-16">
+      <h3 class="font-serif text-3xl font-semibold text-ink-900 mb-8 text-center">Frequently Asked Questions</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="font-serif text-base font-semibold text-ink-900 mb-1.5">How long will the beta remain free?</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            The beta will remain free for all early adopters during our refinement period. We will provide ample notice and structured migration options before introducing any paid tiers.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-serif text-base font-semibold text-ink-900 mb-1.5">Will my data be preserved when paid plans launch?</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            Yes. All database entries, files, direct messaging histories, and workspace channels will be fully preserved when we shift out of beta.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-serif text-base font-semibold text-ink-900 mb-1.5">Can I request custom integrations during the beta?</h4>
+          <p class="text-xs text-ink-600 leading-relaxed font-sans">
+            Absolutely. Beta users have direct access to the engineering team. We prioritize custom API requests (like connecting private CRMs or database pipes) for our early teams.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

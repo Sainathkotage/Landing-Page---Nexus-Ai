@@ -3,11 +3,11 @@ import { Sparkles } from 'lucide-react';
 export function Footer() {
   const cols = [
     {
-      title: 'Solutions',
+      title: 'Product',
       links: [
-        { label: 'Project Management', href: '/project-management' },
-        { label: 'AI CRM System', href: '/crm' },
-        { label: 'Pricing Plans', href: '#pricing' },
+        { label: 'Nexus AI App', href: '/nexus' },
+        { label: 'Pricing Plans', href: '/pricing' },
+        { label: 'Documentation', href: '/docs' },
       ],
     },
     {
@@ -15,10 +15,10 @@ export function Footer() {
       links: [
         { label: 'About Us', href: '/about' },
         { label: 'Blog', href: '/blog' },
+        { label: 'Careers', href: '/careers' },
         { label: 'Contact Us', href: '/contact' },
       ],
     },
-
     {
       title: 'Legal',
       links: [
