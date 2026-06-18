@@ -46,9 +46,9 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 group">
-          <img src="/logo.png" className="w-6 h-6 object-contain" alt="Nexus AI Beta Logo" />
+          <img src="/logo.png" className="w-6 h-6 object-contain" alt="Nexus AI Logo" />
           <span className="font-serif font-medium text-ink-900 text-xl flex items-center gap-1.5">
-            Nexus AI Beta
+            Nexus AI
             <span className="bg-accent-500/10 text-accent-700 text-[9px] px-1.5 py-0.5 rounded font-sans font-bold uppercase tracking-wider">Beta</span>
           </span>
         </a>

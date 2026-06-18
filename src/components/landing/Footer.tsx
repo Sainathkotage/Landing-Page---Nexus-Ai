@@ -33,15 +33,15 @@ export function Footer() {
         <div className="grid lg:grid-cols-6 gap-8 mb-12">
           <div className="lg:col-span-3">
             <a href="/" className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" className="w-6 h-6 object-contain" alt="Nexus AI Beta Logo" />
+              <img src="/logo.png" className="w-6 h-6 object-contain" alt="Nexus AI Logo" />
               <span className="font-serif font-medium text-ink-900 text-xl flex items-center gap-1.5">
-                Nexus AI Beta
+                Nexus AI
                 <span className="bg-accent-500/10 text-accent-700 text-[8px] px-1.5 py-0.5 rounded font-sans font-bold">BETA</span>
               </span>
             </a>
             <p className="text-sm text-ink-500 max-w-xs leading-relaxed font-serif italic">
               Your AI Chief of Staff. Documents, tasks, calendar, and email
-              unified in one intelligent workspace. Nexus AI Beta is in active development.
+              unified in one intelligent workspace. Nexus AI is in active development.
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-ink-500 font-sans">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-700 animate-pulse-dot" />
