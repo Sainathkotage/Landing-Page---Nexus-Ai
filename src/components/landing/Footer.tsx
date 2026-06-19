@@ -8,21 +8,26 @@ export function Footer() {
         { label: 'Nexus AI App', href: '/nexus' },
         { label: 'Pricing Plans', href: '/pricing' },
         { label: 'Documentation', href: '/docs' },
+        { label: 'Product Roadmap', href: '/roadmap' },
+        { label: 'Weekly Changelog', href: '/changelog' },
       ],
     },
     {
       title: 'Company',
       links: [
         { label: 'About Us', href: '/about' },
-        { label: 'Blog', href: '/blog' },
+        { label: 'Blog Articles', href: '/blog' },
+        { label: 'Careers / Jobs', href: '/careers' },
+        { label: 'Security & Trust', href: '/security' },
         { label: 'Contact Us', href: '/contact' },
       ],
     },
     {
-      title: 'Legal',
+      title: 'Status & Legal',
       links: [
+        { label: 'System Status', href: '/status' },
         { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Terms & Conditions', href: '/terms' },
+        { label: 'Terms of Service', href: '/terms' },
       ],
     },
   ];

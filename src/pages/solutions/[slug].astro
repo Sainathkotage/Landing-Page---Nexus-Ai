@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { solutions } from '../../lib/data/solutions';
+import { Check, Cpu, Brain, ArrowUpRight } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return solutions.map((solution) => ({
+    params: { slug: solution.slug },
+    props: { solution }
+  }));
+}
+
+const { solution } = Astro.props;
+
+// Schema.org Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://aixentrix.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Solutions",
+      "item": `https://aixentrix.com/solutions/${solution.slug}`
+    }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": solution.title,
+  "description": solution.description,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aixentrix, Inc."
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": solution.faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const schemas = [breadcrumbSchema, webPageSchema, faqSchema];
+---
+
+<Layout title={solution.title} description={solution.description} schemas={schemas}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans">
+    
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Home</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-400">Solutions</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">{solution.name}</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <!-- Decorative vintage wash -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 text-center border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Aixentrix Solutions</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          {solution.name}
+        </h1>
+        <p class="text-sm text-ink-700 leading-relaxed max-w-xl mx-auto">
+          {solution.introduction}
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-10">
+        
+        <!-- The Problem -->
+        <section class="border-l-4 border-accent-600/20 pl-6 my-6">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-2">The Operational Bottleneck</h2>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            {solution.problem}
+          </p>
+        </section>
+
+        <!-- How Aixentrix Solves -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Our Programmatic Solution</h2>
+          <p class="text-xs text-ink-600 leading-relaxed mb-4">
+            {solution.howAixentrixSolves}
+          </p>
+          
+          <div class="border border-ink-900/10 rounded p-6 bg-cream-100/20 mt-6">
+            <h3 class="font-serif text-lg font-bold text-ink-900 mb-3">Core Engines Included</h3>
+            <ul class="space-y-2">
+              {solution.features.map((feature) => (
+                <li class="flex items-start gap-2 text-xs text-ink-700">
+                  <span class="text-accent-600 font-bold">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQs -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-4 border-b border-ink-900/10 pb-2">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-4">
+            {solution.faqs.map((faq) => (
+              <div>
+                <h4 class="font-serif text-base font-bold text-accent-700 mb-1">{faq.q}</h4>
+                <p class="text-xs text-ink-600 leading-relaxed pl-3 border-l-2 border-accent-500/20">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="text-center bg-ink-900 text-cream-50 p-8 rounded shadow-lg mt-10">
+          <h3 class="font-serif text-2xl font-medium mb-3">Launch Your Active Workspace Context Graph</h3>
+          <p class="text-xs text-cream-200/80 mb-6 max-w-lg mx-auto">
+            Bring organizational intelligence to your operations. Connect your teams to our permanent company memory graph.
+          </p>
+          <a href="/nexus" class="inline-block px-8 py-3 rounded-full bg-cream-50 hover:bg-cream-100 text-ink-900 font-bold text-xs tracking-wider uppercase transition-all shadow-md">
+            Get Started for Free
+          </a>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

@@ -4,11 +4,21 @@ import '../styles/globals.css';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  robots?: string;
+  ogImage?: string;
+  type?: string;
+  schemas?: Record<string, any>[];
 }
 
 const { 
-  title = "Nexus AI — Your Intelligent Workspace", 
-  description = "AI-powered workspace for documents, tasks, calendar, email, and collaboration. Your AI Chief of Staff." 
+  title = "Aixentrix — Orchestrating Organizational Intelligence", 
+  description = "Aixentrix builds active software environments that think, remember, and execute—transforming localized data into unified, permanent company memory.",
+  canonical = Astro.props.canonical || new URL(Astro.url.pathname, "https://aixentrix.com").href,
+  robots = "index, follow",
+  ogImage = "/og-image.png",
+  type = "website",
+  schemas = []
 } = Astro.props;
 ---
 
@@ -29,28 +39,39 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#fcfbf9" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
     
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="workspace, AI, productivity, documents, tasks, calendar, email, collaboration, notion alternative" />
+    <meta name="keywords" content="workspace, AI, productivity, documents, tasks, calendar, email, collaboration, notion alternative, organizational memory, AI chief of staff" />
     <meta name="author" content="Aixentrix, Inc." />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nexus-ai.com/" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://aixentrix.com").href} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://nexus-ai.com/" />
+    <meta property="twitter:url" content={canonical} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og-image.png" />
+    <meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://aixentrix.com").href} />
+
+    <!-- Structured Data JSON-LD -->
+    {schemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

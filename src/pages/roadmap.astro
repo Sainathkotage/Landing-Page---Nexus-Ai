@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+
+const seoTitle = "Product Roadmap — Aixentrix";
+const seoDescription = "Explore the future of Aixentrix. View what we are currently building, what is next, and our long-term goals for organizational intelligence.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <!-- Decorative vintage wash -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 text-center">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500 font-sans">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Product Vision</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Aixentrix Roadmap
+        </h1>
+        <p class="text-sm text-ink-600 font-sans max-w-xl mx-auto">
+          We want to build the permanent brain for your organization. Here is how we plan to get there.
+        </p>
+      </header>
+
+      <div class="relative z-10 space-y-10 font-sans">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Column 1: In Progress -->
+          <div class="border border-ink-900/10 p-5 rounded bg-cream-50 shadow-sm flex flex-col gap-4">
+            <h3 class="font-serif text-lg font-bold text-ink-900 border-b border-ink-900/5 pb-2 flex items-center justify-between">
+              In Progress
+              <span class="h-2 w-2 rounded-full bg-accent-500 animate-pulse"></span>
+            </h3>
+            
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">Slack & MS Teams Integration</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Background agent sync to index group chat decision histories and link conversations directly to task cards.
+              </p>
+            </div>
+
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">Context Graph Optimizations</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Implementing hybrid vector-keyword retrieval models to cut cross-platform search times to sub-20ms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: Up Next -->
+          <div class="border border-ink-900/10 p-5 rounded bg-cream-50 shadow-sm flex flex-col gap-4">
+            <h3 class="font-serif text-lg font-bold text-ink-900 border-b border-ink-900/5 pb-2 flex items-center justify-between">
+              Up Next
+              <span class="h-2 w-2 rounded-full bg-ink-400"></span>
+            </h3>
+            
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">Webhook Dispatcher</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Allows developers to trigger external automations (e.g., in n8n or Zapier) when handovers are compiled.
+              </p>
+            </div>
+
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">SSO Admin Dashboard</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Dedicated security dashboards enabling organization admins to map custom SAML and OIDC parameters.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3: Future Goals -->
+          <div class="border border-ink-900/10 p-5 rounded bg-cream-50 shadow-sm flex flex-col gap-4">
+            <h3 class="font-serif text-lg font-bold text-ink-900 border-b border-ink-900/5 pb-2 flex items-center justify-between">
+              Future (Q4)
+              <span class="h-2 w-2 rounded-full bg-ink-300"></span>
+            </h3>
+            
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">Offline-First Desktop Clients</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Native macOS, Windows, and Linux shells maintaining local SQLite synchronization caches.
+              </p>
+            </div>
+
+            <div class="border border-ink-900/5 p-3.5 rounded bg-cream-100/30">
+              <h4 class="text-xs font-bold text-ink-900 mb-1">Multilingual Memory Index</h4>
+              <p class="text-[10px] text-ink-600 leading-relaxed">
+                Language localization for semantic search in Spanish, French, German, and Hindi.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

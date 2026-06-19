@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+
+const seoTitle = "Security & Compliance — Aixentrix";
+const seoDescription = "Learn about security, enterprise SSO (SAML/OIDC), encryption, and compliance standards at Aixentrix.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <!-- Decorative vintage wash -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 text-center">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500 font-sans">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Trust & Infrastructure</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Aixentrix Security
+        </h1>
+        <p class="text-sm text-ink-600 font-sans max-w-xl mx-auto">
+          Our systems are architected to defend your organizational context with enterprise-grade encryption, data isolation, and robust identity controls.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        
+        <!-- 1. Identity & SSO -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3 border-b border-ink-900/10 pb-2">
+            1. Identity Control & SSO (SAML & OIDC)
+          </h2>
+          <p>
+            Aixentrix integrates with your existing identity providers (IdPs) to enforce centralized access controls. We support corporate integrations through:
+          </p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>SAML 2.0</strong>: Connect Okta, Google Workspace, or Ping Identity for automated, single-sign-on access control.</li>
+            <li><strong>OpenID Connect (OIDC)</strong>: Seamless authentication through Microsoft Entra ID and active directories.</li>
+            <li><strong>Auto-Provisioning (SCIM)</strong>: Automatically synchronize user list directories and seat allocations as team members onboard or transition.</li>
+          </ul>
+        </section>
+
+        <!-- 2. Data Isolation -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3 border-b border-ink-900/10 pb-2">
+            2. Row-Level Security & Context Isolation
+          </h2>
+          <p>
+            Your corporate brain is private. We enforce strict data boundaries within our hybrid database architectures:
+          </p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Row-Level Security (RLS)</strong>: PostgreSQL policies guarantee that users can only query documents, emails, and tasks within their permitted organization ID scope.</li>
+            <li><strong>Isolated Model Context</strong>: Your company's memory context graphs are separated from model training cycles. We never utilize your private emails, chats, or notes to train public LLM models.</li>
+          </ul>
+        </section>
+
+        <!-- 3. Encryption Standards -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3 border-b border-ink-900/10 pb-2">
+            3. Military-Grade Encryption
+          </h2>
+          <p>
+            Aixentrix safeguards data transit and storage using industry-standard cryptographic protocols:
+          </p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>In Transit</strong>: All data transmitted between user devices and servers is encrypted using 256-bit TLS 1.3 tunnels.</li>
+            <li><strong>At Rest</strong>: Data on operational databases, vector indices, and backup storage systems is encrypted utilizing AES-256 standard encryption keys.</li>
+          </ul>
+        </section>
+
+        <!-- 4. SOC 2 & GDPR Compliance -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3 border-b border-ink-900/10 pb-2">
+            4. SOC 2 Type II & GDPR Compliance
+          </h2>
+          <p>
+            We adhere to global standards of operational control and privacy:
+          </p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>GDPR Alignment</strong>: We support full data portability, standard contract clauses (SCCs), and the right to be forgotten (complete account and context graph purge).</li>
+            <li><strong>SOC 2 Framework</strong>: Our infrastructure undergoes annual external SOC 2 audits, evaluating controls across security, availability, and confidentiality.</li>
+          </ul>
+        </section>
+
+        <!-- 5. Accessibility Statement -->
+        <section class="bg-cream-100/50 p-6 rounded border border-ink-900/10">
+          <h3 class="font-serif text-lg font-semibold text-ink-900 mb-2 flex items-center gap-1.5">
+            <span>♿</span> Accessibility Commitment
+          </h3>
+          <p class="text-xs leading-relaxed text-ink-600">
+            Aixentrix is designed to be usable by everyone. We audit our web interfaces against **WCAG 2.2 Level AA** standards to ensure clean keyboard navigation, high contrast colors, screen-reader compatibility (ARIA), and accessible forms.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

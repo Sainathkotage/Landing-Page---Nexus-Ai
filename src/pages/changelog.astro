@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+
+const seoTitle = "Product Changelog — Aixentrix";
+const seoDescription = "Keep up to date with new features, updates, performance boosts, and bug fixes added to Aixentrix.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <!-- Decorative vintage wash -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 text-center">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500 font-sans">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Weekly Releases</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Changelog
+        </h1>
+        <p class="text-sm text-ink-600 font-sans max-w-xl mx-auto">
+          See how we are building and improving the active workspace environment weekly.
+        </p>
+      </header>
+
+      <div class="relative z-10 space-y-12 font-sans">
+        
+        <!-- Release 1 -->
+        <section class="border-b border-ink-900/10 pb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-accent-700 bg-accent-500/10 px-2 py-0.5 rounded tracking-wide uppercase">v1.2.0</span>
+            <span class="text-xs text-ink-500 font-semibold font-mono">June 19, 2026</span>
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">
+            Google Analytics 4 & Microsoft Clarity Integration
+          </h2>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4">
+            We have integrated official, performance-optimized trackers into our app layouts to help monitor usage trends and user journeys without impacting Core Web Vitals score metrics.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-ink-600">
+            <li>Added dynamic Google Analytics 4 tags via `@next/third-parties/google` layout script mapping.</li>
+            <li>Embedded Microsoft Clarity event recorder configurations to inspect UI bottlenecks.</li>
+            <li>Optimized layout load times by making external metrics tags fetch asynchronously.</li>
+          </ul>
+        </section>
+
+        <!-- Release 2 -->
+        <section class="border-b border-ink-900/10 pb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-accent-700 bg-accent-500/10 px-2 py-0.5 rounded tracking-wide uppercase">v1.1.0</span>
+            <span class="text-xs text-ink-500 font-semibold font-mono">June 12, 2026</span>
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">
+            Enterprise Single Sign-On (SSO) Support
+          </h2>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4">
+            In-app settings now support full SAML 2.0 and OpenID Connect configurations. Workspaces can restrict access based on organization domain mappings.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-ink-600">
+            <li>Connected Google Workspace and Microsoft Entra ID corporate directories.</li>
+            <li>Implemented SCIM protocol endpoints to automatically provisioning seats on user join.</li>
+            <li>Designed and deployed the security admin panel under settings dashboards.</li>
+          </ul>
+        </section>
+
+        <!-- Release 3 -->
+        <section class="pb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-accent-700 bg-accent-500/10 px-2 py-0.5 rounded tracking-wide uppercase">v1.0.0</span>
+            <span class="text-xs text-ink-500 font-semibold font-mono">June 05, 2026</span>
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">
+            Aixentrix Interactive Beta Launch
+          </h2>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4">
+            We are excited to launch the first interactive version of Aixentrix. The platform unifies chat history, emails, tasks, and calendars into a single contextual memory index.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-ink-600">
+            <li>Autocompiling employee handover documentation within 5 minutes of worker departures.</li>
+            <li>Synchronizing calendars, tasks, and email drafts under one unified workspace dashboard.</li>
+            <li>Zero-latency, offline-first context search index with RAG support.</li>
+          </ul>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

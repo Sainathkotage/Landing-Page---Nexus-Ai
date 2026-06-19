@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+
+const seoTitle = "Careers at Aixentrix — Join Our Remote Team";
+const seoDescription = "Explore open career opportunities in AI agent infrastructure, growth engineering, and technical operations at Aixentrix.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10">
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <!-- Decorative vintage wash -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 text-center">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500 font-sans">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Work with Us</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Careers at Aixentrix
+        </h1>
+        <p class="text-sm text-ink-600 font-sans max-w-xl mx-auto">
+          We are building active software environments that think, remember, and execute. Join us in Nagpur, India, or remotely from anywhere in the world.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        
+        <!-- Our Values -->
+        <section>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-4 border-b border-ink-900/10 pb-2">
+            Our Cultural Engineering Principles
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            <div class="border border-ink-900/10 p-5 rounded bg-cream-100/30">
+              <h3 class="font-serif text-lg font-bold text-ink-900 mb-1">Async-First</h3>
+              <p class="text-xs text-ink-600">
+                We default to written documentation, structured issues, and asynchronous communication, minimizing meeting fatigue and maximizing focus time.
+              </p>
+            </div>
+            <div class="border border-ink-900/10 p-5 rounded bg-cream-100/30">
+              <h3 class="font-serif text-lg font-bold text-ink-900 mb-1">Product-Obsessed</h3>
+              <p class="text-xs text-ink-600">
+                Everyone on the team interacts with users, reads feedback, and shapes the roadmap. We write software to solve real organizational blockages.
+              </p>
+            </div>
+            <div class="border border-ink-900/10 p-5 rounded bg-cream-100/30">
+              <h3 class="font-serif text-lg font-bold text-ink-900 mb-1">Topical Autonomy</h3>
+              <p class="text-xs text-ink-600">
+                We hire builders and give them full ownership of their domains. You design, build, deploy, and monitor the features you own.
+              </p>
+            </div>
+            <div class="border border-ink-900/10 p-5 rounded bg-cream-100/30">
+              <h3 class="font-serif text-lg font-bold text-ink-900 mb-1">Continuous Learning</h3>
+              <p class="text-xs text-ink-600">
+                The space of agentic systems is changing weekly. We value curiosity, quick experimentation, and sharing technical summaries with the team.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Open Roles -->
+        <section class="mt-10">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-4 border-b border-ink-900/10 pb-2">
+            Open Opportunities
+          </h2>
+          
+          <div class="space-y-4">
+            <!-- Job 1 -->
+            <div class="border border-ink-900/15 p-6 rounded bg-cream-50 hover:bg-cream-100/20 transition-all shadow-sm">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 class="font-serif text-xl font-bold text-ink-900">Agentic Systems Architect</h3>
+                <span class="text-[10px] font-semibold bg-accent-500/10 text-accent-700 px-2 py-0.5 rounded tracking-wider uppercase font-sans w-fit">Remote / Full-time</span>
+              </div>
+              <p class="text-xs text-ink-600 mb-4">
+                Design and optimize memory retrieval pipelines (RAG), vector graphing structures, and agent execution architectures for workspace operations.
+              </p>
+              <a href="/contact" class="text-xs font-semibold text-accent-600 hover:text-accent-700 flex items-center gap-1">Apply Now <span>→</span></a>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="border border-ink-900/15 p-6 rounded bg-cream-50 hover:bg-cream-100/20 transition-all shadow-sm">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 class="font-serif text-xl font-bold text-ink-900">Senior Growth & SEO Engineer</h3>
+                <span class="text-[10px] font-semibold bg-accent-500/10 text-accent-700 px-2 py-0.5 rounded tracking-wider uppercase font-sans w-fit">Nagpur, IN / Remote</span>
+              </div>
+              <p class="text-xs text-ink-600 mb-4">
+                Manage the programmatic SEO pipelines, lead web performance optimization (Core Web Vitals), and build conversion funnels for the Aixentrix SaaS platform.
+              </p>
+              <a href="/contact" class="text-xs font-semibold text-accent-600 hover:text-accent-700 flex items-center gap-1">Apply Now <span>→</span></a>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="border border-ink-900/15 p-6 rounded bg-cream-50 hover:bg-cream-100/20 transition-all shadow-sm">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 class="font-serif text-xl font-bold text-ink-900">Technical Product Designer</h3>
+                <span class="text-[10px] font-semibold bg-accent-500/10 text-accent-700 px-2 py-0.5 rounded tracking-wider uppercase font-sans w-fit">Remote / Full-time</span>
+              </div>
+              <p class="text-xs text-ink-600 mb-4">
+                Work closely with engineering to build clean, premium interfaces, complex layouts, and dynamic visualizations for context graphs.
+              </p>
+              <a href="/contact" class="text-xs font-semibold text-accent-600 hover:text-accent-700 flex items-center gap-1">Apply Now <span>→</span></a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
