@@ -1,6 +1,6 @@
 import { Check, ArrowUpRight } from 'lucide-react';
 
-const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'http://localhost:3000';
+const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://nexus-ai-ivory-eta.vercel.app';
 
 export function FreeBeta() {
   const benefits = [
