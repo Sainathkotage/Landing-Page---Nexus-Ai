@@ -3,7 +3,7 @@ import { Sparkles, Menu, X, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Read dashboard url from environment variables (client-side in Astro)
-const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://nexus-ai-ivory-eta.vercel.app';
+const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://nexus-seven-rose-66.vercel.app';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
