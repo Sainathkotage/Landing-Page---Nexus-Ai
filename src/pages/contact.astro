@@ -45,7 +45,9 @@ import { Footer } from '../components/landing/Footer';
         </div>
 
         <div class="space-y-4">
-          <form id="contact-form" class="space-y-4 bg-cream-100 p-6 rounded-sm border border-ink-900/10">
+          <form id="contact-form" action="https://formsubmit.co/info.aixentrix@gmail.com" method="POST" class="space-y-4 bg-cream-100 p-6 rounded-sm border border-ink-900/10">
+            <input type="hidden" name="_next" value="https://www.aixentrix.com/contact" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="flex flex-col gap-1.5">
               <label class="text-xs font-medium text-ink-800">Your Name</label>
               <input type="text" name="name" required class="w-full bg-[#fcfcfb] border border-ink-900/15 rounded-sm px-3 py-1.5 text-sm focus:outline-none focus:border-accent-500 transition-all font-sans" />
