@@ -116,7 +116,7 @@ import { Footer } from '../components/landing/Footer';
         
         const data = await response.json();
         
-        if (response.ok && data.success === 'true') {
+        if (response.ok && (data.success === 'true' || data.success === true)) {
           form.classList.add('hidden');
           successState.classList.remove('hidden');
         } else {
