@@ -32,7 +32,7 @@ export function Navbar() {
 
   const handleStart = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.href = `${DASHBOARD_URL}/?auth=signup`;
+    window.location.href = `${DASHBOARD_URL}/?auth=login`;
   };
 
   return (
