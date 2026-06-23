@@ -27,7 +27,7 @@ export function Navbar() {
 
   const handleSignIn = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.href = `${DASHBOARD_URL}/?auth=signin`;
+    window.location.href = `${DASHBOARD_URL}/?auth=login`;
   };
 
   const handleStart = (e: React.MouseEvent) => {

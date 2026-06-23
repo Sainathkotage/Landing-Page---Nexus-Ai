@@ -62,7 +62,7 @@ export function Hero() {
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
             <a
-              href={`${DASHBOARD_URL}`}
+              href={`${DASHBOARD_URL}/?auth=login`}
               className="group px-7 py-3.5 bg-cream-50 hover:bg-white text-ink-800 text-sm font-medium rounded-sm border border-ink-900/20 transition-all inline-flex items-center gap-2 font-sans"
             >
               <Play className="w-3.5 h-3.5 fill-ink-800" />
