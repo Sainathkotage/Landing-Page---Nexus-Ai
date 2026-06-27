@@ -1,7 +1,7 @@
 import { Sparkles, ArrowRight, Cpu, Brain } from 'lucide-react';
 import { useState } from 'react';
 
-const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://nexus-seven-rose-66.vercel.app';
+const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://app.aixentrix.com';
 
 const capabilities = [
   {
