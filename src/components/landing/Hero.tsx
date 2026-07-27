@@ -54,14 +54,14 @@ export function Hero() {
           </p>
 
           <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up delay-300">
-            <button
+            <a
               href={`${DASHBOARD_URL}/?auth=login`}
               onClick={handleStart}
               className="group px-7 py-3.5 bg-ink-900 hover:bg-accent-600 text-cream-100 text-sm font-medium rounded-sm transition-all inline-flex items-center gap-2 shadow-lg shadow-ink-900/20 font-sans cursor-pointer border-0"
             >
               Join the Free Beta
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
+            </a>
             <a
               href={`${DASHBOARD_URL}/?auth=login`}
               className="group px-7 py-3.5 bg-cream-50 hover:bg-white text-ink-800 text-sm font-medium rounded-sm border border-ink-900/20 transition-all inline-flex items-center gap-2 font-sans"
