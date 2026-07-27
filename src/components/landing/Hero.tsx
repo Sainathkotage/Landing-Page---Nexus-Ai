@@ -55,6 +55,7 @@ export function Hero() {
 
           <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up delay-300">
             <button
+              href={`${DASHBOARD_URL}/?auth=login`}
               onClick={handleStart}
               className="group px-7 py-3.5 bg-ink-900 hover:bg-accent-600 text-cream-100 text-sm font-medium rounded-sm transition-all inline-flex items-center gap-2 shadow-lg shadow-ink-900/20 font-sans cursor-pointer border-0"
             >
