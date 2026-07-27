@@ -5,7 +5,7 @@ const DASHBOARD_URL = import.meta.env.PUBLIC_DASHBOARD_URL || 'https://app.aixen
 export function Hero() {
   const handleStart = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.location.href = `${DASHBOARD_URL}/?auth=login`;
+    window.location.href = `${DASHBOARD_URL}/?auth=signup`;
   };
 
   return (
