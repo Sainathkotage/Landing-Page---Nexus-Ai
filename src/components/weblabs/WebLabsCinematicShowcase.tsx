@@ -717,7 +717,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
                     </div>
 
                     <a
-                      href="https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20a%20website%20like%20Olive%20%26%20Thyme."
+                      href="https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20a%20website%20like%20Olive%20%26%20Thyme."
                       target="_blank"
                       rel="noreferrer"
                       className="px-3.5 py-1 rounded-full bg-[#171717] text-[#FAF8F5] font-medium text-xs flex items-center gap-1.5 shadow-xs hover:bg-[#2A2A2A] transition-colors"
@@ -775,7 +775,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
             <button
               onClick={() => {
                 window.open(
-                  'https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20see%20a%20live%20demo%20of%20your%20websites.',
+                  'https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20see%20a%20live%20demo%20of%20your%20websites.',
                   '_blank'
                 );
               }}
@@ -1101,7 +1101,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
               <div className="flex items-center justify-between pt-6 border-t border-black/[0.06] text-xs">
                 <span className="text-[#78726A]">Tech: Astro 6 + TypeScript + Tailwind v4</span>
                 <a
-                  href="https://wa.me/?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Olive%20%26%20Thyme."
+                  href="https://wa.me/919021509565?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Olive%20%26%20Thyme."
                   target="_blank"
                   rel="noreferrer"
                   className="text-[#171717] hover:text-[#99582A] transition-colors flex items-center gap-1 font-medium"
@@ -1145,7 +1145,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
             </div>
 
             <a
-              href="https://wa.me/?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Monsoon%20Coffee."
+              href="https://wa.me/919021509565?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Monsoon%20Coffee."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 pt-2 font-medium"
@@ -1228,7 +1228,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
               <div className="flex items-center justify-between pt-6 border-t border-black/[0.06] text-xs text-[#78726A]">
                 <span>Direct WhatsApp Consultation Gateway</span>
                 <a
-                  href="https://wa.me/?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Luxe%20Studio."
+                  href="https://wa.me/919021509565?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Luxe%20Studio."
                   target="_blank"
                   rel="noreferrer"
                   className="text-[#171717] hover:text-[#A84242] transition-colors flex items-center gap-1 font-medium"
@@ -1301,7 +1301,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
             </div>
 
             <a
-              href="https://wa.me/?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Verma%20%26%20Associates."
+              href="https://wa.me/919021509565?text=Hi%20WebLabs,%20tell%20me%20about%20a%20website%20like%20Verma%20%26%20Associates."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-xs text-emerald-400 hover:text-emerald-300 pt-2 font-medium"
@@ -1332,7 +1332,7 @@ export function WebLabsCinematicShowcase({ onThemeChange }: Props) {
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business."
+              href="https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business."
               target="_blank"
               rel="noreferrer"
               className="px-8 py-3.5 rounded-full bg-white text-zinc-950 font-medium text-xs sm:text-sm tracking-tight flex items-center gap-2 shadow-xs transition-all duration-200 hover:bg-zinc-200 hover:-translate-y-[1px] active:translate-y-0"

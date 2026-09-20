@@ -137,7 +137,7 @@ export function WebLabsServices() {
           </p>
           <div className="pt-2">
             <a
-              href="https://wa.me/?text=Hello!%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20website%20with%20WebLabs."
+              href="https://wa.me/919021509565?text=Hello!%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20website%20with%20WebLabs."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1A1918] hover:bg-[#2C2A28] text-[#F6F4EF] text-xs sm:text-sm font-medium rounded-full transition-all duration-200 ease-editorial hover:-translate-y-[1px] shadow-xs active:translate-y-0"
@@ -148,7 +148,7 @@ export function WebLabsServices() {
             </a>
           </div>
           <div className="text-[11px] font-mono text-[#8C877D]">
-            Direct freelance engineering · No sales reps · [ADD: WhatsApp number]
+            Direct freelance engineering · No sales reps · +91-9021509565
           </div>
         </div>
 

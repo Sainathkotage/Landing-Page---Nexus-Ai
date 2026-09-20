@@ -118,13 +118,13 @@ export function WebLabsFAQ() {
             </p>
           </div>
           <a
-            href="https://wa.me/?text=Hello!%20I%20have%20a%20question%20about%20building%20a%20website%20for%20my%20business."
+            href="https://wa.me/919021509565?text=Hello!%20I%20have%20a%20question%20about%20building%20a%20website%20for%20my%20business."
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1c1713] text-[#f8f3e8] hover:bg-[#c2410c] text-xs sm:text-sm font-semibold rounded-md transition-colors flex-shrink-0"
           >
             <MessageSquare className="w-4 h-4" />
-            <span>WhatsApp Me: [ADD: WhatsApp number]</span>
+            <span>WhatsApp: +91-9021509565</span>
           </a>
         </div>
       </div>

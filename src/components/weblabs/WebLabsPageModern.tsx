@@ -300,7 +300,7 @@ export function WebLabsPageModern() {
     const message = encodeURIComponent(
       "Hi WebLabs! I'd like to discuss building a high-performance website for my business."
     );
-    window.open(`https://wa.me/?text=${message}`, '_blank');
+    window.open(`https://wa.me/919021509565?text=${message}`, '_blank');
   };
 
   const handleSubscribe = (e: React.FormEvent) => {

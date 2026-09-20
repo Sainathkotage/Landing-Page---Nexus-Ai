@@ -123,7 +123,7 @@ export function WebLabsNavbarModern({ isDarkHero = true }: Props) {
         {/* Right: Tactile Actions */}
         <div className="hidden sm:flex items-center gap-4">
           <a
-            href="https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business."
+            href="https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business."
             target="_blank"
             rel="noreferrer"
             className={`text-xs font-medium px-3.5 py-1.5 rounded-full border transition-all duration-200 ${
@@ -138,7 +138,7 @@ export function WebLabsNavbarModern({ isDarkHero = true }: Props) {
           <button
             onClick={() =>
               window.open(
-                'https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business.',
+                'https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business.',
                 '_blank'
               )
             }
@@ -180,18 +180,18 @@ export function WebLabsNavbarModern({ isDarkHero = true }: Props) {
             ))}
             <div className="pt-4 border-t border-black/[0.08] flex flex-col gap-3">
               <a
-                href="https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business."
+                href="https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business."
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs font-medium text-[#2D6A4F] flex items-center gap-2"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp: [ADD: WhatsApp number]</span>
+                <span>WhatsApp: +91-9021509565</span>
               </a>
               <button
                 onClick={() =>
                   window.open(
-                    'https://wa.me/?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business.',
+                    'https://wa.me/919021509565?text=Hi%20WebLabs,%20I%20would%20like%20to%20request%20a%20free%2048-hour%20homepage%20concept%20for%20my%20business.',
                     '_blank'
                   )
                 }

@@ -16,9 +16,8 @@ export function WebLabsHero() {
   };
 
   const openWhatsApp = () => {
-    // Uses placeholder number until user provides real WhatsApp number
     const message = encodeURIComponent("Hi WebLabs, I would like to inquire about building a website for my business.");
-    window.open(`https://wa.me/?text=${message}`, '_blank');
+    window.open(`https://wa.me/919021509565?text=${message}`, '_blank');
   };
 
   return (
@@ -59,7 +58,7 @@ export function WebLabsHero() {
               className="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-cream-50 bg-ink-900 hover:bg-accent-600 transition-all shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 font-sans cursor-pointer border-0"
             >
               <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span>Chat on WhatsApp ([ADD: WhatsApp number])</span>
+              <span>Chat on WhatsApp (+91-9021509565)</span>
             </button>
 
             <button

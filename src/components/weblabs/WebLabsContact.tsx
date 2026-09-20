@@ -36,12 +36,12 @@ export function WebLabsContact() {
               </p>
             </div>
             <a
-              href="https://wa.me/?text=Hello!%20I%20am%20interested%20in%20building%20a%20website%20with%20WebLabs."
+              href="https://wa.me/919021509565?text=Hello!%20I%20am%20interested%20in%20building%20a%20website%20with%20WebLabs."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#f8f3e8] bg-[#3d342b] hover:bg-[#c2410c] px-3 py-2 rounded transition-colors"
             >
-              <span>[ADD: WhatsApp number]</span>
+              <span>+91-9021509565</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

@@ -42,7 +42,7 @@ export function WebLabsConcept() {
     );
 
     // Open WhatsApp with pre-filled enquiry text
-    const whatsappUrl = `https://wa.me/?text=${message}`;
+    const whatsappUrl = `https://wa.me/919021509565?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -109,13 +109,13 @@ export function WebLabsConcept() {
             <div className="pt-4 border-t border-[#e8dfc5] flex flex-wrap items-center gap-4 text-xs font-mono text-[#554a3d]">
               <span>Prefer direct chat?</span>
               <a
-                href="https://wa.me/?text=Hello!%20I%20would%20like%20to%20request%20a%20Free%20Homepage%20Concept."
+                href="https://wa.me/919021509565?text=Hello!%20I%20would%20like%20to%20request%20a%20Free%20Homepage%20Concept."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-[#7c2d12] hover:text-[#1c1713] font-semibold underline underline-offset-4"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
-                <span>WhatsApp: [ADD: WhatsApp number]</span>
+                <span>WhatsApp: +91-9021509565</span>
               </a>
               <span className="text-[#d9cdaa]">|</span>
               <a
@@ -260,7 +260,7 @@ export function WebLabsConcept() {
                   </button>
 
                   <p className="text-[11px] text-center text-[#776a58] pt-1">
-                    No spam. No salespeople. Direct chat with independent developer · <span className="font-mono">[ADD: WhatsApp number]</span>
+                    No spam. No salespeople. Direct chat with independent developer · <span className="font-mono">+91-9021509565</span>
                   </p>
                 </form>
               )}
