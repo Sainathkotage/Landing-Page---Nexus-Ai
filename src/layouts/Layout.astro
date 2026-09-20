@@ -1,5 +1,6 @@
 ---
 import '../styles/globals.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -73,12 +74,15 @@ const {
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans (Contemporary Soft Grotesk) & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Astro View Transitions for seamless cross-page transitions -->
+    <ClientRouter />
   </head>
-  <body class="min-h-screen bg-cream-50 text-ink-900 font-sans antialiased selection:bg-accent-500/20 paper-texture paper-vignette relative overflow-x-hidden">
+  <body class="min-h-screen bg-[#F6F4EF] text-[#171717] font-sans antialiased selection:bg-[#171717]/10 relative overflow-x-hidden">
     <slot />
   </body>
 </html>

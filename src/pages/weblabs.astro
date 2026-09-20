@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { WebLabsPageModern } from '../components/weblabs/WebLabsPageModern';
+
+const domain = "https://www.aixentrix.com";
+
+const seoTitle = "WebLabs | Boost Your Website's SEO & Performance";
+const seoDescription = "WebLabs builds fast, modern, high-converting websites engineered for agencies, consultants, e-commerce, and high-growth SaaS. Turnkey domain, hosting, SSL, Google indexing, and performance included.";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "WebLabs by Aixentrix",
+  "serviceType": "High-Performance Website Design and Development",
+  "priceRange": "$$",
+  "url": `${domain}/weblabs`,
+  "telephone": "+91-9876543210",
+  "email": "contact@aixentrix.com",
+  "description": seoDescription,
+  "provider": {
+    "@type": "Organization",
+    "name": "Aixentrix",
+    "url": domain
+  }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={`${domain}/weblabs`}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <WebLabsPageModern client:load />
+</Layout>
