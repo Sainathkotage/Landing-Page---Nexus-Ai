@@ -1,0 +1,99 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { Key, Lock, Mail, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/troubleshooting/login`;
+
+const seoTitle = "Login & Authentication Troubleshooting — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Resolving login, OAuth verification, magic link, and session issues for Nexus AI by Aixentrix.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Troubleshooting", "item": `${domain}/help#troubleshooting` },
+    { "@type": "ListItem", "position": 4, "name": "Login Troubleshooting", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Troubleshooting</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Login Support</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Authentication Support</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Login & Authentication Troubleshooting
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Fix magic link delivery issues, enterprise SSO errors, and workspace access conflicts.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">1. Did Not Receive Magic Link</h2>
+          <p>
+            Magic links are dispatched immediately via transactional email. If you haven't received your sign-in link within 60 seconds:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-ink-700">
+            <li>Check your spam or corporate quarantine folder for emails from <code>auth@aixentrix.com</code>.</li>
+            <li>Ensure corporate email filters (such as Mimecast or Proofpoint) are not rewriting or pre-clicking one-time verification links.</li>
+            <li>Try logging in via Google OAuth directly if your company uses Google Workspace.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">2. "No Workspace Found" Error</h2>
+          <p>
+            If you signed up with a new email address that has not yet been invited to an existing company workspace, you will be prompted to create a new workspace. Ask your workspace administrator to send an invitation to your exact email address if you are joining an existing team.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/troubleshooting/common-issues" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Common Issues
+          </a>
+          <a href="https://app.aixentrix.com/?auth=login" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Sign In to Nexus AI <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

@@ -1,0 +1,106 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { Settings, User, CreditCard, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/account/settings`;
+
+const seoTitle = "Workspace & Account Settings — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Learn how to manage your Nexus AI profile, notification preferences, workspace subscriptions, and API tokens.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Account & Security", "item": `${domain}/help#account-security` },
+    { "@type": "ListItem", "position": 4, "name": "Account Settings", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Account & Security</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Account Settings</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Account Management</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Workspace & Account Settings
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Manage your personal profile, notification thresholds, team seats, and beta tier configurations.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Managing Your Profile</h2>
+          <p>
+            Under <strong>Settings → Profile</strong>, you can update your display name, primary email address, time zone, and profile avatar. Setting an accurate time zone is critical for timely delivery of your morning Chief of Staff briefs.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Notification Preferences</h2>
+          <p>
+            Choose how and when Nexus AI alerts you about high-priority commitments:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-ink-700">
+            <li><strong>Email Digests:</strong> Receive a concise daily summary at your preferred morning hour.</li>
+            <li><strong>Slack Bot Direct Messages:</strong> Get real-time nudges when an urgent task or deadline is detected in a channel.</li>
+            <li><strong>In-App Notifications:</strong> View updates in the top notification bell.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Beta Program Tier</h2>
+          <p>
+            Nexus AI is currently provided in free public beta. Workspace admins can configure team access limits, test experimental integrations, and submit direct feature requests from the settings panel.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/account/security" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Security & Privacy
+          </a>
+          <a href="/help/integrations/google" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Google Integration <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

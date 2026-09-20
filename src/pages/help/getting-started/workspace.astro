@@ -1,0 +1,115 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { Settings, Users, Shield, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/getting-started/workspace`;
+
+const seoTitle = "Workspace Configuration — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Learn how to configure your Nexus AI workspace, invite team members, assign role-based permissions, and manage data governance.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Getting Started", "item": `${domain}/help#getting-started` },
+    { "@type": "ListItem", "position": 4, "name": "Workspace Configuration", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Getting Started</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Workspace Configuration</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Configuration Guide</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Workspace Configuration & Team Setup
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Configure organizational preferences, manage member access, and set data boundaries in Nexus AI.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Workspace Hierarchy</h2>
+          <p>
+            Nexus AI provides isolated environments for teams. All indexed data, embeddings, and context graphs belong strictly to the tenant workspace and are isolated using PostgreSQL Row-Level Security (RLS) and cryptographic tenant partitioning.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">User Roles & Permissions</h2>
+          <p>
+            Nexus AI supports granular Role-Based Access Control (RBAC):
+          </p>
+          <div class="space-y-3 my-4">
+            <div class="p-4 bg-cream-100/80 rounded-sm border border-ink-900/10">
+              <strong class="text-ink-900 font-serif text-base block mb-1">Owner / Administrator</strong>
+              <p class="text-xs text-ink-600">Full control over billing, integrations, data retention policies, team invitations, and audit log exports.</p>
+            </div>
+            <div class="p-4 bg-cream-100/80 rounded-sm border border-ink-900/10">
+              <strong class="text-ink-900 font-serif text-base block mb-1">Manager</strong>
+              <p class="text-xs text-ink-600">Ability to view team-wide commitment streams, generate handover packages, and manage channel indexing filters.</p>
+            </div>
+            <div class="p-4 bg-cream-100/80 rounded-sm border border-ink-900/10">
+              <strong class="text-ink-900 font-serif text-base block mb-1">Member</strong>
+              <p class="text-xs text-ink-600">Access to daily briefs, personal commitment trackers, and organizational memory search within permitted channels.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Channel Whitelisting & Privacy Filters</h2>
+          <p>
+            You can explicitly select which Slack channels, email labels, or shared folders Nexus AI is allowed to index. Sensitive HR, legal, or personal channels can be placed on an exclusion blocklist with a single click.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/getting-started/quick-start" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Quick Start Guide
+          </a>
+          <a href="/help/getting-started/dashboard" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Dashboard Overview <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

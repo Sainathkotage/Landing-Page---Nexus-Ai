@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { 
+  Search, BookOpen, ShieldCheck, Cpu, Zap, 
+  HelpCircle, ArrowRight, LifeBuoy, Users, Layers, Key, CheckCircle2 
+} from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help`;
+
+const seoTitle = "Help Centre | Nexus AI by Aixentrix Support & Documentation";
+const seoDescription = "Find guides, tutorials, integration instructions, and troubleshooting tips for Nexus AI by Aixentrix. Get the most out of your AI Chief of Staff.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+
+const categories = [
+  {
+    title: "Getting Started",
+    icon: Zap,
+    description: "New to Nexus AI? Learn the basics of setting up your workspace, connecting accounts, and exploring the dashboard.",
+    links: [
+      { title: "Quick Start Guide", href: "/help/getting-started/quick-start", desc: "Get up and running with Nexus AI in under 5 minutes" },
+      { title: "Workspace Configuration", href: "/help/getting-started/workspace", desc: "Invite team members and configure organizational preferences" },
+      { title: "Dashboard Overview", href: "/help/getting-started/dashboard", desc: "Understanding the Daily Brief, Commitments, and Memory streams" }
+    ]
+  },
+  {
+    title: "Core Features",
+    icon: Cpu,
+    description: "Master the key capabilities that turn workplace conversations into persistent organizational intelligence.",
+    links: [
+      { title: "Organizational Memory", href: "/help/features/organizational-memory", desc: "How context graphs capture and retrieve historical decisions" },
+      { title: "AI Employee Handover", href: "/help/features/employee-handover", desc: "Generate transition briefs and offboarding knowledge packages" },
+      { title: "Team Intelligence & Context", href: "/help/features/team-intelligence", desc: "Cross-channel knowledge discovery and team coordination" },
+      { title: "Commitment Tracking", href: "/help/features/commitments", desc: "Automated action item extraction and deadline monitoring" }
+    ]
+  },
+  {
+    title: "Account & Security",
+    icon: ShieldCheck,
+    description: "Learn about enterprise-grade security protocols, encryption, privacy controls, and workspace access management.",
+    links: [
+      { title: "Security & Privacy Architecture", href: "/help/account/security", desc: "Zero data training, AES-256 encryption, and SOC 2 alignment" },
+      { title: "Workspace & Account Settings", href: "/help/account/settings", desc: "Managing subscriptions, roles, permissions, and profile details" }
+    ]
+  },
+  {
+    title: "Integrations",
+    icon: Layers,
+    description: "Connect Nexus AI to your everyday workplace tools for seamless, automated context indexing.",
+    links: [
+      { title: "Google Workspace Integration", href: "/help/integrations/google", desc: "Connect Gmail, Google Calendar, and Google Drive securely" },
+      { title: "Slack Integration", href: "/help/integrations/slack", desc: "Ingest channel discussions and automate thread summaries" }
+    ]
+  },
+  {
+    title: "Troubleshooting",
+    icon: LifeBuoy,
+    description: "Step-by-step solutions for common operational queries, authentication issues, and sync questions.",
+    links: [
+      { title: "Common Issues & FAQ", href: "/help/troubleshooting/common-issues", desc: "Resolving sync delays, search precision, and permissions" },
+      { title: "Login & Authentication Support", href: "/help/troubleshooting/login", desc: "OAuth verification, magic link issues, and session management" }
+    ]
+  }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-5xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Help Centre</span>
+    </nav>
+
+    <!-- Header & Hero -->
+    <section class="text-center mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Knowledge Base & Support</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink-900 leading-tight mb-6">
+        How can we help you?
+      </h1>
+      <p class="text-lg text-ink-700 max-w-2xl mx-auto font-serif italic mb-8">
+        Search our guides, feature manuals, and troubleshooting docs to master Nexus AI by Aixentrix.
+      </p>
+
+      <!-- Quick Nav Jump -->
+      <div class="flex flex-wrap justify-center gap-3 text-xs font-semibold uppercase tracking-wider text-ink-600">
+        <a href="#getting-started" class="px-4 py-2 bg-cream-100 hover:bg-cream-200 border border-ink-900/10 rounded-sm transition-colors">Getting Started</a>
+        <a href="#core-features" class="px-4 py-2 bg-cream-100 hover:bg-cream-200 border border-ink-900/10 rounded-sm transition-colors">Core Features</a>
+        <a href="#account-security" class="px-4 py-2 bg-cream-100 hover:bg-cream-200 border border-ink-900/10 rounded-sm transition-colors">Security</a>
+        <a href="#integrations" class="px-4 py-2 bg-cream-100 hover:bg-cream-200 border border-ink-900/10 rounded-sm transition-colors">Integrations</a>
+        <a href="#troubleshooting" class="px-4 py-2 bg-cream-100 hover:bg-cream-200 border border-ink-900/10 rounded-sm transition-colors">Troubleshooting</a>
+      </div>
+    </section>
+
+    <!-- Category Grids -->
+    <div class="space-y-16">
+      {categories.map((cat, idx) => {
+        const Icon = cat.icon;
+        const sectionId = cat.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        return (
+          <section id={sectionId} class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-xl p-8 md:p-10 vintage-border relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+            
+            <div class="flex items-center gap-4 mb-6 border-b border-ink-900/10 pb-4">
+              <div class="w-10 h-10 rounded-sm bg-ink-900 text-cream-100 flex items-center justify-center">
+                <Icon class="w-5 h-5" />
+              </div>
+              <div>
+                <h2 class="font-serif text-2xl md:text-3xl font-medium text-ink-900">
+                  {cat.title}
+                </h2>
+                <p class="text-xs md:text-sm text-ink-600 font-serif italic mt-0.5">
+                  {cat.description}
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {cat.links.map((link) => (
+                <a 
+                  href={link.href}
+                  class="group block p-5 rounded-sm bg-cream-100/60 hover:bg-cream-100 border border-ink-900/10 hover:border-ink-900/30 transition-all"
+                >
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-serif text-base font-semibold text-ink-900 group-hover:text-accent-700 transition-colors">
+                      {link.title}
+                    </h3>
+                    <ArrowRight class="w-4 h-4 text-ink-400 group-hover:text-accent-700 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p class="text-xs text-ink-600 leading-relaxed">
+                    {link.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+
+    <!-- Need More Support CTA -->
+    <section class="mt-16 text-center bg-cream-100/80 p-8 md:p-12 rounded-sm border border-ink-900/15">
+      <h3 class="font-serif text-2xl md:text-3xl font-medium text-ink-900 mb-3">
+        Still have questions?
+      </h3>
+      <p class="text-sm text-ink-700 max-w-xl mx-auto mb-6">
+        Our engineering and support team is available during the Nexus AI public beta. Reach out directly or join our community discussions.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a 
+          href="/contact" 
+          class="px-6 py-3 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all"
+        >
+          Contact Support
+        </a>
+        <a 
+          href="/nexus-ai/docs" 
+          class="px-6 py-3 rounded-sm border border-ink-900/30 hover:border-ink-900 text-ink-900 text-xs font-semibold uppercase tracking-wider transition-all"
+        >
+          Technical Documentation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+</Layout>

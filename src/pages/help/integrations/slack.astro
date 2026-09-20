@@ -1,0 +1,102 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { MessageSquare, Hash, ArrowRight, ArrowLeft, Shield } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/integrations/slack`;
+
+const seoTitle = "Slack Integration Guide — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "How to integrate Nexus AI with Slack to capture decisions, index channels, track commitments, and enable in-channel AI search.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Integrations", "item": `${domain}/help#integrations` },
+    { "@type": "ListItem", "position": 4, "name": "Slack Integration", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Integrations</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Slack Integration</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Integration Guide</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Slack Integration Guide
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Turn your Slack conversations into searchable, structured organizational knowledge.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Why Connect Slack to Nexus AI?</h2>
+          <p>
+            Up to 80% of high-context team decisions occur in ephemeral Slack channels and threads. Connecting Slack allows Nexus AI to:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-ink-700">
+            <li>Index key announcements, product specs, and technical problem solving.</li>
+            <li>Detect verbal commitments and promises made between teammates.</li>
+            <li>Provide an in-channel bot (<code class="bg-cream-200 px-1.5 py-0.5 rounded text-xs">/nexus ask [question]</code>) that gives cited answers without leaving Slack.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Step-by-Step Installation</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Go to <strong>Settings → Integrations</strong> and click <strong>Add to Slack</strong>.</li>
+            <li>Select the Slack workspace to authorize.</li>
+            <li>Choose whether to index all public channels or manually invite the bot into selected channels (<code class="bg-cream-200 px-1.5 py-0.5 rounded text-xs">/invite @NexusAI</code>).</li>
+            <li>Direct messages and private channels are <em>never</em> indexed unless explicitly configured by the workspace administrator.</li>
+          </ol>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/integrations/google" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Google Workspace
+          </a>
+          <a href="/help/troubleshooting/common-issues" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Troubleshooting Common Issues <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

@@ -58,6 +58,7 @@ export function Navbar() {
     { href: '/', label: 'Aixentrix' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/docs', label: 'Docs' },
+    { href: '/help', label: 'Help Centre' },
     { href: '/blog', label: 'Blog' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },

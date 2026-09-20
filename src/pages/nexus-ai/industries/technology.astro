@@ -1,0 +1,118 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { Cpu, Code2, GitPullRequest, Database, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/industries/technology`;
+
+const seoTitle = "Nexus AI for Technology & Engineering Teams | Aixentrix";
+const seoDescription = "How engineering and technology organizations use Nexus AI to retain architectural decisions, automate developer handovers, and connect code to business context.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Industries", "item": `${domain}/nexus-ai#industries` },
+    { "@type": "ListItem", "position": 4, "name": "Technology", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Industries</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Technology</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-12 text-center border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Industry Solution</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Nexus AI for Technology & Software Engineering
+        </h1>
+        <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto font-serif italic">
+          Bridge the gap between code repositories, technical specs, and Slack discussions to build a living architectural memory.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">The Software Context Gap</h2>
+          <p>
+            Code explains <em>how</em> a system works, but rarely records <em>why</em> it was built that way. The crucial business requirements, trade-offs, discarded architectural alternatives, and incident learnings reside in fleeting Slack threads, PR comments, and RFC documents.
+          </p>
+          <p>
+            When a senior staff engineer leaves, their deep understanding of the legacy systems and hidden edge cases vanishes with them.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">How Engineering Teams Leverage Nexus AI</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <div class="p-5 bg-cream-100/80 rounded-sm border border-ink-900/10">
+              <h3 class="font-serif text-base font-semibold text-ink-900 mb-2 flex items-center gap-2">
+                <Code2 class="w-4 h-4 text-accent-700" /> Architectural Memory
+              </h3>
+              <p class="text-xs text-ink-600">
+                Nexus AI automatically correlates GitHub pull requests with related Slack discussions and RFCs, creating a permanent, searchable record of technical decisions.
+              </p>
+            </div>
+            <div class="p-5 bg-cream-100/80 rounded-sm border border-ink-900/10">
+              <h3 class="font-serif text-base font-semibold text-ink-900 mb-2 flex items-center gap-2">
+                <GitPullRequest class="w-4 h-4 text-accent-700" /> Automated Developer Offboarding
+              </h3>
+              <p class="text-xs text-ink-600">
+                Generate exhaustive engineering handovers capturing owned microservices, active bug tickets, undocumented workarounds, and key team dependencies in minutes.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Faster Incident Retrospectives</h2>
+          <p>
+            During production incidents, Nexus AI indexes war-room Slack channels to compile automated post-mortem timelines, root-cause summaries, and follow-up action items with zero manual transcription.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/nexus-ai" class="text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            ← Back to Nexus AI
+          </a>
+          <a href="https://app.aixentrix.com/?auth=signup" class="px-6 py-2.5 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all">
+            Join the Free Beta
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

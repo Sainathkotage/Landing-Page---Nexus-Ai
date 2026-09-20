@@ -1,0 +1,97 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { Users, Zap, Shield, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/features/team-intelligence`;
+
+const seoTitle = "Team Intelligence & Context — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Learn how Nexus AI surfaces cross-team context, prevents duplicate work, and keeps cross-functional teams aligned in real time.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Features", "item": `${domain}/help#core-features` },
+    { "@type": "ListItem", "position": 4, "name": "Team Intelligence", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Features</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Team Intelligence</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Core Feature Guide</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Team Intelligence & Cross-Functional Alignment
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Break down communication silos and keep engineering, product, and operations moving together.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Preventing Duplicate Work</h2>
+          <p>
+            In growing organizations, teams frequently duplicate research or solve problems another squad already tackled three months prior. Nexus AI constantly analyzes active discussions and surfaces proactive notifications:
+          </p>
+          <blockquote class="border-l-4 border-accent-700 pl-4 italic text-ink-800 bg-cream-100/50 py-2 my-3">
+            "Notice: Team Alpha investigated OAuth2 providers last month and documented trade-offs between Auth0 and Supabase Auth. View related threads."
+          </blockquote>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Synchronizing Async & Remote Teams</h2>
+          <p>
+            When teams work across different time zones, real-time sync meetings become bottlenecks. Nexus AI synthesizes asynchronous progress updates, identifies blocked tasks, and highlights dependencies without requiring daily status standups.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/features/employee-handover" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Employee Handover
+          </a>
+          <a href="/help/features/commitments" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Commitment Tracking <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

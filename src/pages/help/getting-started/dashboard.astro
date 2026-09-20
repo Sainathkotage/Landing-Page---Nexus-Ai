@@ -1,0 +1,106 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { LayoutDashboard, Calendar, CheckSquare, Search, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/getting-started/dashboard`;
+
+const seoTitle = "Dashboard Overview — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Understand the Nexus AI dashboard: Daily Brief, Commitment Stream, Memory Search, and Handover Modules.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Getting Started", "item": `${domain}/help#getting-started` },
+    { "@type": "ListItem", "position": 4, "name": "Dashboard Overview", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Getting Started</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Dashboard Overview</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Interface Overview</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Nexus AI Dashboard Overview
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Tour the core interface: Daily Brief, Commitment Stream, Organizational Memory, and Handover Briefs.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">1. The Morning Chief of Staff Brief</h2>
+          <p>
+            At the top of your workspace dashboard sits the <strong>Chief of Staff Brief</strong>. Generated fresh every morning at 8:00 AM in your local timezone, this synthesized view summarizes:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-ink-700">
+            <li>Critical decisions finalized in team channels while you were offline.</li>
+            <li>Direct commitments made by you or to you that have upcoming deadlines today.</li>
+            <li>Meeting memos and context briefings for your scheduled calendar events.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">2. Active Commitment Stream</h2>
+          <p>
+            Unlike static to-do lists where items must be manually typed, the <strong>Commitment Stream</strong> automatically detects promises made in conversations (e.g., <em>"I will send the revised financial model by Thursday 3 PM"</em>). Each commitment includes a confidence score, source message citation, and one-click dismissal or sync to your task manager.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">3. Universal Context Search</h2>
+          <p>
+            The central search bar enables semantic queries across all connected integrations. Rather than matching keywords, it evaluates semantic intent, returning linked entities, historical rationales, and conversation snippets with full provenance.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help/getting-started/workspace" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Workspace Setup
+          </a>
+          <a href="/help/features/organizational-memory" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Organizational Memory Feature <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>

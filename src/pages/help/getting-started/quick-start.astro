@@ -1,0 +1,138 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Navbar } from '../../../components/landing/Navbar';
+import { Footer } from '../../../components/landing/Footer';
+import { CheckCircle2, ArrowRight, ArrowLeft, Key, Sparkles, Shield } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/help/getting-started/quick-start`;
+
+const seoTitle = "Quick Start Guide — Nexus AI Help Centre | Aixentrix";
+const seoDescription = "Learn how to get started with Nexus AI in under 5 minutes. Set up your workspace, connect your first data source, and unlock organizational memory.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Help Centre", "item": `${domain}/help` },
+    { "@type": "ListItem", "position": 3, "name": "Getting Started", "item": `${domain}/help#getting-started` },
+    { "@type": "ListItem", "position": 4, "name": "Quick Start Guide", "item": canonical }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "author": { "@type": "Organization", "name": "Aixentrix" },
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, articleSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/help" class="hover:text-accent-600 transition-colors">Help Centre</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-500">Getting Started</span>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Quick Start</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-10 border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Getting Started Guide</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-5xl font-medium text-ink-900 leading-tight mb-4">
+          Nexus AI Quick Start Guide
+        </h1>
+        <p class="text-base text-ink-700 font-serif italic">
+          Set up your workspace, connect your first data source, and unlock organizational intelligence in under 5 minutes.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Step 1: Create Your Workspace</h2>
+          <p>
+            Nexus AI operates at the workspace level. A workspace represents your organization, startup, or department. When you sign in for the first time:
+          </p>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Visit the Nexus AI web application at <a href="https://app.aixentrix.com/?auth=signup" class="text-accent-700 underline font-semibold">app.aixentrix.com</a>.</li>
+            <li>Sign in using your corporate Google or Microsoft email, or request a secure magic link.</li>
+            <li>Give your workspace a name (e.g., "Acme Operations" or "FinTech Labs").</li>
+            <li>Select your preferred data retention region and default notification frequency.</li>
+          </ol>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Step 2: Connect Communication Channels</h2>
+          <p>
+            Nexus AI acts as an AI Chief of Staff by indexing context across your existing tools. It does not replace Slack or Gmail; it connects to them read-only via enterprise OAuth:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <div class="bg-cream-100/80 p-5 rounded-sm border border-ink-900/10">
+              <h3 class="font-serif font-semibold text-ink-900 mb-1 flex items-center gap-2">
+                <Sparkles class="w-4 h-4 text-accent-700" /> Google Workspace
+              </h3>
+              <p class="text-xs text-ink-600">
+                Connect Gmail and Google Calendar to extract action items, meeting context, and commitments automatically.
+              </p>
+            </div>
+            <div class="bg-cream-100/80 p-5 rounded-sm border border-ink-900/10">
+              <h3 class="font-serif font-semibold text-ink-900 mb-1 flex items-center gap-2">
+                <Sparkles class="w-4 h-4 text-accent-700" /> Slack Workspace
+              </h3>
+              <p class="text-xs text-ink-600">
+                Install the Nexus AI Slack app to index public channels, capture spontaneous decisions, and trigger AI handovers.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Step 3: Ask Your First Context Question</h2>
+          <p>
+            Once your first integration finishes initial indexing (usually 2–3 minutes for recent threads), open the search bar (<kbd class="px-2 py-0.5 bg-cream-200 border border-ink-900/20 rounded text-xs font-mono">Cmd + K</kbd> or <kbd class="px-2 py-0.5 bg-cream-200 border border-ink-900/20 rounded text-xs font-mono">Ctrl + K</kbd>) and test organizational memory:
+          </p>
+          <blockquote class="border-l-4 border-accent-700 pl-4 italic text-ink-800 bg-cream-100/50 py-2 my-3">
+            "What decisions did we make regarding the Q3 roadmap during yesterday's sync?"
+          </blockquote>
+          <p>
+            Nexus AI will retrieve the relevant meeting transcript, linked Slack discussions, and extracted action items, presenting a cited summary with direct links to the original sources.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Step 4: Invite Teammates</h2>
+          <p>
+            Collaborative context graphs become stronger with team participation. Navigate to <strong>Settings → Team</strong> and send invite links to your team leads, project managers, and engineers.
+          </p>
+        </section>
+
+        <div class="pt-8 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/help" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            <ArrowLeft class="w-4 h-4" /> Help Centre Home
+          </a>
+          <a href="/help/getting-started/workspace" class="inline-flex items-center gap-2 text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            Workspace Configuration <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer client:load />
+</Layout>
