@@ -25,7 +25,12 @@ const serviceSchema = {
 };
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical={`${domain}/weblabs`}>
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={`${domain}/weblabs`}
+  bodyClass="bg-[#070709] text-white selection:bg-white/20 selection:text-white"
+>
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
   <WebLabsPageModern client:load />
