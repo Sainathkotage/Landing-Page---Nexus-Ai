@@ -1,0 +1,297 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "What Is Nexus AI? Inside the AI Chief of Staff for Modern Teams",
+    "description": "An inside look at Nexus AI, the proactive workspace platform from Aixentrix that unifies company memory, automates handovers, and replaces manual wikis.",
+    "datePublished": "2026-09-20T00:00:00Z",
+    "author": {
+      "@type": "Organization",
+      "name": "Nexus Editorial Team"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI Chief of Staff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI Chief of Staff is a proactive assistant that integrates with your inbox, calendar, documents, and chat tools. Unlike a passive wiki, it actively tracks work in progress, triages tasks, drafts context-aware replies, and coordinates scheduling on its own."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Nexus AI different from Notion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notion is a flexible workspace you build and maintain by hand. Nexus AI is built to maintain itself — it automatically compiles context from your existing tools rather than relying on someone to keep pages updated, and it adds dedicated handover and organizational-memory features Notion doesn't have natively."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when an employee leaves, according to Nexus AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Its Employee Handover Engine scans that person's workspace history and compiles their active responsibilities, key relationships, and open commitments into an onboarding package, aiming to cut a process that normally takes days down to minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Nexus AI replace tools like Confluence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For teams whose main goal is a living, self-updating record of decisions and context, Nexus AI is designed to replace the need for manual wiki upkeep. Teams with heavy structured documentation needs may still want a dedicated wiki alongside it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Nexus AI secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nexus AI is built on SOC 2 Type II–compliant, encrypted infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Nexus AI cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's free during the current beta period, with no credit card required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Nexus AI for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's aimed at growing teams — roughly 15 or more people — especially those with frequent role changes, remote or async work, or a history of documentation tools that didn't stick."
+        }
+      }
+    ]
+  }
+];
+
+const takeaways = [
+  "Nexus AI operates as a proactive AI Chief of Staff rather than a passive, manual documentation wiki.",
+  "Four automated core engines power organizational memory, employee handovers, semantic search, and plain-language workflows.",
+  "Unlike Notion, Nexus AI compiles institutional context automatically in the background across docs, email, calendar, and chat.",
+  "Currently available in free public beta with no credit card required at aixentrix.com/nexus."
+];
+---
+
+<BlogPostLayout 
+  title="What Is Nexus AI? Inside the AI Chief of Staff for Modern Teams"
+  description="If your team has ever burned an afternoon reconstructing 'wait, why did we decide that?' from a half-dead Slack thread, you already understand the problem Nexus AI was built to solve."
+  publishDate="September 20, 2026"
+  tldr="Nexus AI is a free beta workspace product from Aixentrix, Inc. that positions itself as an 'AI Chief of Staff' — a system that sits across your documents, calendar, inbox, and chat, and actively keeps a living record of what your team knows, decided, and is working on, instead of waiting for someone to write it down."
+  keyTakeaways={takeaways}
+  schemas={schemas}
+>
+  <p>
+    If your team has ever burned an afternoon reconstructing <em>"wait, why did we decide that?"</em> from a half-dead Slack thread, you already understand the problem Nexus AI was built to solve. Nexus AI is a free beta workspace product from Aixentrix, Inc. that positions itself as an <strong>"AI Chief of Staff"</strong> — a system that sits across your documents, calendar, inbox, and chat, and actively keeps a living record of what your team knows, decided, and is working on, instead of waiting for someone to write it down. Here's what it actually does, how it's different from a traditional workspace like Notion, and who it's built for.
+  </p>
+
+  <h2>What Is Nexus AI?</h2>
+  <p>
+    Nexus AI is a workspace platform currently in free public beta, built around a simple bet: most teams don't lose information because they lack a place to put it — every company already has a Notion, a Confluence, or a shared drive. They lose information because nobody has time to keep those spaces updated once work speeds up, and the real decisions happen in meetings and chat threads that never get written down at all.
+  </p>
+  <p>
+    Instead of handing you a blank canvas to fill in and maintain, Nexus AI watches what's already happening across your existing tools and turns it into a searchable, permanent <strong>"company memory"</strong> automatically, in the background. Rather than a passive document repository, it functions more like a proactive assistant that triages your inbox, drafts responses, tracks tasks, and surfaces context before you have to go looking for it.
+  </p>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>The Problem: Why Teams Lose Their Institutional Memory</h2>
+  <p>
+    Nexus AI's positioning starts from three specific failure points in how teams currently handle knowledge:
+  </p>
+  <ul>
+    <li>
+      <strong>Manual wikis go stale.</strong> Tools like Notion and Confluence are only as good as the last time someone updated them. They work fine when a team has slack in its schedule for documentation — and fall apart the moment a project accelerates, which is exactly when accurate documentation matters most.
+    </li>
+    <li>
+      <strong>Decisions get buried in chat.</strong> A large share of a company's real decision-making doesn't happen in a doc; it happens in a Slack thread or a call that scrolls out of view within a day. The reasoning behind a decision often survives nowhere except in the memory of whoever was in the room.
+    </li>
+    <li>
+      <strong>Knowledge walks out the door.</strong> Every departure — a resignation, a leave, a reorg — takes undocumented context with it: client history, half-finished negotiations, the "why" behind a technical call. Rebuilding that after the fact is slow and usually incomplete.
+    </li>
+  </ul>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>How Nexus AI Works: Four Core Engines</h2>
+  <p>
+    Nexus AI organizes its functionality around four automated systems:
+  </p>
+  <ul>
+    <li>
+      <strong>Organizational Memory Engine</strong> — continuously binds chat history, email, and document edits into a single, permanent context graph, keeping company history searchable long after the people involved have moved on.
+    </li>
+    <li>
+      <strong>Employee Handover Engine</strong> — when someone leaves a role, this engine scans their workspace history and compiles their active responsibilities, key relationships, and open commitments into an onboarding package in minutes, rather than the days a manual handover usually eats up.
+    </li>
+    <li>
+      <strong>AI Search & Knowledge Retrieval</strong> — a semantic search layer that runs across emails, calendars, meeting transcripts, and wiki content at once, returning answers with citations back to the source instead of just a list of links.
+    </li>
+    <li>
+      <strong>Workflow Automation</strong> — lets teams set up automation with plain-language triggers (e.g., <em>"when a contract draft is signed, assign the onboarding review to Marcus"</em>) instead of building rules in a no-code editor.
+    </li>
+  </ul>
+  <p>
+    On top of the four engines, Nexus AI runs a daily AI briefing that summarizes your meetings, flags urgent emails, and drafts replies for review, backed by integrations across 200+ third-party tools and SOC 2 Type II–compliant infrastructure.
+  </p>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Nexus AI vs. Notion: What's Actually Different</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Nexus AI</th>
+          <th>Notion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Core approach</strong></td>
+          <td>Proactively compiles context in the background</td>
+          <td>Manually built and maintained by users</td>
+        </tr>
+        <tr>
+          <td><strong>Employee handovers</strong></td>
+          <td>Dedicated engine, auto-compiled in minutes</td>
+          <td>No built-in handover tooling</td>
+        </tr>
+        <tr>
+          <td><strong>Search</strong></td>
+          <td>Semantic search across docs, email, calendar, and chat, with citations</td>
+          <td>Search limited to content inside Notion</td>
+        </tr>
+        <tr>
+          <td><strong>Automation</strong></td>
+          <td>Natural-language workflow triggers</td>
+          <td>Notion AI plus third-party tools like Zapier</td>
+        </tr>
+        <tr>
+          <td><strong>Best for</strong></td>
+          <td>Teams that want documentation to happen on its own</td>
+          <td>Teams that want a flexible, build-it-yourself workspace</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    <strong>The honest caveat:</strong> Notion is far more mature, with a massive template and integration ecosystem, and it's still a great fit for teams that enjoy building their own systems. Nexus AI is making a different bet — that most teams would rather the system maintain itself. Which one's "better" mostly comes down to whether your team likes building in Notion or has been quietly resenting the upkeep for the last two years.
+  </p>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Who Should Use Nexus AI?</h2>
+  <p>
+    Nexus AI tends to make the most sense once a team is past the size where everyone naturally knows what's going on — typically somewhere in the range of 15–20 people spread across a few functions. It's a particularly strong fit for:
+  </p>
+  <ul>
+    <li>Startups and scale-ups with frequent hiring and role changes, where handover quality has real cost</li>
+    <li>Remote and distributed teams making decisions asynchronously across time zones</li>
+    <li>Founders and operators effectively acting as their own chief of staff, who want an AI layer handling triage</li>
+    <li>Teams that have tried and abandoned a wiki before because nobody kept it updated</li>
+  </ul>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Pricing: What Does Nexus AI Cost?</h2>
+  <p>
+    Nexus AI is currently <strong>free for everyone in its beta program</strong>, with no credit card required to join. Aixentrix has framed this as a limited-time arrangement while the product is refined, with early adopters getting full feature access and direct input into the roadmap — worth factoring in if you're weighing trying it now versus waiting for general release.
+  </p>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Getting Started with Nexus AI</h2>
+  <ol>
+    <li>
+      <strong>Join the beta:</strong> Head over to <a href="/nexus" class="text-accent-600 hover:text-accent-700 font-semibold underline">aixentrix.com/nexus</a> — no credit card required.
+    </li>
+    <li>
+      <strong>Connect your tools:</strong> Sync your email, calendar, and chat so the memory and handover engines have something to index.
+    </li>
+    <li>
+      <strong>Ask Nexus something:</strong> Most new users start with a daily briefing or a search for a decision they know is buried in an old thread, just to see the retrieval engine in action.
+    </li>
+  </ol>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="space-y-4 my-6">
+    <div>
+      <div class="faq-q">What is an AI Chief of Staff?</div>
+      <div class="faq-a">
+        An AI Chief of Staff is a proactive assistant that integrates with your inbox, calendar, documents, and chat tools. Unlike a passive wiki, it actively tracks work in progress, triages tasks, drafts context-aware replies, and coordinates scheduling on its own.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">How is Nexus AI different from Notion?</div>
+      <div class="faq-a">
+        Notion is a flexible workspace you build and maintain by hand. Nexus AI is built to maintain itself — it automatically compiles context from your existing tools rather than relying on someone to keep pages updated, and it adds dedicated handover and organizational-memory features Notion doesn't have natively.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">What happens when an employee leaves, according to Nexus AI?</div>
+      <div class="faq-a">
+        Its Employee Handover Engine scans that person's workspace history and compiles their active responsibilities, key relationships, and open commitments into an onboarding package, aiming to cut a process that normally takes days down to minutes.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">Can Nexus AI replace tools like Confluence?</div>
+      <div class="faq-a">
+        For teams whose main goal is a living, self-updating record of decisions and context, Nexus AI is designed to replace the need for manual wiki upkeep. Teams with heavy structured documentation needs may still want a dedicated wiki alongside it.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">Is Nexus AI secure?</div>
+      <div class="faq-a">
+        Nexus AI is built on SOC 2 Type II–compliant, encrypted infrastructure.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">How much does Nexus AI cost?</div>
+      <div class="faq-a">
+        It's free during the current beta period, with no credit card required.
+      </div>
+    </div>
+    <div>
+      <div class="faq-q">Who is Nexus AI for?</div>
+      <div class="faq-a">
+        It's aimed at growing teams — roughly 15 or more people — especially those with frequent role changes, remote or async work, or a history of documentation tools that didn't stick.
+      </div>
+    </div>
+  </div>
+
+  <hr class="border-ink-900/10 my-8" />
+
+  <h2>Final Thoughts</h2>
+  <p>
+    Nexus AI is still in beta, which means it's earlier-stage and less proven than an incumbent like Notion — but it's also solving a real, specific problem that generic workspace tools weren't built for: keeping context alive automatically instead of relying on someone to write it down. If your team has ever lost a week rebuilding what a departed employee knew, it's worth the ten minutes it takes to connect your tools and see what Nexus AI surfaces.
+  </p>
+
+  <div class="mt-8 pt-6 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-cream-100/60 p-6 rounded-sm border border-accent-600/20">
+    <div>
+      <h3 class="font-serif text-lg font-semibold text-ink-900 mb-1">Ready to unify your company memory?</h3>
+      <p class="text-xs text-ink-600 font-sans">Get free access to the Nexus AI Beta with no credit card required.</p>
+    </div>
+    <a 
+      href="https://app.aixentrix.com/?auth=login" 
+      class="px-6 py-3 rounded-full bg-ink-900 hover:bg-accent-950 text-cream-50 font-medium text-xs tracking-wider uppercase transition-all shadow-md whitespace-nowrap"
+    >
+      Join the Nexus AI Beta &rarr;
+    </a>
+  </div>
+</BlogPostLayout>
