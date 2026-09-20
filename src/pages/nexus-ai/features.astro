@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { 
+  Brain, 
+  RefreshCw, 
+  Users, 
+  FileText, 
+  Search, 
+  Calendar, 
+  Mail, 
+  CheckSquare, 
+  ShieldCheck, 
+  ArrowUpRight 
+} from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/features`;
+
+const seoTitle = "Nexus AI Features — AI Chief of Staff & Organizational Memory | Aixentrix";
+const seoDescription = "Explore the complete feature set of Nexus AI by Aixentrix: organizational memory graphs, AI employee handover briefs, meeting memos, and proactive commitment tracking.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Features", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-5xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Features</span>
+    </nav>
+
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Capabilities</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-ink-900 leading-tight mb-4">
+        Nexus AI Feature Architecture
+      </h1>
+      <p class="text-base text-ink-600 font-serif italic max-w-xl mx-auto">
+        A breakdown of the active intelligent systems powering Nexus AI by Aixentrix.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <!-- Feature 1: Context Graph -->
+      <div class="bg-cream-50 p-8 rounded-sm border border-ink-900/15 vintage-border shadow-sm">
+        <div class="w-10 h-10 rounded-sm bg-accent-500/10 flex items-center justify-center text-accent-700 mb-4">
+          <Brain className="w-5 h-5" />
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Semantic Context Graph</h2>
+        <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+          Nexus AI parses company communications, emails, and repositories into a vectorized relational graph. Instead of traditional keyword search, it comprehends relationships between decisions, code changes, and stakeholders.
+        </p>
+        <ul class="space-y-1.5 text-xs text-ink-600 font-sans">
+          <li>• Cross-platform context correlation</li>
+          <li>• Vector search powered by pgvector</li>
+          <li>• Instant retrieval of historical decision rationales</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2: Handover Engine -->
+      <div class="bg-cream-50 p-8 rounded-sm border border-ink-900/15 vintage-border shadow-sm">
+        <div class="w-10 h-10 rounded-sm bg-accent-500/10 flex items-center justify-center text-accent-700 mb-4">
+          <RefreshCw className="w-5 h-5" />
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Automated Handover Engine</h2>
+        <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+          When an employee moves between roles or leaves the organization, Nexus AI runs an automated sweep to synthesize active work into structured handover packages.
+        </p>
+        <ul class="space-y-1.5 text-xs text-ink-600 font-sans">
+          <li>• Unfinished commitments and deadlines list</li>
+          <li>• External vendor and key stakeholder directory</li>
+          <li>• Project status and blocker documentation</li>
+        </ul>
+      </div>
+
+      <!-- Feature 3: Executive Meeting Memos -->
+      <div class="bg-cream-50 p-8 rounded-sm border border-ink-900/15 vintage-border shadow-sm">
+        <div class="w-10 h-10 rounded-sm bg-accent-500/10 flex items-center justify-center text-accent-700 mb-4">
+          <Calendar className="w-5 h-5" />
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Autonomous Meeting Memos</h2>
+        <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+          Eliminate manual note-taking. Nexus AI attends or indexes calendar sessions, extracting concrete decisions, assignees, and target completion dates automatically.
+        </p>
+        <ul class="space-y-1.5 text-xs text-ink-600 font-sans">
+          <li>• Direct sync with Google Calendar and Outlook</li>
+          <li>• Extracted action items with owners and deadlines</li>
+          <li>• Post-meeting briefing dispatch to attendees</li>
+        </ul>
+      </div>
+
+      <!-- Feature 4: Proactive Commitment Tracking -->
+      <div class="bg-cream-50 p-8 rounded-sm border border-ink-900/15 vintage-border shadow-sm">
+        <div class="w-10 h-10 rounded-sm bg-accent-500/10 flex items-center justify-center text-accent-700 mb-4">
+          <CheckSquare className="w-5 h-5" />
+        </div>
+        <h2 class="font-serif text-2xl font-semibold text-ink-900 mb-3">Commitment Tracker</h2>
+        <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+          Nexus AI identifies commitments made in conversation (e.g., "I'll send the updated contract by Thursday") and monitors follow-through without micromanagement.
+        </p>
+        <ul class="space-y-1.5 text-xs text-ink-600 font-sans">
+          <li>• Natural language promise extraction</li>
+          <li>• Gentle reminders before deadlines pass</li>
+          <li>• Cross-team dependency alerts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center pt-8 border-t border-ink-900/10">
+      <a href="https://app.aixentrix.com/?auth=signup" class="px-8 py-3 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-2">
+        Try All Features in Free Beta <span>→</span>
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

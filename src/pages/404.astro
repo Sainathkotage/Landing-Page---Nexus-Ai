@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/landing/Navbar';
+import { Footer } from '../components/landing/Footer';
+import { ArrowLeft, Home, Sparkles } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/404`;
+
+const seoTitle = "Page Not Found | Aixentrix";
+const seoDescription = "The page you are looking for does not exist or has been moved. Explore Nexus AI or WebLabs by Aixentrix.";
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} robots="noindex, follow">
+  <Navbar client:load />
+
+  <main class="min-h-[75vh] flex items-center justify-center px-6 pt-32 pb-20 font-sans text-ink-900 relative">
+    <div class="max-w-md w-full text-center bg-cream-50 p-8 md:p-12 rounded-sm border border-ink-900/15 shadow-xl vintage-border relative">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Error 404</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+
+      <h1 class="font-serif text-5xl md:text-6xl font-medium text-ink-900 mb-4">
+        Page Not Found
+      </h1>
+
+      <p class="text-xs md:text-sm text-ink-600 leading-relaxed font-sans mb-8">
+        The page you requested could not be located. It may have been moved or updated as part of our platform improvements.
+      </p>
+
+      <div class="flex flex-col gap-3">
+        <a 
+          href="/" 
+          class="w-full py-3 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+        >
+          <Home className="w-3.5 h-3.5" /> Return to Homepage
+        </a>
+        <a 
+          href="/nexus-ai" 
+          class="w-full py-3 rounded-sm border border-ink-900/20 hover:border-ink-900/50 bg-cream-100/60 text-ink-900 text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-accent-600" /> Explore Nexus AI
+        </a>
+        <a 
+          href="/weblabs" 
+          class="w-full py-3 rounded-sm border border-ink-900/20 hover:border-ink-900/50 bg-cream-100/60 text-ink-900 text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2"
+        >
+          Explore WebLabs
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,102 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/blog/ai-employee-handover`;
+
+const title = "How AI Employee Handover Works: Eliminating Knowledge Loss During Offboarding";
+const description = "Discover how automated AI employee handovers capture open commitments, stakeholder relationships, and operational context in minutes.";
+const publishDate = "September 20, 2026";
+
+const tldr = "AI employee handover is the automated synthesis of an employee's active deliverables, open commitments, stakeholder contacts, and project files into a structured transition brief. Instead of relying on rushed manual checklists during two weeks' notice, AI background agents construct a zero-loss handover package in minutes.";
+
+const keyTakeaways = [
+  "Traditional offboarding processes fail because departing employees lack time and incentive to write exhaustive documentation.",
+  "AI handover systems scan connected email queues, project trackers, and chat logs to compile unfinished commitments.",
+  "Crucial external contacts, client relationship nuances, and vendor ownership are automatically mapped.",
+  "Successors receive a personalized onboarding package that reduces transition ramp-up time by over 70%.",
+  "Nexus AI by Aixentrix provides built-in automated employee handover capabilities."
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": "2026-09-20T00:00:00+00:00",
+  "dateModified": "2026-09-20T00:00:00+00:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Nexus Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aixentrix",
+    "url": domain,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${domain}/logo.png`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonical
+  }
+};
+---
+
+<BlogPostLayout 
+  title={title}
+  description={description}
+  publishDate={publishDate}
+  tldr={tldr}
+  keyTakeaways={keyTakeaways}
+  schemas={[articleSchema]}
+>
+  <h2>The Two-Week Notice Panic</h2>
+  <p>
+    When a key engineer, product manager, or operations lead submits their two-week notice, the immediate reaction in most companies is panic.
+  </p>
+  <p>
+    Managers scramble to set up exit interviews, ask for handover documents, and try to schedule knowledge-transfer meetings. But the reality is that departing team members are already disengaged. They write a sparse bulleted list in Google Docs, have two hurried Zoom calls, and hand in their laptop.
+  </p>
+  <p>
+    Six weeks later, the successor is struggling: <em>"Where are the API keys for this vendor?"</em>, <em>"What did we promise this enterprise customer regarding their custom SLA?"</em>, <em>"Why does this script exist?"</em>
+  </p>
+
+  <h2>How AI Solves the Handover Dilemma</h2>
+  <p>
+    An <strong>AI employee handover system</strong> removes the burden from the departing employee entirely. Because the workspace has already been observing project flows, communications, and commits, it can automatically assemble a complete, structured transition package.
+  </p>
+  <p>
+    In <a href="/nexus-ai" class="text-accent-700 font-semibold underline">Nexus AI by Aixentrix</a>, the automated handover engine operates across four key dimensions:
+  </p>
+
+  <h3>1. Open Commitments & Deliverable Audits</h3>
+  <p>
+    Nexus AI analyzes email threads, Slack conversations, and project tickets to compile every promise made by the individual that hasn't yet been marked complete. If an operations manager promised to renew a software license by next Friday, that commitment is surfaced with its original context and assigned to a manager for reassignment.
+  </p>
+
+  <h3>2. Stakeholder & Relationship Mapping</h3>
+  <p>
+    Who did this person talk to most often? Which external clients trusted them? Nexus AI generates a stakeholder map identifying the primary internal colleagues, external vendor reps, and key customer contacts associated with the departing employee.
+  </p>
+
+  <h3>3. Repository & Document Ownership Transfer</h3>
+  <p>
+    Departing team members often have private documents, shared folders, API tokens, and repositories where they are the sole admin. The handover engine flags these access bottlenecks so permissions can be transferred seamlessly before accounts are deactivated.
+  </p>
+
+  <h3>4. The Successor Onboarding Dossier</h3>
+  <p>
+    When a new hire arrives to fill the role, instead of being handed an empty desk and a broken wiki, they receive a comprehensive <strong>Successor Dossier</strong>. This document outlines active projects, historical rationales for past decisions, key relationship contacts, and upcoming milestones.
+  </p>
+
+  <h2>Retaining Institutional Capital with Nexus AI</h2>
+  <p>
+    Every employee departure represents a loss of intellectual property if that knowledge is not preserved. By adopting an AI Chief of Staff that continuously maintains organizational memory, companies turn transition chaos into an orderly, automated business process.
+  </p>
+  <p>
+    Explore how <a href="/nexus-ai/employee-handover" class="text-accent-700 font-semibold underline">Nexus AI automates employee handovers</a> or test it with your team during the <a href="https://app.aixentrix.com/?auth=signup" class="text-accent-700 font-semibold underline">free public beta</a>.
+  </p>
+</BlogPostLayout>

@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://aixentrix.com/sitemap.xml
+Sitemap: https://www.aixentrix.com/sitemap.xml

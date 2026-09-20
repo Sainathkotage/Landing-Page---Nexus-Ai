@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { Layers, ArrowUpRight, Check } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/integrations`;
+
+const seoTitle = "Nexus AI Integrations — Connect Gmail, Slack, GitHub & More | Aixentrix";
+const seoDescription = "Connect Nexus AI with your existing tools: Google Workspace, Slack, GitHub, Microsoft 365, Notion, and PostgreSQL. Unify team context with 1-click OAuth.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Integrations", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+
+const integrationsList = [
+  {
+    name: "Google Workspace",
+    category: "Communication & Scheduling",
+    desc: "Sync Gmail threads and Google Calendar events to auto-generate meeting memos and capture customer commitments.",
+    features: ["Bi-directional calendar sync", "Gmail commitment detection", "Google Drive doc indexing"]
+  },
+  {
+    name: "Slack",
+    category: "Team Chat",
+    desc: "Indexes public channels and selected private channels to detect agreements, architectural decisions, and project blockers.",
+    features: ["Thread decision extraction", "Proactive reminder bot", "Context query slash commands"]
+  },
+  {
+    name: "GitHub",
+    category: "Development",
+    desc: "Connects repositories, pull requests, and commit logs to automate release notes, changelogs, and technical wiki updates.",
+    features: ["Pull request synthesis", "Commit changelog generation", "Issue blocker tracking"]
+  },
+  {
+    name: "Microsoft 365",
+    category: "Enterprise Suite",
+    desc: "Seamless integration with Outlook emails, calendars, and Microsoft Teams chats for enterprise organizations.",
+    features: ["Outlook calendar memos", "Teams chat indexing", "SharePoint document context"]
+  },
+  {
+    name: "Notion",
+    category: "Wikis & Databases",
+    desc: "Bi-directional sync with existing Notion databases and docs, keeping pages updated based on real-time project progress.",
+    features: ["Auto-updating database rows", "Wiki staleness audits", "Semantic search across pages"]
+  },
+  {
+    name: "PostgreSQL & Databases",
+    category: "Data Infrastructure",
+    desc: "Query internal structured data and context vectors directly through natural language queries in Nexus AI.",
+    features: ["pgvector similarity search", "Row-level data isolation", "Custom schema integrations"]
+  }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-5xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Integrations</span>
+    </nav>
+
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Ecosystem</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-ink-900 leading-tight mb-4">
+        Nexus AI Integrations
+      </h1>
+      <p class="text-base text-ink-600 font-serif italic max-w-xl mx-auto">
+        Connect your modern workplace stack in minutes with secure, granular OAuth2 integrations.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {integrationsList.map((item) => (
+        <div class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 vintage-border shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="text-[10px] font-mono font-bold text-accent-700 uppercase tracking-wider mb-2">
+              {item.category}
+            </div>
+            <h2 class="font-serif text-xl font-semibold text-ink-900 mb-2">{item.name}</h2>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">{item.desc}</p>
+            <ul class="space-y-1.5 text-xs text-ink-700 font-sans border-t border-ink-900/10 pt-3">
+              {item.features.map((feat) => (
+                <li class="flex items-center gap-1.5">
+                  <Check className="w-3 h-3 text-emerald-700" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="mt-6 pt-3 border-t border-ink-900/5">
+            <span class="text-[11px] font-semibold text-ink-500 font-sans">1-Click OAuth2 Setup</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center pt-8 border-t border-ink-900/10">
+      <a href="https://app.aixentrix.com/?auth=signup" class="px-8 py-3 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all inline-flex items-center gap-2">
+        Connect Your Workspace in Free Beta <span>→</span>
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

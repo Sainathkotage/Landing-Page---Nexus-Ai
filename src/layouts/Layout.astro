@@ -15,7 +15,7 @@ interface Props {
 const { 
   title = "Aixentrix — Orchestrating Organizational Intelligence", 
   description = "Aixentrix builds active software environments that think, remember, and execute—transforming localized data into unified, permanent company memory.",
-  canonical = Astro.props.canonical || new URL(Astro.url.pathname, "https://aixentrix.com").href,
+  canonical = Astro.props.canonical || new URL(Astro.url.pathname, "https://www.aixentrix.com").href,
   robots = "index, follow",
   ogImage = "/og-image.png",
   type = "website",
@@ -61,14 +61,14 @@ const {
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://aixentrix.com").href} />
+    <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://www.aixentrix.com").href} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonical} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://aixentrix.com").href} />
+    <meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, "https://www.aixentrix.com").href} />
 
     <!-- Structured Data JSON-LD -->
     {schemas.map(schema => (

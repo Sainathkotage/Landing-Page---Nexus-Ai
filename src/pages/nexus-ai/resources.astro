@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { BookOpen, Brain, RefreshCw, Users, FileText, ArrowUpRight } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/resources`;
+
+const seoTitle = "Nexus AI Resources, Guides & Whitepapers | Built by Aixentrix";
+const seoDescription = "Access guides, research articles, and operational frameworks for Nexus AI by Aixentrix: AI Chief of Staff, organizational memory, and automated handovers.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Resources", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+
+const resourceCards = [
+  {
+    category: "AI Chief of Staff",
+    title: "What Is an AI Chief of Staff? Platform Definition & Insights",
+    desc: "A comprehensive guide to understanding how AI Chiefs of Staff automate administrative operations and preserve institutional memory.",
+    link: "/blog/what-is-an-ai-chief-of-staff"
+  },
+  {
+    category: "Product Deep Dive",
+    title: "What Is Nexus AI? Inside the AI Chief of Staff for Modern Teams",
+    desc: "A detailed look inside Nexus AI: how it differs from traditional document wikis, who it is built for, and how the context graph works.",
+    link: "/blog/what-is-nexus-ai"
+  },
+  {
+    category: "Employee Handover",
+    title: "Employee Handover Automation: Preventing Knowledge Loss",
+    desc: "Step-by-step methodology for turning high-stress employee exits into seamless, zero-loss transition packages.",
+    link: "/blog/employee-handover-automation"
+  },
+  {
+    category: "Competitive Analysis",
+    title: "Nexus AI vs. Notion: Manual Wiki vs. Active Assistant",
+    desc: "A feature-by-feature comparison between static manual wikis and proactive, background-indexed AI operating systems.",
+    link: "/blog/ai-workspace-vs-notion"
+  }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-5xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Resources</span>
+    </nav>
+
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+        <span class="flourish text-base">✦</span>
+        <span class="mx-3">Knowledge Hub</span>
+        <span class="flourish text-base">✦</span>
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-semibold text-ink-900 leading-tight mb-4">
+        Nexus AI Resource Hub
+      </h1>
+      <p class="text-base text-ink-600 font-serif italic max-w-xl mx-auto">
+        Guides, architectural deep dives, and research articles on organizational memory and team intelligence.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      {resourceCards.map((card) => (
+        <a href={card.link} class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 vintage-border shadow-sm flex flex-col justify-between hover:border-ink-900/30 transition-all group">
+          <div>
+            <div class="text-[10px] font-mono font-bold text-accent-700 uppercase tracking-wider mb-2">
+              {card.category}
+            </div>
+            <h2 class="font-serif text-xl font-semibold text-ink-900 group-hover:text-accent-700 transition-colors mb-2">
+              {card.title}
+            </h2>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">
+              {card.desc}
+            </p>
+          </div>
+          <div class="pt-3 border-t border-ink-900/10 flex items-center justify-between text-xs font-semibold text-accent-700">
+            <span>Read Article</span>
+            <span>→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center pt-8 border-t border-ink-900/10">
+      <a href="/blog" class="text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider inline-flex items-center gap-1.5">
+        <span>View All Aixentrix Blog Posts</span> <span>→</span>
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

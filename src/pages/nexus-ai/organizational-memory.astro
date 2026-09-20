@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { Brain, Layers, Database, Search, ArrowUpRight } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/organizational-memory`;
+
+const seoTitle = "Organizational Memory AI | Nexus AI by Aixentrix";
+const seoDescription = "Explore how Nexus AI uses organizational memory concepts to help teams preserve knowledge, context and important work information across tools.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Organizational Memory", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Organizational Memory</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-12 text-center border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Core Pillar</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Organizational Memory AI
+        </h1>
+        <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto font-serif italic">
+          How Nexus AI by Aixentrix eliminates context fragmentation and turns everyday work discussions into a permanent corporate brain.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">What Is Organizational Memory?</h2>
+          <p>
+            Organizational memory refers to the collective knowledge, past decisions, operational rationales, and institutional context accumulated by a team over time. In most companies, this memory is deeply fractured—scattered across ephemeral Slack messages, buried Google Docs, lost email threads, and the personal recollections of individual employees.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Why Modern Teams Lose Context</h2>
+          <p>
+            When teams scale or turnover occurs, the cost of lost context becomes staggering. New hires spend weeks reconstructing historical choices, engineers duplicate previously discarded technical designs, and customer success managers lose key relationship nuances.
+          </p>
+          <div class="bg-cream-100/80 p-6 rounded-sm border border-ink-900/10 my-4">
+            <h3 class="font-serif text-base font-semibold text-ink-900 mb-2">The Three Context Killers:</h3>
+            <ul class="space-y-2 text-xs text-ink-700">
+              <li><strong>1. Tool Fragmentation:</strong> Work happens across 10+ disconnected SaaS platforms with zero unified context.</li>
+              <li><strong>2. Manual Documentation Debt:</strong> Teams rarely take the time to write exhaustive wiki articles.</li>
+              <li><strong>3. Knowledge Drain:</strong> When key contributors exit, their unwritten tribal knowledge leaves with them.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">How Nexus AI Solves It: The Living Context Graph</h2>
+          <p>
+            Nexus AI connects to your workplace communication channels (Gmail, Slack, GitHub, Google Drive) via secure OAuth2. In the background, it transforms unstructured discussions and project logs into an encrypted semantic context graph.
+          </p>
+          <p>
+            When someone asks, <em>"Why did we choose PostgreSQL over DynamoDB for this service?"</em>, Nexus AI doesn't just do a basic text search. It retrieves the original design discussions, the trade-offs considered, the engineers involved, and the follow-up meeting notes—giving you the full story in seconds.
+          </p>
+        </section>
+
+        <div class="pt-6 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/nexus-ai" class="text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            ← Back to Nexus AI
+          </a>
+          <a href="https://app.aixentrix.com/?auth=signup" class="px-6 py-2.5 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all">
+            Join the Free Beta
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { CheckCircle2, Clock, Calendar, ArrowUpRight } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/roadmap`;
+
+const seoTitle = "Nexus AI Product Roadmap — The Path to General Availability | Aixentrix";
+const seoDescription = "Follow the transparent development roadmap for Nexus AI by Aixentrix: completed beta milestones, current sprint goals, and upcoming enterprise capabilities.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Roadmap", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Roadmap</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-12 text-center border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Product Evolution</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          Nexus AI Product Roadmap
+        </h1>
+        <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto font-serif italic">
+          Transparent development milestones as we evolve Nexus AI through public beta toward General Availability.
+        </p>
+      </header>
+
+      <div class="relative z-10 space-y-10">
+        <!-- Milestone: Completed Beta -->
+        <section class="border-l-2 border-emerald-600 pl-6 space-y-3">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-800 text-[11px] font-bold uppercase tracking-wider">
+            <CheckCircle2 className="w-3.5 h-3.5" /> Completed (Q2 2026)
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Foundational Context Architecture</h2>
+          <ul class="space-y-1.5 text-xs text-ink-700">
+            <li>• Core semantic vector engine using PostgreSQL and pgvector</li>
+            <li>• Google Workspace integration (Gmail & Google Calendar)</li>
+            <li>• Automated meeting memo generator and decision extractor</li>
+            <li>• Free public beta workspace launch</li>
+          </ul>
+        </section>
+
+        <!-- Milestone: In Progress -->
+        <section class="border-l-2 border-accent-600 pl-6 space-y-3">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-accent-500/10 text-accent-800 text-[11px] font-bold uppercase tracking-wider">
+            <Clock className="w-3.5 h-3.5" /> In Active Development (Q3 2026)
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Automated Handover & Team Intelligence</h2>
+          <ul class="space-y-1.5 text-xs text-ink-700">
+            <li>• 1-click employee handover memo generator</li>
+            <li>• Slack deep integration for conversational commitment detection</li>
+            <li>• GitHub pull request & commit documentation synthesizer</li>
+            <li>• Cross-team dependency alerts</li>
+          </ul>
+        </section>
+
+        <!-- Milestone: Upcoming -->
+        <section class="border-l-2 border-ink-300 pl-6 space-y-3">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-ink-900/5 text-ink-600 text-[11px] font-bold uppercase tracking-wider">
+            <Calendar className="w-3.5 h-3.5" /> Upcoming (Q4 2026 & Beyond)
+          </div>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">Enterprise Scale & General Availability (GA)</h2>
+          <ul class="space-y-1.5 text-xs text-ink-700">
+            <li>• SOC 2 Type II compliance certification</li>
+            <li>• Microsoft 365 (Outlook, Teams, SharePoint) enterprise connector</li>
+            <li>• On-premise private vector cluster deployment option</li>
+            <li>• Custom LLM fine-tuning on isolated enterprise infrastructure</li>
+          </ul>
+        </section>
+
+        <div class="pt-6 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/nexus-ai" class="text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            ← Back to Nexus AI
+          </a>
+          <a href="https://app.aixentrix.com/?auth=signup" class="px-6 py-2.5 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all">
+            Join the Free Beta
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

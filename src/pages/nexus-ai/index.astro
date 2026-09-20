@@ -1,0 +1,455 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Hero } from '../../components/landing/Hero';
+import { WhyBuilding } from '../../components/landing/WhyBuilding';
+import { Features } from '../../components/landing/Features';
+import { AIChief } from '../../components/landing/AIChief';
+import { FreeBeta } from '../../components/landing/FreeBeta';
+import { FAQ, FinalCTA } from '../../components/landing/FAQAndCTA';
+import { Footer } from '../../components/landing/Footer';
+import { 
+  Brain, 
+  Users, 
+  ShieldCheck, 
+  Sparkles, 
+  Zap, 
+  ArrowUpRight, 
+  Check, 
+  FolderSync, 
+  Layers, 
+  Lock, 
+  FileText, 
+  RefreshCw 
+} from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai`;
+
+const seoTitle = "Nexus AI — AI Chief of Staff for Modern Teams | Aixentrix";
+const seoDescription = "Nexus AI by Aixentrix is an AI Chief of Staff that helps teams retain organizational knowledge, automate employee handovers, manage commitments and turn work context into actionable intelligence.";
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": domain
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": `${domain}/#products`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Nexus AI",
+      "item": canonical
+    }
+  ]
+};
+
+// SoftwareApplication Schema
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Nexus AI",
+  "alternateName": "Nexus AI by Aixentrix",
+  "operatingSystem": "Web",
+  "applicationCategory": "BusinessApplication",
+  "description": seoDescription,
+  "url": canonical,
+  "creator": {
+    "@type": "Organization",
+    "name": "Aixentrix",
+    "url": domain,
+    "logo": `${domain}/logo.png`
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Nexus AI"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "description": "Free public beta workspace for modern teams."
+  }
+};
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Nexus AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI is an AI Chief of Staff developed by Aixentrix. It is designed to help modern teams retain organizational knowledge, automate employee handovers, manage commitments, and turn work context into actionable intelligence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who created Nexus AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI was engineered and built by Aixentrix, Inc., an AI software company focused on enterprise organizational memory and intelligent workspace systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an AI Chief of Staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI Chief of Staff is a proactive workspace intelligence layer that connects across communication channels, calendars, project trackers, and docs. Unlike passive chatbots that wait for prompts, it actively identifies action items, tracks commitments, synthesizes meeting outcomes, and preserves institutional context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is organizational memory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Organizational memory is the accumulated tribal knowledge, decisions, project histories, and operational context of a company. Nexus AI indexes this information into a private semantic context graph so knowledge survives team transitions and remains instantly retrievable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AI employee handover work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a team member transitions or offboards, Nexus AI analyzes their communication threads, project histories, and open commitments to auto-generate comprehensive handover briefs, key contact directories, and outstanding task queues in minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Nexus AI designed for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI is engineered for founders, operations leaders, product managers, and engineering teams at fast-growing startups and digital businesses who experience context fragmentation and knowledge loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What integrations does Nexus AI support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI integrates with Google Workspace (Gmail, Google Calendar, Google Docs), Slack, GitHub, Microsoft 365, Notion, and PostgreSQL databases via secure OAuth2."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Nexus AI handle company data security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI implements end-to-end TLS 1.3 encryption in transit, AES-256 at rest, strict PostgreSQL Row-Level Security (RLS), and maintains a zero-training policy guaranteeing customer data is never used to train public foundation models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the current product status of Nexus AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nexus AI is currently in free public beta. Teams can sign up and access all core features without a credit card during the early access period."
+      }
+    }
+  ]
+};
+
+const schemas = [breadcrumbSchema, softwareAppSchema, faqSchema];
+---
+
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={canonical}
+  schemas={schemas}
+>
+  <!-- Interactive Navigation Bar -->
+  <Navbar client:load />
+
+  <main class="relative z-10 font-sans selection:bg-accent-500/20 text-ink-900 antialiased paper-texture relative overflow-hidden">
+    
+    <!-- ── 1. SEO & GEO DEFINITION SNIPPET (First 150-200 Words) ── -->
+    <section class="pt-32 pb-4 max-w-5xl mx-auto px-6">
+      <!-- Breadcrumb Navigation -->
+      <nav aria-label="Breadcrumb" class="mb-6 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+        <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+        <span class="text-ink-300">/</span>
+        <a href="/#products" class="hover:text-accent-600 transition-colors">Products</a>
+        <span class="text-ink-300">/</span>
+        <span class="text-ink-900 font-bold">Nexus AI</span>
+      </nav>
+
+      <!-- Machine-Readable & Generative AI Snippet Box -->
+      <div class="bg-cream-100/90 border border-ink-900/15 rounded-sm p-6 md:p-8 vintage-border relative">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-accent-700 uppercase tracking-widest mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-accent-600" />
+          <span>Product Overview · Nexus AI by Aixentrix</span>
+          <span class="ml-auto px-2 py-0.5 rounded bg-accent-500/10 text-accent-800 text-[10px] font-sans font-bold">PUBLIC BETA</span>
+        </div>
+        
+        <p class="text-base md:text-lg text-ink-800 font-serif leading-relaxed italic mb-4">
+          <strong>Nexus AI by Aixentrix</strong> is an <strong>AI Chief of Staff</strong> designed to help modern teams retain organizational knowledge, automate employee handovers, manage commitments and turn work context into actionable intelligence.
+        </p>
+
+        <p class="text-xs md:text-sm text-ink-600 font-sans leading-relaxed">
+          Developed by <strong>Aixentrix</strong>, Nexus AI connects across internal documents, calendars, inboxes, and chat systems to build a living context graph of company memory. Rather than forcing teams to manually update stale wikis, Nexus AI runs proactive background routines that log decisions, track deliverables, synthesize cross-functional context, and ensure critical institutional knowledge never walks out the door.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── 2. HERO SECTION ── -->
+    <Hero />
+
+    <!-- ── 3. DETAILED PRODUCT PILLARS & ARCHITECTURE ── -->
+    <section class="py-20 max-w-6xl mx-auto px-6 border-t border-ink-900/10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-widest mb-3">Core Pillars</div>
+        <h2 class="font-serif text-3xl md:text-5xl font-semibold text-ink-900 leading-tight">
+          Engineered to Solve Organizational Context Loss
+        </h2>
+        <p class="text-sm md:text-base text-ink-600 mt-4 leading-relaxed font-sans">
+          Most team productivity tools store documents passively. Nexus AI acts actively—correlating discussions, timelines, and commitments into a permanent organizational brain.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pillar 1: Organizational Memory -->
+        <div class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 shadow-sm vintage-border flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-sm bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-700 mb-4">
+              <Brain className="w-5 h-5" />
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-ink-900 mb-2">Organizational Memory</h3>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">
+              Eliminate tribal knowledge silos. Nexus AI indexes historical decisions, discussions, and meeting notes into a searchable vector context graph.
+            </p>
+          </div>
+          <a href="/nexus-ai/organizational-memory" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+            Explore Memory Graph <span>→</span>
+          </a>
+        </div>
+
+        <!-- Pillar 2: AI Employee Handover -->
+        <div class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 shadow-sm vintage-border flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-sm bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-700 mb-4">
+              <RefreshCw className="w-5 h-5" />
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-ink-900 mb-2">AI Employee Handover</h3>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">
+              Zero-loss offboarding. Auto-synthesize open commitments, active stakeholders, file dependencies, and transition memos in under five minutes.
+            </p>
+          </div>
+          <a href="/nexus-ai/employee-handover" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+            Explore Handover Engine <span>→</span>
+          </a>
+        </div>
+
+        <!-- Pillar 3: Team Intelligence -->
+        <div class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 shadow-sm vintage-border flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-sm bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-700 mb-4">
+              <Users className="w-5 h-5" />
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-ink-900 mb-2">Team Intelligence</h3>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">
+              Proactive coordination across teams. Surfaces unfulfilled promises, conflicting timelines, and cross-department dependencies before deadlines slip.
+            </p>
+          </div>
+          <a href="/nexus-ai/team-intelligence" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+            Explore Team Intelligence <span>→</span>
+          </a>
+        </div>
+
+        <!-- Pillar 4: Knowledge Management -->
+        <div class="bg-cream-50 p-6 rounded-sm border border-ink-900/15 shadow-sm vintage-border flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-sm bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-700 mb-4">
+              <FileText className="w-5 h-5" />
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-ink-900 mb-2">Knowledge Management</h3>
+            <p class="text-xs text-ink-600 leading-relaxed font-sans mb-4">
+              Self-updating company documentation. Automatically drafts release notes, process guides, and SOPs directly from pull requests and conversations.
+            </p>
+          </div>
+          <a href="/nexus-ai/knowledge-management" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+            Explore Knowledge AI <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. WHY WE ARE BUILDING NEXUS AI ── -->
+    <WhyBuilding />
+
+    <!-- ── 5. CORE FEATURES BREAKDOWN ── -->
+    <Features />
+
+    <!-- ── 6. INTERACTIVE AI CHIEF DEMONSTRATOR ── -->
+    <AIChief client:load />
+
+    <!-- ── 7. WHO IS NEXUS AI FOR? ── -->
+    <section class="py-20 max-w-6xl mx-auto px-6 border-t border-ink-900/10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-widest mb-3">Target Personas</div>
+        <h2 class="font-serif text-3xl md:text-4xl font-semibold text-ink-900">
+          Who Benefits Most from an AI Chief of Staff?
+        </h2>
+        <p class="text-sm text-ink-600 mt-3 font-sans">
+          Built for cross-functional leaders and teams where velocity depends on shared context.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-cream-100/60 p-8 rounded-sm border border-ink-900/10 vintage-border">
+          <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-wider mb-2">Founders & Executives</div>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Complete Organizational Visibility</h3>
+          <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+            Never wonder what was decided in a meeting or what commitments were made to clients. Nexus AI keeps a living executive pulse across team operations.
+          </p>
+          <ul class="space-y-2 text-xs text-ink-600 font-sans">
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Automated executive briefings</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Cross-project commitment audits</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Frictionless delegation tracking</li>
+          </ul>
+        </div>
+
+        <div class="bg-cream-100/60 p-8 rounded-sm border border-ink-900/10 vintage-border">
+          <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-wider mb-2">Operations & HR Leaders</div>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Zero-Loss Team Handovers</h3>
+          <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+            Transform high-stress employee departures into seamless handovers. Preserve key stakeholder contacts, open tasks, and historical notes in structured handover packages.
+          </p>
+          <ul class="space-y-2 text-xs text-ink-600 font-sans">
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Auto-generated offboarding memos</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Accelerated new-hire ramp-up</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Preserved vendor & client records</li>
+          </ul>
+        </div>
+
+        <div class="bg-cream-100/60 p-8 rounded-sm border border-ink-900/10 vintage-border">
+          <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-wider mb-2">Product & Engineering</div>
+          <h3 class="font-serif text-xl font-semibold text-ink-900 mb-3">Self-Maintaining Technical Wikis</h3>
+          <p class="text-xs text-ink-700 leading-relaxed font-sans mb-4">
+            Engineers write code, not documentation. Nexus AI parses pull requests, architectural decision records, and technical Slack threads to maintain up-to-date specs.
+          </p>
+          <ul class="space-y-2 text-xs text-ink-600 font-sans">
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Auto-drafted architectural records</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Semantic vector codebase search</li>
+            <li class="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-accent-600" /> Pull request release note synthesis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 8. INTEGRATIONS & SECURITY ── -->
+    <section class="py-20 max-w-6xl mx-auto px-6 border-t border-ink-900/10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <div class="text-xs font-mono font-bold text-accent-600 uppercase tracking-widest">Enterprise Foundation</div>
+          <h2 class="font-serif text-3xl md:text-4xl font-semibold text-ink-900 leading-tight">
+            Connects with Your Tools. Guarantees Absolute Privacy.
+          </h2>
+          <p class="text-sm text-ink-700 leading-relaxed font-sans">
+            Nexus AI does not replace your tech stack—it orchestrates it. Connect your company's existing communication channels and repositories with 1-click OAuth2.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-emerald-700/10 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <strong class="text-xs font-semibold text-ink-900 block font-sans">Zero Training on Customer Data</strong>
+                <span class="text-xs text-ink-600 font-sans">Your company's documents, emails, and chats are never used to train public LLMs or external models.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-emerald-700/10 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <strong class="text-xs font-semibold text-ink-900 block font-sans">End-to-End Encryption</strong>
+                <span class="text-xs text-ink-600 font-sans">TLS 1.3 encryption in transit and AES-256 at rest, protected by PostgreSQL Row-Level Security (RLS).</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded bg-emerald-700/10 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+                <Check className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <strong class="text-xs font-semibold text-ink-900 block font-sans">Native Ecosystem Connectors</strong>
+                <span class="text-xs text-ink-600 font-sans">Google Workspace (Gmail, Calendar, Drive), Slack, GitHub, Microsoft 365, Notion, and PostgreSQL.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-4">
+            <a href="/nexus-ai/security" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+              Read Security Whitepaper <span>→</span>
+            </a>
+            <span class="text-ink-300">·</span>
+            <a href="/nexus-ai/integrations" class="text-xs font-semibold text-accent-700 hover:text-accent-800 inline-flex items-center gap-1 font-sans">
+              View All Integrations <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-cream-100/80 p-8 rounded-sm border border-ink-900/15 vintage-border">
+          <h3 class="font-serif text-lg font-semibold text-ink-900 mb-4">Supported Integrations</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">Google Workspace</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">Gmail & Calendar</div>
+            </div>
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">Slack</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">Channels & DMs</div>
+            </div>
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">GitHub</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">PRs, Issues & Diffs</div>
+            </div>
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">Microsoft 365</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">Outlook & Teams</div>
+            </div>
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">Notion</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">Pages & Databases</div>
+            </div>
+            <div class="p-4 bg-cream-50 border border-ink-900/10 rounded-sm">
+              <div class="font-serif text-sm font-semibold text-ink-900">PostgreSQL</div>
+              <div class="text-[11px] text-ink-500 mt-1 font-sans">PGVector & Tables</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 9. FREE PUBLIC BETA CALLOUT ── -->
+    <FreeBeta />
+
+    <!-- ── 10. FREQUENTLY ASKED QUESTIONS ── -->
+    <FAQ client:load />
+
+    <!-- ── 11. FINAL CALL TO ACTION ── -->
+    <FinalCTA />
+
+  </main>
+
+  <!-- General Links Footer -->
+  <Footer />
+</Layout>

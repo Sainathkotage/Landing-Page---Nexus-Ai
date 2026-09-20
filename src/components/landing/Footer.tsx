@@ -5,12 +5,12 @@ export function Footer() {
     {
       title: 'Product',
       links: [
-        { label: 'Nexus AI App', href: '/nexus' },
+        { label: 'Nexus AI', href: '/nexus-ai' },
+        { label: 'Organizational Memory', href: '/nexus-ai/organizational-memory' },
+        { label: 'Employee Handover', href: '/nexus-ai/employee-handover' },
         { label: 'WebLabs', href: '/weblabs' },
         { label: 'Pricing Plans', href: '/pricing' },
-        { label: 'Documentation', href: '/docs' },
-        { label: 'Product Roadmap', href: '/roadmap' },
-        { label: 'Weekly Changelog', href: '/changelog' },
+        { label: 'Product Roadmap', href: '/nexus-ai/roadmap' },
       ],
     },
     {

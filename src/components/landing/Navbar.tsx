@@ -41,7 +41,7 @@ export function Navbar() {
     {
       num: '01',
       name: 'Nexus AI',
-      href: '/nexus',
+      href: '/nexus-ai',
       tag: 'Beta',
       description: 'The AI Chief of Staff & unified workspace memory.',
     },

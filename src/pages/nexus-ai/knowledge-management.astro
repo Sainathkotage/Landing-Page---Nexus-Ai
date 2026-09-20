@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/landing/Navbar';
+import { Footer } from '../../components/landing/Footer';
+import { FileText, Sparkles, RefreshCw, CheckCircle2, ArrowUpRight } from 'lucide-react';
+
+const domain = "https://www.aixentrix.com";
+const canonical = `${domain}/nexus-ai/knowledge-management`;
+
+const seoTitle = "AI Knowledge Management for Teams | Nexus AI by Aixentrix";
+const seoDescription = "Eliminate stale company wikis with Nexus AI. Discover how autonomous knowledge management captures decisions and updates documentation in real time.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": domain },
+    { "@type": "ListItem", "position": 2, "name": "Nexus AI", "item": `${domain}/nexus-ai` },
+    { "@type": "ListItem", "position": 3, "name": "Knowledge Management", "item": canonical }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": canonical,
+  "publisher": { "@type": "Organization", "name": "Aixentrix", "url": domain }
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical={canonical} schemas={[breadcrumbSchema, webPageSchema]}>
+  <Navbar client:load />
+
+  <main class="pt-32 pb-24 max-w-4xl mx-auto px-6 relative z-10 font-sans text-ink-900">
+    <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2 text-xs font-semibold text-ink-500 uppercase tracking-widest font-sans">
+      <a href="/" class="hover:text-accent-600 transition-colors">Aixentrix</a>
+      <span class="text-ink-300">/</span>
+      <a href="/nexus-ai" class="hover:text-accent-600 transition-colors">Nexus AI</a>
+      <span class="text-ink-300">/</span>
+      <span class="text-ink-900 font-bold">Knowledge Management</span>
+    </nav>
+
+    <article class="bg-cream-50 rounded-sm border border-ink-900/15 shadow-2xl p-8 md:p-12 vintage-border relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent pointer-events-none" />
+
+      <header class="relative z-10 mb-12 text-center border-b border-ink-900/10 pb-8">
+        <div class="vintage-divider text-xs font-semibold uppercase tracking-[0.3em] mb-4 text-ink-500">
+          <span class="flourish text-base">✦</span>
+          <span class="mx-3">Self-Updating Wikis</span>
+          <span class="flourish text-base">✦</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-ink-900 leading-tight mb-6">
+          AI Knowledge Management for Teams
+        </h1>
+        <p class="text-base text-ink-700 leading-relaxed max-w-2xl mx-auto font-serif italic">
+          Why traditional company wikis go stale within months—and how Nexus AI keeps documentation perpetually synchronized with real work.
+        </p>
+      </header>
+
+      <div class="relative z-10 prose prose-stone max-w-none text-sm text-ink-700 leading-relaxed space-y-8 font-sans">
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">The Failure of the Manual Wiki</h2>
+          <p>
+            Nearly every company establishes a Notion, Confluence, or internal wiki with high hopes. Within six months, those pages become digital ghost towns: outdated API specs, former employee names listed as project leads, and contradictory onboarding steps.
+          </p>
+          <p>
+            The root cause isn't laziness—it's incentives. Knowledge workers are judged on output (closing deals, shipping code, solving tickets), not on keeping documentation pristine.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900">How Nexus AI Automates Documentation</h2>
+          <p>
+            Nexus AI shifts the burden of documentation from humans to AI:
+          </p>
+          <div class="space-y-3 my-4">
+            <div class="p-4 bg-cream-100/70 border border-ink-900/10 rounded-sm">
+              <strong class="text-sm font-serif font-semibold text-ink-900 block mb-1">PR & Commit Synthesis</strong>
+              <p class="text-xs text-ink-600">Whenever code changes merge on GitHub, Nexus AI updates the internal architectural documentation and generates draft release notes.</p>
+            </div>
+            <div class="p-4 bg-cream-100/70 border border-ink-900/10 rounded-sm">
+              <strong class="text-sm font-serif font-semibold text-ink-900 block mb-1">Chat Decision Extraction</strong>
+              <p class="text-xs text-ink-600">When an agreement is reached in Slack (e.g., "Let's change our refund window from 14 to 30 days"), Nexus AI updates the company policy guide and alerts the team for confirmation.</p>
+            </div>
+            <div class="p-4 bg-cream-100/70 border border-ink-900/10 rounded-sm">
+              <strong class="text-sm font-serif font-semibold text-ink-900 block mb-1">Staleness Detection</strong>
+              <p class="text-xs text-ink-600">Continuously cross-references existing wiki articles against current code and email activity, flagging outdated instructions before new hires get confused.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="pt-6 border-t border-ink-900/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/nexus-ai" class="text-xs font-semibold text-accent-700 hover:text-accent-800 uppercase tracking-wider">
+            ← Back to Nexus AI
+          </a>
+          <a href="https://app.aixentrix.com/?auth=signup" class="px-6 py-2.5 rounded-sm bg-ink-900 hover:bg-accent-600 text-cream-100 text-xs font-semibold uppercase tracking-wider transition-all">
+            Join the Free Beta
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

@@ -7,5 +7,8 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwind()],
+  },
+  redirects: {
+    '/nexus': '/nexus-ai'
   }
 });
