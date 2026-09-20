@@ -453,20 +453,20 @@ export function WebLabsPageModern() {
               {/* Pill Announcement Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300 hover:border-white/25 transition-colors">
                 <span className="text-xs text-white">✦</span>
-                <span className="tracking-wide">Next-Gen Web Architecture & Performance</span>
+                <span className="tracking-wide">Complete Digital Presence & Web Architecture</span>
               </div>
 
               {/* Main Headline */}
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.04]">
-                Boost your <br />
+                The online presence <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
-                  website's SEO
+                  your business needs
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
-                Next-generation web development and high-converting architectures engineered for agencies, consultants, e-commerce, and high-growth SaaS.
+                WebLabs provides businesses with professional, high-converting websites engineered to establish undeniable credibility, turn visitors into paying clients, and scale your brand.
               </p>
 
               {/* CTAs */}
@@ -475,7 +475,7 @@ export function WebLabsPageModern() {
                   onClick={openWhatsApp}
                   className="px-7 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all shadow-xl hover:shadow-white/20 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Start a Free Trial</span>
+                  <span>Get Your Website</span>
                   <ArrowUpRight className="w-4 h-4 text-black" />
                 </button>
 
@@ -484,7 +484,7 @@ export function WebLabsPageModern() {
                   className="px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn text-white transition-all shadow-md inline-flex items-center gap-2.5 cursor-pointer"
                 >
                   <Play className="w-3.5 h-3.5 fill-white text-white" />
-                  <span>Watch Demo</span>
+                  <span>Explore Solutions</span>
                 </a>
               </div>
             </div>
@@ -620,16 +620,16 @@ export function WebLabsPageModern() {
       <section id="features" className="relative py-24 lg:py-32 z-10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="max-w-2xl space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-zinc-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
               <Sparkles className="w-3 h-3 text-zinc-400" />
-              <span>Features</span>
+              <span>Full-Stack Web Presence</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
-              SEO Tool That <br />
-              Delivers Real Results
+              A Professional Website <br />
+              That Converts Visitors
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Our proven methods help you climb search rankings faster than ever, with no technical skills required.
+              From instant brand credibility to automated search discovery and direct WhatsApp inquiries, we provide everything your business needs to win online.
             </p>
           </div>
 
@@ -781,7 +781,7 @@ export function WebLabsPageModern() {
             {/* Bento Card 4: 3D Stacked Floating Pills */}
             <div className="bento-card glass-card md:col-span-7 rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
-                <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Engineered Speed & Precision</span>
+                <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Turnkey Digital Infrastructure</span>
                 
                 <div className="py-6 flex flex-col gap-3 relative">
                   <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit transform -rotate-2 hover:rotate-0 transition-transform">
@@ -791,19 +791,19 @@ export function WebLabsPageModern() {
                   
                   <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white text-black text-xs font-semibold shadow-2xl w-fit ml-8 transform rotate-1 hover:rotate-0 transition-transform">
                     <TrendingUp className="w-3.5 h-3.5 text-black" />
-                    <span>Conversion-First User Experience</span>
+                    <span>Conversion-First UX & WhatsApp CRM</span>
                   </div>
 
                   <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit ml-16 transform -rotate-1 hover:rotate-0 transition-transform">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Modern Scalable Architecture</span>
+                    <span>Domain, SSL, Hosting & Ongoing Support</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-500">
-                <span>Zero legacy bloat</span>
-                <span className="text-zinc-400">100% Turnkey Handover</span>
+                <span>100% Turnkey Handover</span>
+                <span className="text-zinc-400">Zero Technical Hassle</span>
               </div>
             </div>
           </div>
@@ -814,16 +814,16 @@ export function WebLabsPageModern() {
       <section id="archetypes" className="relative py-24 z-10 border-t border-white/[0.06] bg-[#09090D]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-medium text-zinc-300">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
               <span className="text-xs">✦</span>
-              <span>Website Archetypes</span>
+              <span>Tailored For Every Industry</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
-              Engineered Website <br />
-              Archetypes
+              Websites Engineered <br />
+              for Your Industry
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed">
-              Combining vertical immersion with horizontal exploration. Swipe or scroll horizontally to inspect our high-performance production systems.
+              Every business is unique. We engineer bespoke website architectures tailored to your sector—built to establish market authority and maximize customer inquiries.
             </p>
           </div>
 
@@ -930,18 +930,18 @@ export function WebLabsPageModern() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
                 <Award className="w-3 h-3 text-zinc-400" />
-                <span>Our Achievements</span>
+                <span>Proven Business Impact</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
-                Proven SEO Results <br />
-                You Can Trust
+                Measurable Growth <br />
+                & Market Credibility
               </h2>
 
               <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
-                From early-stage startups to industry leaders, we've helped businesses achieve remarkable search visibility and inbound customer acquisition in record time.
+                From local businesses establishing their first online footprint to scaling companies upgrading their digital presence, we deliver tangible business growth and qualified inquiries.
               </p>
 
               <div className="pt-4 flex flex-col gap-3">
@@ -949,19 +949,19 @@ export function WebLabsPageModern() {
                   <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
                     <Check className="w-3 h-3 text-white" />
                   </div>
-                  <span>Google PageSpeed score guaranteed 95+</span>
+                  <span>Google PageSpeed score guaranteed 95+ with sub-second loads</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-zinc-300">
                   <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
                     <Check className="w-3 h-3 text-white" />
                   </div>
-                  <span>Built-in technical SEO, JSON-LD Schema & meta tags</span>
+                  <span>Built-in local search visibility, verified Schema & Google Maps indexing</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-zinc-300">
                   <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
                     <Check className="w-3 h-3 text-white" />
                   </div>
-                  <span>Full ownership: code, domain, hosting, and assets</span>
+                  <span>Full ownership: code, domain, hosting, and all brand assets</span>
                 </div>
               </div>
             </div>
@@ -1022,14 +1022,14 @@ export function WebLabsPageModern() {
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
               <span className="text-xs">✦</span>
-              <span>Pricing</span>
+              <span>Pricing Plans</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
-              Flexible Pricing for <br />
-              Every Business
+              Turnkey Website Plans <br />
+              for Every Business
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base">
-              Whether you're just starting or looking to scale, we have a plan perfectly tailored to your needs.
+              Whether you need a credible business website or a scalable custom web application, we have a plan built for you.
             </p>
 
             <div className="pt-2 flex items-center justify-center">
@@ -1055,28 +1055,28 @@ export function WebLabsPageModern() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
-            {/* Card 1: Basic */}
+            {/* Card 1: Starter Concept */}
             <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Basic</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Starter Concept</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-white">$0</span>
-                    <span className="text-xs text-zinc-400">/ forever</span>
+                    <span className="text-xs text-zinc-400">/ mockup</span>
                   </div>
                   <p className="text-xs text-zinc-400 mt-2">
-                    Ideal for exploring our core capabilities and getting a custom design mockup.
+                    Test the waters with a bespoke, interactive design preview tailored to your business.
                   </p>
                 </div>
 
                 <ul className="space-y-3 pt-4 border-t border-white/[0.08] text-xs text-zinc-300">
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Custom Figma interactive preview</span>
+                    <span>Custom interactive preview mockup</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-white" />
-                    <span>SEO performance audit</span>
+                    <span>Digital presence & SEO audit</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-white" />
@@ -1094,7 +1094,7 @@ export function WebLabsPageModern() {
                   onClick={openWhatsApp}
                   className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn transition-all cursor-pointer"
                 >
-                  Start with Free Trial
+                  Request Free Mockup
                 </button>
               </div>
             </div>
@@ -1107,7 +1107,7 @@ export function WebLabsPageModern() {
 
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-600 font-semibold">Pro</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-600 font-semibold">Turnkey Pro</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-black">
                       ${pricingCycle === 'monthly' ? '19' : '15'}
@@ -1115,7 +1115,7 @@ export function WebLabsPageModern() {
                     <span className="text-xs text-zinc-600">/ month</span>
                   </div>
                   <p className="text-xs text-zinc-600 mt-2">
-                    Complete turnkey website designed, engineered, and launched with zero hassle.
+                    Complete turnkey website designed, engineered, hosted, and launched with zero hassle.
                   </p>
                 </div>
 
@@ -1130,7 +1130,7 @@ export function WebLabsPageModern() {
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-black" />
-                    <span>Google Search Console indexing</span>
+                    <span>Google Search & Maps indexing</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-black" />
@@ -1148,7 +1148,7 @@ export function WebLabsPageModern() {
                   onClick={openWhatsApp}
                   className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-black hover:bg-zinc-800 text-white transition-all shadow-lg cursor-pointer"
                 >
-                  Start a Free Trial
+                  Launch Your Website
                 </button>
               </div>
             </div>
@@ -1157,7 +1157,7 @@ export function WebLabsPageModern() {
             <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Premium</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Enterprise Suite</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-white">
                       ${pricingCycle === 'monthly' ? '39' : '32'}
@@ -1172,7 +1172,7 @@ export function WebLabsPageModern() {
                 <ul className="space-y-3 pt-4 border-t border-white/[0.08] text-xs text-zinc-300">
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Everything in Pro tier</span>
+                    <span>Everything in Turnkey Pro tier</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="w-3.5 h-3.5 text-white" />
@@ -1194,7 +1194,7 @@ export function WebLabsPageModern() {
                   onClick={openWhatsApp}
                   className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn transition-all cursor-pointer"
                 >
-                  Start with Free Trial
+                  Build Custom Solution
                 </button>
               </div>
             </div>
