@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { DeveloperInfraDemo } from '../../components/weblabs/archetypes/DeveloperInfraDemo';
+
+const domain = "https://www.aixentrix.com";
+const seoTitle = "Developer Infrastructure Website Architecture | WebLabs Archetype 04";
+const seoDescription = "Inspect the Developer Infrastructure website architecture. Proves interactive code sandboxes, lightning search, automated SEO, and 100% Core Web Vitals.";
+---
+
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={`${domain}/weblabs/developer-infrastructure`}
+  bodyClass="bg-[#0B0814] text-white selection:bg-purple-500/30 selection:text-purple-200 min-h-screen"
+>
+  <DeveloperInfraDemo client:load />
+</Layout>

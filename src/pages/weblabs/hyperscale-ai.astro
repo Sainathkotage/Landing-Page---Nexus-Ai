@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { HyperScaleAIDemo } from '../../components/weblabs/archetypes/HyperScaleAIDemo';
+
+const domain = "https://www.aixentrix.com";
+const seoTitle = "HyperScale AI & SaaS Website Architecture | WebLabs Archetype 01";
+const seoDescription = "Inspect the HyperScale AI & SaaS website architecture. Proves sub-second 0.2s TTFB edge response, high-frequency client telemetry, masked metrics, and 99+ Google PageSpeed.";
+---
+
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={`${domain}/weblabs/hyperscale-ai`}
+  bodyClass="bg-[#07080E] text-white selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen"
+>
+  <HyperScaleAIDemo client:load />
+</Layout>

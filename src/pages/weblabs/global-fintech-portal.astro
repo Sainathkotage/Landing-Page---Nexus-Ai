@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { FinTechPortalDemo } from '../../components/weblabs/archetypes/FinTechPortalDemo';
+
+const domain = "https://www.aixentrix.com";
+const seoTitle = "Global FinTech Portal Website Architecture | WebLabs Archetype 03";
+const seoDescription = "Inspect the Global FinTech Portal website architecture. Proves zero latency settlement telemetry, dynamic interactive yield calculator, and SOC2 bank-grade security.";
+---
+
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={`${domain}/weblabs/global-fintech-portal`}
+  bodyClass="bg-[#040D0A] text-white selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen"
+>
+  <FinTechPortalDemo client:load />
+</Layout>

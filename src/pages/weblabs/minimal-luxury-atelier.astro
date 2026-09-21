@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { LuxuryAtelierDemo } from '../../components/weblabs/archetypes/LuxuryAtelierDemo';
+
+const domain = "https://www.aixentrix.com";
+const seoTitle = "Minimal Luxury Atelier E-Commerce Architecture | WebLabs Archetype 02";
+const seoDescription = "Inspect the Minimal Luxury Atelier website architecture. Proves 3.8x conversion architecture, kinetic product cards, instant 1-tap checkout, and 60 FPS Lenis smooth scroll.";
+---
+
+<Layout 
+  title={seoTitle} 
+  description={seoDescription} 
+  canonical={`${domain}/weblabs/minimal-luxury-atelier`}
+  bodyClass="bg-[#0A0908] text-[#F5F3EF] selection:bg-[#D4AF37]/30 selection:text-[#F5F3EF] min-h-screen"
+>
+  <LuxuryAtelierDemo client:load />
+</Layout>

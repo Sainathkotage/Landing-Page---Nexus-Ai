@@ -62,15 +62,52 @@ export function WebLabsPageModern() {
     return () => clearTimeout(timer);
   }, []);
 
+  const isShowcaseHoveredRef = useRef(false);
+  const isShowcaseInteractingRef = useRef(false);
+
   const scrollShowcase = (direction: 'left' | 'right') => {
     if (horizontalShowcaseRef.current) {
+      isShowcaseInteractingRef.current = true;
       const scrollAmount = 380;
       horizontalShowcaseRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth',
       });
+      setTimeout(() => {
+        isShowcaseInteractingRef.current = false;
+      }, 1000);
     }
   };
+
+  // Continuous infinite auto-scroll sideways
+  useEffect(() => {
+    const el = horizontalShowcaseRef.current;
+    if (!el) return;
+
+    let animId: number;
+    let lastTime = performance.now();
+
+    const loop = (time: number) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      if (!isShowcaseHoveredRef.current && !isShowcaseInteractingRef.current && el) {
+        // Continuous smooth auto-scroll: ~42px per second
+        const move = (42 * delta) / 1000;
+        el.scrollLeft += move;
+
+        // Loop seamlessly once scrolled through one-fourth of repeated items
+        const segment = el.scrollWidth / 4;
+        if (segment > 0 && el.scrollLeft >= segment * 2) {
+          el.scrollLeft -= segment;
+        }
+      }
+      animId = requestAnimationFrame(loop);
+    };
+
+    animId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animId);
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -846,82 +883,186 @@ export function WebLabsPageModern() {
           </div>
         </div>
 
-        {/* Horizontal Track with Snap Scrolling */}
-        <div
-          ref={horizontalShowcaseRef}
-          className="flex gap-6 overflow-x-auto scrollbar-none px-6 sm:px-8 max-w-7xl mx-auto pb-6 scroll-smooth snap-x snap-mandatory"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {[
-            {
-              id: '01',
-              title: 'HyperScale AI & SaaS',
-              category: 'Cloud Software',
-              perf: '99+ PageSpeed',
-              tech: 'Next.js 15 • Tailwind • GSAP',
-              gradient: 'from-cyan-500/20 via-blue-500/10 to-transparent',
-              badge: '0.2s TTFB',
-              desc: 'High-frequency interactive dashboards with client telemetry, masked metrics, and sub-second navigation.',
-            },
-            {
-              id: '02',
-              title: 'Minimal Luxury Atelier',
-              category: 'Editorial E-Commerce',
-              perf: '60 FPS Smooth Scroll',
-              tech: 'Shopify Plus • WebGL • Lenis',
-              gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
-              badge: '3.8x Conversion',
-              desc: 'High-converting editorial catalog design with kinetic product cards and instant 1-tap checkout.',
-            },
-            {
-              id: '03',
-              title: 'Global FinTech Portal',
-              category: 'Financial Services',
-              perf: 'Bank-Grade Security',
-              tech: 'Astro • Supabase • TypeScript',
-              gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
-              badge: 'Zero Latency',
-              desc: 'Real-time telemetry, interactive yield calculators, and enterprise compliance architecture.',
-            },
-            {
-              id: '04',
-              title: 'Developer Infrastructure',
-              category: 'Dev Tools & APIs',
-              perf: '100% Core Web Vitals',
-              tech: 'React 19 • MDX • Vite',
-              gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
-              badge: 'Automated SEO',
-              desc: 'Interactive code sandboxes, lightning search, and documentation engineered for dev velocity.',
-            },
-          ].map((project, idx) => (
-            <div
-              key={idx}
-              className="shrink-0 w-[310px] sm:w-[380px] snap-start rounded-3xl p-7 glass-card relative overflow-hidden flex flex-col justify-between group"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 pointer-events-none group-hover:opacity-75 transition-opacity duration-500`} />
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-zinc-500">{project.id} // {project.category}</span>
-                  <span className="px-2.5 py-0.5 rounded-full glass-pill-dark text-[10px] font-semibold text-white font-mono">
-                    {project.badge}
+        {/* Continuous Auto-Scrolling Horizontal Track */}
+        <div className="relative w-full overflow-hidden">
+          {/* Subtle edge fade masks */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-r from-[#09090D] to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-l from-[#09090D] to-transparent z-20" />
+
+          <div
+            ref={horizontalShowcaseRef}
+            onMouseEnter={() => { isShowcaseHoveredRef.current = true; }}
+            onMouseLeave={() => { isShowcaseHoveredRef.current = false; }}
+            onTouchStart={() => { isShowcaseInteractingRef.current = true; }}
+            onTouchEnd={() => { setTimeout(() => { isShowcaseInteractingRef.current = false; }, 1200); }}
+            className="flex gap-6 overflow-x-auto scrollbar-none px-6 sm:px-8 pb-6 select-none"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {[
+              {
+                id: '01',
+                title: 'HyperScale AI & SaaS',
+                category: 'Cloud Software',
+                perf: '99+ PageSpeed',
+                tech: 'Next.js 15 • Tailwind • GSAP',
+                gradient: 'from-cyan-500/20 via-blue-500/10 to-transparent',
+                badge: '0.2s TTFB',
+                desc: 'High-frequency interactive dashboards with client telemetry, masked metrics, and sub-second navigation.',
+                href: '/weblabs/hyperscale-ai',
+              },
+              {
+                id: '02',
+                title: 'Minimal Luxury Atelier',
+                category: 'Editorial E-Commerce',
+                perf: '60 FPS Smooth Scroll',
+                tech: 'Shopify Plus • WebGL • Lenis',
+                gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
+                badge: '3.8x Conversion',
+                desc: 'High-converting editorial catalog design with kinetic product cards and instant 1-tap checkout.',
+                href: '/weblabs/minimal-luxury-atelier',
+              },
+              {
+                id: '03',
+                title: 'Global FinTech Portal',
+                category: 'Financial Services',
+                perf: 'Bank-Grade Security',
+                tech: 'Astro • Supabase • TypeScript',
+                gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+                badge: 'Zero Latency',
+                desc: 'Real-time telemetry, interactive yield calculators, and enterprise compliance architecture.',
+                href: '/weblabs/global-fintech-portal',
+              },
+              {
+                id: '04',
+                title: 'Developer Infrastructure',
+                category: 'Dev Tools & APIs',
+                perf: '100% Core Web Vitals',
+                tech: 'React 19 • MDX • Vite',
+                gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
+                badge: 'Automated SEO',
+                desc: 'Interactive code sandboxes, lightning search, and documentation engineered for dev velocity.',
+                href: '/weblabs/developer-infrastructure',
+              },
+              {
+                id: '01',
+                title: 'HyperScale AI & SaaS',
+                category: 'Cloud Software',
+                perf: '99+ PageSpeed',
+                tech: 'Next.js 15 • Tailwind • GSAP',
+                gradient: 'from-cyan-500/20 via-blue-500/10 to-transparent',
+                badge: '0.2s TTFB',
+                desc: 'High-frequency interactive dashboards with client telemetry, masked metrics, and sub-second navigation.',
+                href: '/weblabs/hyperscale-ai',
+              },
+              {
+                id: '02',
+                title: 'Minimal Luxury Atelier',
+                category: 'Editorial E-Commerce',
+                perf: '60 FPS Smooth Scroll',
+                tech: 'Shopify Plus • WebGL • Lenis',
+                gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
+                badge: '3.8x Conversion',
+                desc: 'High-converting editorial catalog design with kinetic product cards and instant 1-tap checkout.',
+                href: '/weblabs/minimal-luxury-atelier',
+              },
+              {
+                id: '03',
+                title: 'Global FinTech Portal',
+                category: 'Financial Services',
+                perf: 'Bank-Grade Security',
+                tech: 'Astro • Supabase • TypeScript',
+                gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+                badge: 'Zero Latency',
+                desc: 'Real-time telemetry, interactive yield calculators, and enterprise compliance architecture.',
+                href: '/weblabs/global-fintech-portal',
+              },
+              {
+                id: '04',
+                title: 'Developer Infrastructure',
+                category: 'Dev Tools & APIs',
+                perf: '100% Core Web Vitals',
+                tech: 'React 19 • MDX • Vite',
+                gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
+                badge: 'Automated SEO',
+                desc: 'Interactive code sandboxes, lightning search, and documentation engineered for dev velocity.',
+                href: '/weblabs/developer-infrastructure',
+              },
+              {
+                id: '01',
+                title: 'HyperScale AI & SaaS',
+                category: 'Cloud Software',
+                perf: '99+ PageSpeed',
+                tech: 'Next.js 15 • Tailwind • GSAP',
+                gradient: 'from-cyan-500/20 via-blue-500/10 to-transparent',
+                badge: '0.2s TTFB',
+                desc: 'High-frequency interactive dashboards with client telemetry, masked metrics, and sub-second navigation.',
+                href: '/weblabs/hyperscale-ai',
+              },
+              {
+                id: '02',
+                title: 'Minimal Luxury Atelier',
+                category: 'Editorial E-Commerce',
+                perf: '60 FPS Smooth Scroll',
+                tech: 'Shopify Plus • WebGL • Lenis',
+                gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
+                badge: '3.8x Conversion',
+                desc: 'High-converting editorial catalog design with kinetic product cards and instant 1-tap checkout.',
+                href: '/weblabs/minimal-luxury-atelier',
+              },
+              {
+                id: '03',
+                title: 'Global FinTech Portal',
+                category: 'Financial Services',
+                perf: 'Bank-Grade Security',
+                tech: 'Astro • Supabase • TypeScript',
+                gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+                badge: 'Zero Latency',
+                desc: 'Real-time telemetry, interactive yield calculators, and enterprise compliance architecture.',
+                href: '/weblabs/global-fintech-portal',
+              },
+              {
+                id: '04',
+                title: 'Developer Infrastructure',
+                category: 'Dev Tools & APIs',
+                perf: '100% Core Web Vitals',
+                tech: 'React 19 • MDX • Vite',
+                gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
+                badge: 'Automated SEO',
+                desc: 'Interactive code sandboxes, lightning search, and documentation engineered for dev velocity.',
+                href: '/weblabs/developer-infrastructure',
+              },
+            ].map((project, idx) => (
+              <a
+                key={idx}
+                href={project.href}
+                className="shrink-0 w-[310px] sm:w-[380px] rounded-3xl p-7 glass-card relative overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300 hover:border-white/30 hover:-translate-y-1 block"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 pointer-events-none group-hover:opacity-75 transition-opacity duration-500`} />
+                <div className="relative z-10 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs text-zinc-500">{project.id} // {project.category}</span>
+                    <span className="px-2.5 py-0.5 rounded-full glass-pill-dark text-[10px] font-semibold text-white font-mono">
+                      {project.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-medium text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 transition-all">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+                    {project.desc}
+                  </p>
+                </div>
+
+                <div className="relative z-10 pt-8 border-t border-white/[0.06] mt-6 flex items-center justify-between text-xs">
+                  <span className="font-mono text-[11px] text-zinc-500">{project.tech}</span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.08] group-hover:bg-white text-white group-hover:text-black font-medium transition-all shadow-sm">
+                    <span>Inspect</span>
+                    <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
                   </span>
                 </div>
-                <h3 className="text-xl font-medium text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 transition-all">
-                  {project.title}
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                  {project.desc}
-                </p>
-              </div>
-
-              <div className="relative z-10 pt-8 border-t border-white/[0.06] mt-6 flex items-center justify-between text-xs">
-                <span className="font-mono text-[11px] text-zinc-500">{project.tech}</span>
-                <span className="text-white font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  Inspect ↗
-                </span>
-              </div>
-            </div>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
