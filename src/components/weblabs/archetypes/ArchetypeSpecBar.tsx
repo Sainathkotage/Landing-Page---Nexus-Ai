@@ -61,7 +61,7 @@ export function ArchetypeSpecBar({
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden xs:inline">Back to</span>
-            <span className="font-semibold text-white">WebLabs</span>
+            <span className="font-semibold text-white font-cinzel">WebLabs</span>
           </a>
 
           <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
