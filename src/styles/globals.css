@@ -3,8 +3,6 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
-  --font-cinzel: "Cinzel", ui-serif, Georgia, serif;
-  --font-fauna: "Fauna One", ui-serif, Georgia, serif;
   
   --color-cream-50: #f8f3e8;
   --color-cream-100: #f2ebd9;
@@ -312,38 +310,3 @@
     background: rgba(18, 18, 24, 0.92);
   }
 }
-
-/* ── WebLabs Typography System: Cinzel (Headers) + Fauna One (Body Copy) ── */
-.font-cinzel {
-  font-family: var(--font-cinzel), "Cinzel", ui-serif, Georgia, serif;
-}
-
-.font-fauna {
-  font-family: var(--font-fauna), "Fauna One", ui-serif, Georgia, serif;
-}
-
-.weblabs-scope {
-  font-family: var(--font-fauna), "Fauna One", ui-serif, Georgia, serif;
-}
-
-.weblabs-scope h1,
-.weblabs-scope h2,
-.weblabs-scope h3,
-.weblabs-scope h4,
-.weblabs-scope h5,
-.weblabs-scope h6,
-.weblabs-scope .font-heading,
-.weblabs-scope .weblabs-header {
-  font-family: var(--font-cinzel), "Cinzel", ui-serif, Georgia, serif;
-  letter-spacing: 0.02em;
-}
-
-.weblabs-scope p,
-.weblabs-scope .weblabs-body {
-  font-family: var(--font-fauna), "Fauna One", ui-serif, Georgia, serif;
-}
-
-.weblabs-scope .font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-}
-

@@ -353,7 +353,7 @@ export function WebLabsPageModern() {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen bg-[#070709] text-white font-fauna weblabs-scope selection:bg-white/20 selection:text-white overflow-hidden"
+      className="relative min-h-screen bg-[#070709] text-white font-sans selection:bg-white/20 selection:text-white overflow-hidden"
     >
       {/* ── APPLE SCROLL PROGRESS BAR (Top 2px line) ── */}
       <div className="fixed top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none bg-white/[0.06]">
@@ -397,7 +397,7 @@ export function WebLabsPageModern() {
       >
         <div className="flex items-center gap-2 text-white animate-pulse">
           <span className="text-xl font-bold">✦</span>
-          <span className="text-sm font-semibold tracking-widest uppercase font-cinzel">WebLabs</span>
+          <span className="text-sm font-semibold tracking-wider uppercase font-mono">WebLabs</span>
         </div>
       </div>
 
@@ -448,8 +448,8 @@ export function WebLabsPageModern() {
               <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
                 <span className="text-white text-sm font-bold">✦</span>
               </div>
-              <span className="text-base font-bold tracking-tight text-white flex items-center gap-1 font-cinzel">
-                WebLabs<span className="text-zinc-500 font-normal text-xs font-mono">.ai</span>
+              <span className="text-base font-bold tracking-tight text-white flex items-center gap-1">
+                WebLabs<span className="text-zinc-500 font-normal text-xs">.ai</span>
               </span>
             </a>
 
@@ -494,7 +494,7 @@ export function WebLabsPageModern() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.04] font-cinzel">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.04]">
                 The online presence <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                   your business needs
@@ -502,7 +502,7 @@ export function WebLabsPageModern() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal font-fauna">
+              <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
                 WebLabs provides businesses with professional, high-converting websites engineered to establish undeniable credibility, turn visitors into paying clients, and scale your brand.
               </p>
 
@@ -661,11 +661,11 @@ export function WebLabsPageModern() {
               <Sparkles className="w-3 h-3 text-zinc-400" />
               <span>Full-Stack Web Presence</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight font-cinzel">
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
               A Professional Website <br />
               That Converts Visitors
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-fauna">
+            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
               From instant brand credibility to automated search discovery and direct WhatsApp inquiries, we provide everything your business needs to win online.
             </p>
           </div>
@@ -855,11 +855,11 @@ export function WebLabsPageModern() {
               <span className="text-xs">✦</span>
               <span>Tailored For Every Industry</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight font-cinzel">
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
               Websites Engineered <br />
               for Your Industry
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed font-fauna">
+            <p className="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed">
               Every business is unique. We engineer bespoke website architectures tailored to your sector—built to establish market authority and maximize customer inquiries.
             </p>
           </div>
@@ -1045,10 +1045,10 @@ export function WebLabsPageModern() {
                       {project.badge}
                     </span>
                   </div>
-                  <h3 className="text-xl font-medium text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 transition-all font-cinzel">
+                  <h3 className="text-xl font-medium text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 transition-all">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed font-normal font-fauna">
+                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                     {project.desc}
                   </p>
                 </div>
@@ -1076,12 +1076,12 @@ export function WebLabsPageModern() {
                 <span>Proven Business Impact</span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight font-cinzel">
+              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
                 Measurable Growth <br />
                 & Market Credibility
               </h2>
 
-              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg font-fauna">
+              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
                 From local businesses establishing their first online footprint to scaling companies upgrading their digital presence, we deliver tangible business growth and qualified inquiries.
               </p>
 
@@ -1165,11 +1165,11 @@ export function WebLabsPageModern() {
               <span className="text-xs">✦</span>
               <span>Pricing Plans</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white font-cinzel">
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
               Turnkey Website Plans <br />
               for Every Business
             </h2>
-            <p className="text-zinc-400 text-sm sm:text-base font-fauna">
+            <p className="text-zinc-400 text-sm sm:text-base">
               Whether you need a credible business website or a scalable custom web application, we have a plan built for you.
             </p>
 
@@ -1200,7 +1200,7 @@ export function WebLabsPageModern() {
             <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold font-cinzel">Starter Concept</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Starter Concept</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-white">$0</span>
                     <span className="text-xs text-zinc-400">/ mockup</span>
@@ -1248,7 +1248,7 @@ export function WebLabsPageModern() {
 
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-600 font-semibold font-cinzel">Turnkey Pro</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-600 font-semibold">Turnkey Pro</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-black">
                       ${pricingCycle === 'monthly' ? '19' : '15'}
@@ -1298,7 +1298,7 @@ export function WebLabsPageModern() {
             <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold font-cinzel">Enterprise Suite</span>
+                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Enterprise Suite</span>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-bold text-white">
                       ${pricingCycle === 'monthly' ? '39' : '32'}
@@ -1355,11 +1355,11 @@ export function WebLabsPageModern() {
                 <span className="text-xs">✦</span>
                 <span>FAQ</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight font-cinzel">
+              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white leading-tight">
                 Your Questions <br />
                 Answered
               </h2>
-              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-fauna">
+              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
                 Everything you need to know about our design process, turnaround time, deliverables, and technical handoff.
               </p>
               <div className="pt-4">
@@ -1518,7 +1518,7 @@ export function WebLabsPageModern() {
           <div className="pt-4 pb-2 text-center select-none pointer-events-none overflow-hidden">
             <h2
               ref={watermarkRef}
-              className="text-[14vw] font-black tracking-wider leading-none uppercase will-change-transform font-cinzel"
+              className="text-[14vw] font-black tracking-tighter leading-none uppercase will-change-transform"
               style={{
                 WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.15)',
                 color: 'transparent',
