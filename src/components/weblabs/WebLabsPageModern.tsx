@@ -15,12 +15,14 @@ import {
   Zap,
   ShieldCheck,
   Search,
-  Award
+  Award,
+  Menu,
+  X
 } from 'lucide-react';
 
 export function WebLabsPageModern() {
   const [activeTab, setActiveTab] = useState<'visits' | 'funnels' | 'conversions'>('visits');
-  const [pricingCycle, setPricingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [emailInput, setEmailInput] = useState('');
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -40,7 +42,6 @@ export function WebLabsPageModern() {
   const statCard1Ref = useRef<HTMLDivElement>(null);
   const statCard2Ref = useRef<HTMLDivElement>(null);
   const statCard3Ref = useRef<HTMLDivElement>(null);
-  const pricingRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLHeadingElement>(null);
 
   // Apple-style Card Mouse Spotlight
@@ -144,7 +145,7 @@ export function WebLabsPageModern() {
 
     const ctx = gsap.context(() => {
       // Track current active section for smooth visual cues
-      const sectionIds = ['hero', 'features', 'archetypes', 'results', 'pricing', 'faq'];
+      const sectionIds = ['hero', 'features', 'archetypes', 'results', 'faq'];
       sectionIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
@@ -281,28 +282,7 @@ export function WebLabsPageModern() {
         }
       }
 
-      // 6. Pricing Cards Elevation Scrub
-      if (pricingRef.current) {
-        const pCards = pricingRef.current.querySelectorAll('.pricing-card');
-        gsap.fromTo(
-          pCards,
-          { y: 50, opacity: 0.4 },
-          {
-            scrollTrigger: {
-              trigger: pricingRef.current,
-              start: 'top 75%',
-              end: 'top 35%',
-              scrub: 1,
-            },
-            y: 0,
-            opacity: 1,
-            stagger: 0.12,
-            ease: 'power2.out',
-          }
-        );
-      }
-
-      // 7. Giant Outlined Watermark Bottom Scale Reveal
+      // 6. Giant Outlined Watermark Bottom Scale Reveal
       if (watermarkRef.current) {
         gsap.fromTo(
           watermarkRef.current,
@@ -408,7 +388,6 @@ export function WebLabsPageModern() {
           { id: 'features', label: 'Features' },
           { id: 'archetypes', label: 'Archetypes' },
           { id: 'results', label: 'Results' },
-          { id: 'pricing', label: 'Pricing' },
           { id: 'faq', label: 'FAQ' },
         ].map((sec) => {
           const isActive = activeSection === sec.id;
@@ -439,17 +418,17 @@ export function WebLabsPageModern() {
         })}
       </div>
 
-      {/* ── 1. FLOATING NAVIGATION BAR (Glassmorphism Panel) ── */}
-      <header className="fixed top-0 left-0 right-0 z-40 h-20 flex items-center">
-        <div className="max-w-7xl mx-auto w-full px-6 sm:px-8">
-          <div className="flex items-center justify-between py-3 px-6 rounded-full glass-nav-panel shadow-2xl transition-all duration-300 hover:border-white/25">
+      {/* ── 1. FLOATING NAVIGATION BAR (Glassmorphism Panel with Mobile Drawer) ── */}
+      <header className="fixed top-0 left-0 right-0 z-40 py-3 sm:py-4 flex flex-col items-center">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-8">
+          <div className="flex items-center justify-between py-2 sm:py-2.5 px-4 sm:px-6 rounded-full glass-nav-panel shadow-2xl transition-all duration-300 hover:border-white/25">
             {/* Brand Logo */}
-            <a href="/weblabs" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                <span className="text-white text-sm font-bold">✦</span>
+            <a href="/weblabs" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
+                <span className="text-white text-xs sm:text-sm font-bold">✦</span>
               </div>
-              <span className="text-base font-bold tracking-tight text-white flex items-center gap-1">
-                WebLabs<span className="text-zinc-500 font-normal text-xs">.ai</span>
+              <span className="text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-1">
+                WebLabs<span className="text-zinc-500 font-normal text-xs font-mono">.ai</span>
               </span>
             </a>
 
@@ -458,43 +437,106 @@ export function WebLabsPageModern() {
               <a href="#features" className="hover:text-white transition-colors">Features</a>
               <a href="#archetypes" className="hover:text-white transition-colors">Archetypes</a>
               <a href="#results" className="hover:text-white transition-colors">Results</a>
-              <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             </nav>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-4">
+            {/* Action Buttons & Mobile Toggle */}
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={openWhatsApp}
-                className="hidden sm:block text-sm text-zinc-300 hover:text-white font-medium transition-colors cursor-pointer"
+                className="hidden sm:block text-xs sm:text-sm text-zinc-300 hover:text-white font-medium transition-colors cursor-pointer"
               >
                 Sign in
               </button>
               <button
                 onClick={openWhatsApp}
-                className="px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all shadow-lg hover:shadow-white/10 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all shadow-lg hover:shadow-white/10 hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
               >
                 Start a Project
               </button>
+
+              {/* Mobile Hamburger Toggle Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden w-8 h-8 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white cursor-pointer hover:bg-white/20 transition-colors"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Dropdown Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-2 p-4 rounded-3xl glass-nav-panel border border-white/15 shadow-2xl backdrop-blur-2xl animate-fade-in-up flex flex-col gap-3">
+              <nav className="flex flex-col gap-1 text-sm font-medium text-zinc-300">
+                <a
+                  href="#hero"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  Overview
+                </a>
+                <a
+                  href="#features"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  Features
+                </a>
+                <a
+                  href="#archetypes"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  Archetypes
+                </a>
+                <a
+                  href="#results"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  Results & Metrics
+                </a>
+                <a
+                  href="#faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                >
+                  FAQ
+                </a>
+              </nav>
+
+              <div className="pt-2 border-t border-white/10">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openWhatsApp();
+                  }}
+                  className="w-full py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all text-center justify-center cursor-pointer shadow-lg"
+                >
+                  Start a Project via WhatsApp
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
       {/* ── 2. HERO SECTION (With Apple Scroll Parallax & Glass Depth) ── */}
-      <section id="hero" className="relative pt-40 sm:pt-48 pb-20 lg:pb-32 z-10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <section id="hero" className="relative pt-28 sm:pt-40 lg:pt-48 pb-16 sm:pb-20 lg:pb-32 z-10 scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Column: Typography & CTAs (Parallax Target) */}
-            <div ref={heroTextRef} className="lg:col-span-7 space-y-6 sm:space-y-8 text-left will-change-transform">
+            <div ref={heroTextRef} className="lg:col-span-7 space-y-5 sm:space-y-8 text-left will-change-transform">
               {/* Pill Announcement Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300 hover:border-white/25 transition-colors">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full glass-pill-dark text-[11px] sm:text-xs font-medium text-zinc-300 hover:border-white/25 transition-colors">
                 <span className="text-xs text-white">✦</span>
                 <span className="tracking-wide">Complete Digital Presence & Web Architecture</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.04]">
+              <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tight text-white leading-[1.08] sm:leading-[1.04]">
                 The online presence <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                   your business needs
@@ -502,15 +544,15 @@ export function WebLabsPageModern() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base sm:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
+              <p className="text-sm sm:text-base lg:text-lg text-zinc-400 max-w-xl leading-relaxed font-normal">
                 WebLabs provides businesses with professional, high-converting websites engineered to establish undeniable credibility, turn visitors into paying clients, and scale your brand.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
                 <button
                   onClick={openWhatsApp}
-                  className="px-7 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all shadow-xl hover:shadow-white/20 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2 cursor-pointer"
+                  className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all shadow-xl hover:shadow-white/20 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Get Your Website</span>
                   <ArrowUpRight className="w-4 h-4 text-black" />
@@ -518,7 +560,7 @@ export function WebLabsPageModern() {
 
                 <a
                   href="#features"
-                  className="px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn text-white transition-all shadow-md inline-flex items-center gap-2.5 cursor-pointer"
+                  className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn text-white transition-all shadow-md inline-flex items-center justify-center gap-2.5 cursor-pointer w-full sm:w-auto"
                 >
                   <Play className="w-3.5 h-3.5 fill-white text-white" />
                   <span>Explore Solutions</span>
@@ -528,7 +570,7 @@ export function WebLabsPageModern() {
 
             {/* Right Column: 3D Chrome Star Sculpture Graphic (Dynamic Scroll Target) */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
+              <div className="relative w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[360px] lg:max-w-[420px] aspect-square flex items-center justify-center mx-auto">
                 <div className="absolute inset-0 bg-radial from-white/[0.08] via-transparent to-transparent rounded-full blur-2xl pointer-events-none" />
 
                 <svg
@@ -654,9 +696,9 @@ export function WebLabsPageModern() {
       </section>
 
       {/* ── 4. BENTO FEATURES GRID SECTION (Apple Staggered 3D Reveal) ── */}
-      <section id="features" className="relative py-24 lg:py-32 z-10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="max-w-2xl space-y-4 mb-16">
+      <section id="features" className="relative py-16 sm:py-24 lg:py-32 z-10 scroll-mt-28 border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl space-y-4 mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
               <Sparkles className="w-3 h-3 text-zinc-400" />
               <span>Full-Stack Web Presence</span>
@@ -671,11 +713,11 @@ export function WebLabsPageModern() {
           </div>
 
           {/* Bento Grid */}
-          <div ref={bentoRef} className="grid grid-cols-1 md:grid-cols-12 gap-6 perspective-[1000px]">
+          <div ref={bentoRef} className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 perspective-[1000px]">
             {/* Bento Card 1: Metric Selectors */}
-            <div className="bento-card glass-card md:col-span-7 rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bento-card glass-card md:col-span-7 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between">
               <div>
-                <div className="flex flex-wrap items-center gap-2 mb-8">
+                <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
                   <button
                     onClick={() => setActiveTab('visits')}
                     className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
@@ -708,7 +750,7 @@ export function WebLabsPageModern() {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="p-4 rounded-2xl glass-card space-y-2">
                     <span className="text-[11px] text-zinc-500 font-medium">Page Impressions</span>
                     <div className="flex items-center gap-1.5 text-white font-mono text-sm tracking-wider">
@@ -731,14 +773,14 @@ export function WebLabsPageModern() {
                 </div>
               </div>
 
-              <div className="pt-8 flex items-center justify-between text-xs text-zinc-500">
+              <div className="pt-6 sm:pt-8 flex items-center justify-between text-xs text-zinc-500">
                 <span>Real-time visitor telemetry</span>
                 <span className="text-zinc-400 font-mono">Status: Synced ✦</span>
               </div>
             </div>
 
             {/* Bento Card 2: Analytics Chart (With Apple Draw-in Animation) */}
-            <div className="bento-card glass-card md:col-span-5 rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bento-card glass-card md:col-span-5 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-zinc-400">Growth Velocity</span>
@@ -790,7 +832,7 @@ export function WebLabsPageModern() {
             </div>
 
             {/* Bento Card 3: Google Search Console */}
-            <div className="bento-card glass-card md:col-span-5 rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bento-card glass-card md:col-span-5 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -816,24 +858,24 @@ export function WebLabsPageModern() {
             </div>
 
             {/* Bento Card 4: 3D Stacked Floating Pills */}
-            <div className="bento-card glass-card md:col-span-7 rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+            <div className="bento-card glass-card md:col-span-7 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between">
               <div className="space-y-4">
                 <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Turnkey Digital Infrastructure</span>
                 
                 <div className="py-6 flex flex-col gap-3 relative">
-                  <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit transform -rotate-2 hover:rotate-0 transition-transform">
-                    <Zap className="w-3.5 h-3.5 text-amber-300" />
-                    <span>Ultra-Fast Sub-Second Load Speeds</span>
+                  <div className="inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit max-w-full sm:transform sm:-rotate-2 hover:rotate-0 transition-transform">
+                    <Zap className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                    <span className="truncate sm:whitespace-normal">Ultra-Fast Sub-Second Load Speeds</span>
                   </div>
                   
-                  <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white text-black text-xs font-semibold shadow-2xl w-fit ml-8 transform rotate-1 hover:rotate-0 transition-transform">
-                    <TrendingUp className="w-3.5 h-3.5 text-black" />
-                    <span>Conversion-First UX & WhatsApp CRM</span>
+                  <div className="inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 rounded-2xl bg-white text-black text-xs font-semibold shadow-2xl w-fit max-w-full ml-0 sm:ml-6 md:ml-8 sm:transform sm:rotate-1 hover:rotate-0 transition-transform">
+                    <TrendingUp className="w-3.5 h-3.5 text-black shrink-0" />
+                    <span className="truncate sm:whitespace-normal">Conversion-First UX & WhatsApp CRM</span>
                   </div>
 
-                  <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit ml-16 transform -rotate-1 hover:rotate-0 transition-transform">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Domain, SSL, Hosting & Ongoing Support</span>
+                  <div className="inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 rounded-2xl glass-pill-dark text-white text-xs font-medium shadow-xl w-fit max-w-full ml-0 sm:ml-12 md:ml-16 sm:transform sm:-rotate-1 hover:rotate-0 transition-transform">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate sm:whitespace-normal">Domain, SSL, Hosting & Ongoing Support</span>
                   </div>
                 </div>
               </div>
@@ -848,8 +890,8 @@ export function WebLabsPageModern() {
       </section>
 
       {/* ── 4.5 HORIZONTAL SCROLL SHOWCASE (Apple-Style Horizontal Snap Carousel) ── */}
-      <section id="archetypes" className="relative py-24 z-10 border-t border-white/[0.06] bg-[#09090D]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <section id="archetypes" className="relative py-16 sm:py-24 z-10 border-t border-white/[0.06] bg-[#09090D] scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 mb-8 sm:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
               <span className="text-xs">✦</span>
@@ -868,14 +910,14 @@ export function WebLabsPageModern() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scrollShowcase('left')}
-              className="w-10 h-10 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 flex items-center justify-center text-white transition-all cursor-pointer shadow-lg active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 flex items-center justify-center text-white transition-all cursor-pointer shadow-lg active:scale-95"
               aria-label="Scroll left"
             >
               <ChevronDown className="w-4 h-4 rotate-90" />
             </button>
             <button
               onClick={() => scrollShowcase('right')}
-              className="w-10 h-10 rounded-full bg-white text-black hover:bg-zinc-200 flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black hover:bg-zinc-200 flex items-center justify-center transition-all cursor-pointer shadow-lg active:scale-95"
               aria-label="Scroll right"
             >
               <ChevronDown className="w-4 h-4 -rotate-90 text-black" />
@@ -886,8 +928,8 @@ export function WebLabsPageModern() {
         {/* Continuous Auto-Scrolling Horizontal Track */}
         <div className="relative w-full overflow-hidden">
           {/* Subtle edge fade masks */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-r from-[#09090D] to-transparent z-20" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-20 bg-gradient-to-l from-[#09090D] to-transparent z-20" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-4 sm:w-20 bg-gradient-to-r from-[#09090D] to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-4 sm:w-20 bg-gradient-to-l from-[#09090D] to-transparent z-20" />
 
           <div
             ref={horizontalShowcaseRef}
@@ -895,8 +937,8 @@ export function WebLabsPageModern() {
             onMouseLeave={() => { isShowcaseHoveredRef.current = false; }}
             onTouchStart={() => { isShowcaseInteractingRef.current = true; }}
             onTouchEnd={() => { setTimeout(() => { isShowcaseInteractingRef.current = false; }, 1200); }}
-            className="flex gap-6 overflow-x-auto scrollbar-none px-6 sm:px-8 pb-6 select-none"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none px-4 sm:px-8 pb-6 select-none"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollSnapType: 'x mandatory' }}
           >
             {[
               {
@@ -1032,20 +1074,20 @@ export function WebLabsPageModern() {
                 href: '/weblabs/developer-infrastructure',
               },
             ].map((project, idx) => (
-              <a
+              <div
                 key={idx}
-                href={project.href}
-                className="shrink-0 w-[310px] sm:w-[380px] rounded-3xl p-7 glass-card relative overflow-hidden flex flex-col justify-between group cursor-pointer transition-all duration-300 hover:border-white/30 hover:-translate-y-1 block"
+                className="shrink-0 w-[85vw] max-w-[340px] sm:w-[380px] rounded-2xl sm:rounded-3xl p-5 sm:p-7 glass-card relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-white/25 block"
+                style={{ scrollSnapAlign: 'start' }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 pointer-events-none group-hover:opacity-75 transition-opacity duration-500`} />
-                <div className="relative z-10 space-y-4">
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-35 pointer-events-none hover:opacity-55 transition-opacity duration-500`} />
+                <div className="relative z-10 space-y-3 sm:space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-zinc-500">{project.id} // {project.category}</span>
+                    <span className="font-mono text-[11px] sm:text-xs text-zinc-500">{project.id} // {project.category}</span>
                     <span className="px-2.5 py-0.5 rounded-full glass-pill-dark text-[10px] font-semibold text-white font-mono">
                       {project.badge}
                     </span>
                   </div>
-                  <h3 className="text-xl font-medium text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-300 transition-all">
+                  <h3 className="text-lg sm:text-xl font-medium text-white tracking-tight">
                     {project.title}
                   </h3>
                   <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -1053,24 +1095,24 @@ export function WebLabsPageModern() {
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-8 border-t border-white/[0.06] mt-6 flex items-center justify-between text-xs">
-                  <span className="font-mono text-[11px] text-zinc-500">{project.tech}</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.08] group-hover:bg-white text-white group-hover:text-black font-medium transition-all shadow-sm">
-                    <span>Inspect</span>
-                    <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-                  </span>
+                <div className="relative z-10 pt-5 sm:pt-6 border-t border-white/[0.06] mt-5 sm:mt-6 flex items-center justify-between text-xs">
+                  <span className="font-mono text-[11px] text-zinc-400">{project.tech}</span>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[10px] font-mono text-zinc-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
+                    <span>{project.perf}</span>
+                  </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── 5. ACHIEVEMENTS / STATS SECTION (Apple Multi-layer Parallax & Glass Depth) ── */}
-      <section ref={achievementsRef} id="results" className="relative py-24 lg:py-32 z-10 border-t border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
+      <section ref={achievementsRef} id="results" className="relative py-16 sm:py-24 lg:py-32 z-10 border-t border-white/[0.06] scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
                 <Award className="w-3 h-3 text-zinc-400" />
                 <span>Proven Business Impact</span>
@@ -1085,21 +1127,21 @@ export function WebLabsPageModern() {
                 From local businesses establishing their first online footprint to scaling companies upgrading their digital presence, we deliver tangible business growth and qualified inquiries.
               </p>
 
-              <div className="pt-4 flex flex-col gap-3">
-                <div className="flex items-center gap-3 text-xs text-zinc-300">
-                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
+              <div className="pt-2 sm:pt-4 flex flex-col gap-3">
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
+                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center shrink-0">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                   <span>Google PageSpeed score guaranteed 95+ with sub-second loads</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-zinc-300">
-                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
+                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center shrink-0">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                   <span>Built-in local search visibility, verified Schema & Google Maps indexing</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-zinc-300">
-                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center">
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-zinc-300">
+                  <div className="w-5 h-5 rounded-full glass-pill-dark flex items-center justify-center shrink-0">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                   <span>Full ownership: code, domain, hosting, and all brand assets</span>
@@ -1108,45 +1150,45 @@ export function WebLabsPageModern() {
             </div>
 
             {/* Right Column: 3D Stacked Floating Stat Cards with Parallax Physics */}
-            <div className="lg:col-span-6 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[460px] h-[340px]">
+            <div className="lg:col-span-6 relative flex items-center justify-center pt-4 lg:pt-0">
+              <div className="relative w-full max-w-[340px] sm:max-w-[460px] h-[300px] sm:h-[340px] mx-auto">
                 {/* Floating Card 1 */}
                 <div
                   ref={statCard1Ref}
-                  className="absolute top-0 right-4 w-52 p-5 rounded-2xl glass-card transform rotate-3 will-change-transform"
+                  className="absolute top-0 right-2 sm:right-4 w-44 sm:w-52 p-4 sm:p-5 rounded-2xl glass-card transform rotate-3 will-change-transform"
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2 sm:mb-3">
                     <TrendingUp className="w-4 h-4 text-emerald-400" />
                     <span className="text-[10px] uppercase font-mono text-zinc-500">Growth</span>
                   </div>
-                  <div className="text-3xl font-bold tracking-tight text-white mb-1">200%</div>
-                  <div className="text-xs text-zinc-400">Organic Traffic Lift</div>
+                  <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">200%</div>
+                  <div className="text-[11px] sm:text-xs text-zinc-400">Organic Traffic Lift</div>
                 </div>
 
                 {/* Floating Card 2 */}
                 <div
                   ref={statCard2Ref}
-                  className="absolute top-24 left-4 w-56 p-5 rounded-2xl glass-card transform -rotate-3 will-change-transform"
+                  className="absolute top-20 sm:top-24 left-2 sm:left-4 w-48 sm:w-56 p-4 sm:p-5 rounded-2xl glass-card transform -rotate-3 will-change-transform"
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2 sm:mb-3">
                     <Search className="w-4 h-4 text-white" />
                     <span className="text-[10px] uppercase font-mono text-zinc-500">Reach</span>
                   </div>
-                  <div className="text-3xl font-bold tracking-tight text-white mb-1">50K+</div>
-                  <div className="text-xs text-zinc-400">Search Queries Ranked</div>
+                  <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">50K+</div>
+                  <div className="text-[11px] sm:text-xs text-zinc-400">Search Queries Ranked</div>
                 </div>
 
                 {/* Floating Card 3 */}
                 <div
                   ref={statCard3Ref}
-                  className="absolute bottom-2 right-12 w-48 p-4 rounded-2xl glass-card transform rotate-2 will-change-transform"
+                  className="absolute bottom-2 right-4 sm:right-12 w-40 sm:w-48 p-3.5 sm:p-4 rounded-2xl glass-card transform rotate-2 will-change-transform"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <Zap className="w-4 h-4 text-amber-300" />
                     <span className="text-[10px] uppercase font-mono text-zinc-500">Speed</span>
                   </div>
-                  <div className="text-2xl font-bold tracking-tight text-white mb-1">99+</div>
-                  <div className="text-[11px] text-zinc-400">Core Web Vitals</div>
+                  <div className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">99+</div>
+                  <div className="text-[10px] sm:text-[11px] text-zinc-400">Core Web Vitals</div>
                 </div>
               </div>
             </div>
@@ -1154,202 +1196,13 @@ export function WebLabsPageModern() {
         </div>
       </section>
 
-      {/* ── 6. PRICING SECTION (Apple Scrubbing Elevation) ── */}
-      <section ref={pricingRef} id="pricing" className="relative py-24 lg:py-32 z-10 border-t border-white/[0.06] overflow-hidden">
-        {/* Ambient Gradient Glow for Glass Refraction */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-emerald-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
-
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
-              <span className="text-xs">✦</span>
-              <span>Pricing Plans</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
-              Turnkey Website Plans <br />
-              for Every Business
-            </h2>
-            <p className="text-zinc-400 text-sm sm:text-base">
-              Whether you need a credible business website or a scalable custom web application, we have a plan built for you.
-            </p>
-
-            <div className="pt-2 flex items-center justify-center">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-pill-dark">
-                <span className={`text-xs ${pricingCycle === 'monthly' ? 'text-white font-medium' : 'text-zinc-400'}`}>
-                  Monthly
-                </span>
-                <button
-                  onClick={() => setPricingCycle(pricingCycle === 'monthly' ? 'yearly' : 'monthly')}
-                  className="w-11 h-6 rounded-full bg-white/10 border border-white/20 p-0.5 relative transition-colors cursor-pointer"
-                >
-                  <div
-                    className={`w-4.5 h-4.5 rounded-full bg-white transition-transform ${
-                      pricingCycle === 'yearly' ? 'translate-x-5' : 'translate-x-0'
-                    }`}
-                  />
-                </button>
-                <span className={`text-xs ${pricingCycle === 'yearly' ? 'text-white font-medium' : 'text-zinc-400'}`}>
-                  Yearly <span className="text-[10px] text-emerald-400 font-mono">(Save 20%)</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
-            {/* Card 1: Starter Concept */}
-            <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Starter Concept</span>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-white">$0</span>
-                    <span className="text-xs text-zinc-400">/ mockup</span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-2">
-                    Test the waters with a bespoke, interactive design preview tailored to your business.
-                  </p>
-                </div>
-
-                <ul className="space-y-3 pt-4 border-t border-white/[0.08] text-xs text-zinc-300">
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Custom interactive preview mockup</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Digital presence & SEO audit</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Technical stack consultation</span>
-                  </li>
-                  <li className="flex items-center gap-2.5 text-zinc-500">
-                    <span className="w-3.5 h-3.5 text-center leading-none">—</span>
-                    <span>Custom domain & hosting</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={openWhatsApp}
-                  className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn transition-all cursor-pointer"
-                >
-                  Request Free Mockup
-                </button>
-              </div>
-            </div>
-
-            {/* Card 2: Pro (Center Highlighted) */}
-            <div className="pricing-card rounded-3xl p-8 bg-white text-black shadow-2xl flex flex-col justify-between relative transform md:-translate-y-2 transition-transform duration-300 hover:scale-[1.02]">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black text-white text-[10px] font-semibold uppercase tracking-widest">
-                Most Popular
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-600 font-semibold">Turnkey Pro</span>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-black">
-                      ${pricingCycle === 'monthly' ? '19' : '15'}
-                    </span>
-                    <span className="text-xs text-zinc-600">/ month</span>
-                  </div>
-                  <p className="text-xs text-zinc-600 mt-2">
-                    Complete turnkey website designed, engineered, hosted, and launched with zero hassle.
-                  </p>
-                </div>
-
-                <ul className="space-y-3 pt-4 border-t border-zinc-200 text-xs text-zinc-800">
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-black" />
-                    <span className="font-medium">Complete responsive website</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-black" />
-                    <span>Domain, SSL & high-speed hosting</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-black" />
-                    <span>Google Search & Maps indexing</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-black" />
-                    <span>WhatsApp lead capture & CRM</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-black" />
-                    <span>Sub-second load speed guarantee</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={openWhatsApp}
-                  className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider bg-black hover:bg-zinc-800 text-white transition-all shadow-lg cursor-pointer"
-                >
-                  Launch Your Website
-                </button>
-              </div>
-            </div>
-
-            {/* Card 3: Premium */}
-            <div className="pricing-card rounded-3xl p-8 glass-card flex flex-col justify-between transition-all duration-300">
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">Enterprise Suite</span>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-white">
-                      ${pricingCycle === 'monthly' ? '39' : '32'}
-                    </span>
-                    <span className="text-xs text-zinc-400">/ month</span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-2">
-                    For scaling companies requiring custom web applications, APIs, and dedicated support.
-                  </p>
-                </div>
-
-                <ul className="space-y-3 pt-4 border-t border-white/[0.08] text-xs text-zinc-300">
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Everything in Turnkey Pro tier</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Custom API & database integration</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Automated conversion analytics</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-white" />
-                    <span>Dedicated 24/7 priority support</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <button
-                  onClick={openWhatsApp}
-                  className="w-full py-3 rounded-full text-xs font-semibold uppercase tracking-wider glass-btn transition-all cursor-pointer"
-                >
-                  Build Custom Solution
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 8. FAQ SECTION ── */}
-      <section id="faq" className="relative py-24 lg:py-32 z-10 border-t border-white/[0.06] overflow-hidden">
+      {/* ── 6. FAQ SECTION ── */}
+      <section id="faq" className="relative py-16 sm:py-24 lg:py-32 z-10 border-t border-white/[0.06] overflow-hidden scroll-mt-28">
         {/* Ambient Gradient Glow for Glass Refraction */}
         <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-gradient-to-br from-indigo-500/10 to-cyan-500/08 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-5 space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill-dark text-xs font-medium text-zinc-300">
                 <span className="text-xs">✦</span>
@@ -1362,10 +1215,10 @@ export function WebLabsPageModern() {
               <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
                 Everything you need to know about our design process, turnaround time, deliverables, and technical handoff.
               </p>
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <button
                   onClick={openWhatsApp}
-                  className="text-xs font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-2 transition-colors cursor-pointer"
+                  className="text-xs sm:text-sm font-semibold text-white hover:text-zinc-300 inline-flex items-center gap-2 transition-colors cursor-pointer"
                 >
                   <span>Have another question? Chat with us</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1408,9 +1261,9 @@ export function WebLabsPageModern() {
                   >
                     <button
                       onClick={() => toggleFaq(idx)}
-                      className="w-full py-4.5 px-6 flex items-center justify-between text-left cursor-pointer"
+                      className="w-full py-3.5 sm:py-4.5 px-4 sm:px-6 flex items-center justify-between text-left cursor-pointer"
                     >
-                      <span className="text-sm font-medium text-white pr-4">{faq.q}</span>
+                      <span className="text-xs sm:text-sm font-medium text-white pr-4">{faq.q}</span>
                       <div className="w-6 h-6 rounded-full bg-white/[0.08] border border-white/10 flex items-center justify-center shrink-0">
                         {isOpen ? (
                           <ChevronUp className="w-4 h-4 text-white" />
@@ -1420,7 +1273,7 @@ export function WebLabsPageModern() {
                       </div>
                     </button>
                     {isOpen && (
-                      <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-white/[0.08]">
+                      <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-white/[0.08]">
                         {faq.a}
                       </div>
                     )}
@@ -1432,16 +1285,16 @@ export function WebLabsPageModern() {
         </div>
       </section>
 
-      {/* ── 9. FOOTER WITH MASSIVE OUTLINED BRAND WATERMARK ── */}
-      <footer className="relative pt-20 pb-12 border-t border-white/[0.08] bg-[#050507] z-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="pb-16 border-b border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      {/* ── 7. FOOTER WITH MASSIVE OUTLINED BRAND WATERMARK ── */}
+      <footer className="relative pt-16 sm:pt-20 pb-12 border-t border-white/[0.08] bg-[#050507] z-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="pb-12 sm:pb-16 border-b border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-1">
               <span className="text-sm font-semibold text-white">Ready to elevate your digital presence?</span>
               <p className="text-xs text-zinc-400">Get a free architecture consultation and interactive preview within 24 hours.</p>
             </div>
             
-            <form onSubmit={handleSubscribe} className="flex items-center gap-2 w-full md:w-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full md:w-auto">
               <input
                 type="email"
                 placeholder="Enter your work email"
@@ -1452,14 +1305,14 @@ export function WebLabsPageModern() {
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all cursor-pointer whitespace-nowrap"
+                className="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-black hover:bg-zinc-200 transition-all cursor-pointer whitespace-nowrap text-center justify-center shadow-lg"
               >
                 {emailSubmitted ? 'Received!' : 'Request Concept'}
               </button>
             </form>
           </div>
 
-          <div className="py-14 grid grid-cols-2 sm:grid-cols-4 gap-8 text-xs">
+          <div className="py-10 sm:py-14 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-xs">
             <div className="space-y-3">
               <span className="font-semibold text-white uppercase tracking-wider text-[11px]">Solutions</span>
               <ul className="space-y-2 text-zinc-400">
@@ -1484,7 +1337,7 @@ export function WebLabsPageModern() {
               <span className="font-semibold text-white uppercase tracking-wider text-[11px]">Company</span>
               <ul className="space-y-2 text-zinc-400">
                 <li><a href="/" className="hover:text-white transition-colors">Aixentrix Studio</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
+                <li><button onClick={openWhatsApp} className="hover:text-white transition-colors cursor-pointer text-left">Custom Quote</button></li>
                 <li><a href="#archetypes" className="hover:text-white transition-colors">Archetypes</a></li>
                 <li><a href="#faq" className="hover:text-white transition-colors">Contact</a></li>
               </ul>
@@ -1518,7 +1371,7 @@ export function WebLabsPageModern() {
           <div className="pt-4 pb-2 text-center select-none pointer-events-none overflow-hidden">
             <h2
               ref={watermarkRef}
-              className="text-[14vw] font-black tracking-tighter leading-none uppercase will-change-transform"
+              className="text-[12vw] sm:text-[14vw] font-black tracking-wider leading-none uppercase will-change-transform"
               style={{
                 WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.15)',
                 color: 'transparent',
